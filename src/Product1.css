@@ -1,0 +1,22 @@
+.productimage{
+       padding: 10px 0;
+       background:white;
+       text-align: center;
+}
+.image img{
+       width: 50%;
+}
+
+.image li{
+       list-style: none;
+       padding: 5px 0;
+       margin: 15px;
+       text-align: left;
+       background:white;
+}
+.button1 Button{
+       padding: 10px 0;
+       background: red;
+       color:white;
+       text-align: center;
+}

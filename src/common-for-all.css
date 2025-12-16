@@ -1,0 +1,117 @@
+.mensection {
+       background: white;
+       padding: 10px 0;
+       text-align: center;
+}
+
+.images img {
+       width: 100%;
+}
+.images{
+       background:white;
+       margin-bottom: 30px;
+       text-align: center;
+       overflow: auto;
+       opacity: 0.9;
+       border-radius: 15px;
+       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+}
+.images:hover{
+       /* border: solid 1px #5F3B2D; */
+       box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+       opacity: 1;
+}
+
+.text p{
+       text-align: justify;
+       opacity: 0.8;
+       padding:0 15px;
+}
+
+.text p {
+       text-align:justify;
+       color: black;
+}
+.price p{
+       text-align: center;
+       margin: 20px 10px;
+}
+
+.buttonarea{
+       background: white;
+       margin-bottom: 30px;
+       text-align:center;
+       margin-top: 10px;
+}
+.buttons{
+       background: #5F3B2D;
+       text-align:center;
+       padding: 10px 25px;
+       border-color:white;
+       margin-right:10px;
+}
+.buttons:hover{
+       background: #6f4529;
+       transform: scale(1);
+}
+/* .product{
+       display: grid;
+       grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+       gap:30px;
+       padding: 40px;
+       background: white;
+}
+.p-details{
+       background: #ffffff;
+       border-radius: 14px;
+       overflow: hidden;
+       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+       transition: all 0.35s ease;
+       display: flex;
+       flex-direction: column;
+}
+.p-details:hover{
+       transform: translateY(-10px);
+}
+.p-details img{
+       width: 100%;
+       object-fit: cover;
+       transition: transform 0.5s ease;
+}
+.p-details:hover img{
+       transform: scale(1.08);
+}
+.p-details1{
+       padding: 20px;
+       text-align: center;
+}
+.p-details2{
+       font-size: 14px;
+       color: #8b5e3c;
+
+}
+.p-details3{
+       font-size: 15px;
+       color: #222;
+       margin: 8px 0 12px;
+}
+.p-price{
+       font-size: 18px;
+       color: #000;
+       margin-bottom: 15px;
+}
+.btn{
+       background: #8b5e3c;
+       color: #fff;
+       border: none;
+       padding: 10px 22px;
+       border-radius: 6px;
+       font-size: 14px;
+       transition: all 0.3s ease;
+}
+.btn:hover{
+       background: #6f4529;
+       transform: scale(1.05);
+} */
+

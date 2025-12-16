@@ -1,0 +1,7 @@
+.form {
+       width: 60%;
+       margin: 10px auto;
+       border: solid 1px black;
+       background:pink;
+       padding: 40px 120px;
+}

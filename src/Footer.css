@@ -1,0 +1,60 @@
+.footersection{
+       background:black;
+       padding: 20px 0;
+       text-align: center;
+}
+.footersection h6{
+       color: white;
+       font: bold 2px ;
+       padding: 5px 0;
+       text-align: left;
+}
+.footersection ul{
+       color: white;
+       
+}
+.footersection li{
+       list-style: none;
+       padding: 5px 0;
+       margin: 15px;
+       text-align: left;
+       background:black;
+       transition: all 2s;
+       
+}
+.footersection li:hover{
+       /* text-decoration: underline; */
+       transform: translateX(10px);
+}
+.download{
+       background:black;
+       padding: 10px 0;
+       text-align: center;
+}
+.download img{
+       width: 40%;
+       padding: 10px 5px;
+}
+.follow-us{
+       background: black;
+       padding: 10px 0;
+       text-align: center;
+}
+.follow-us img{
+       width: 18%;
+       padding: 10px;
+}
+.footerpara{
+       background:black;
+       padding: 10px 0;
+       text-align: center;
+}
+.footerpara p{
+       color: white;
+}
+.lines{
+       color: grey;
+       /* background: linear-gradient(90deg,#38bdf8,#818cf8); */
+
+
+}

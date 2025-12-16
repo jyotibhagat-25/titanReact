@@ -1,0 +1,221 @@
+
+.slidearea {
+  background: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.slidearea img {
+  width: 100%;
+}
+
+.offer{
+  background:#222222;
+  color: white;
+  text-align: center;
+  padding: 3px 0;
+}
+
+.giftarea {
+  background: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.giftarea img {
+  width: 100%;
+}
+
+.imgsection {
+  background: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.imgsection h3 {
+  color: black;
+  padding: 20px 0;
+}
+
+.imgsection img {
+  width: 100%;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.alia {
+  background: white;
+  padding: 10px 0;
+  text-align: center;
+
+}
+
+.headings h3 {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.images img {
+  width: 100%;
+}
+
+.raga {
+  background: white;
+  padding: 50px 0;
+  text-align: center;
+
+}
+
+.raga1 {
+  padding: 5px;
+  /* border: 2px solid; */
+}
+
+.raga2 {
+  padding: 5px;
+  /* border: 2px solid red; */
+}
+
+.raga1 img {
+  width: 100%;
+}
+
+.raga2 img {
+  width: 100%;
+}
+
+.auto {
+  background: white;
+  padding: 25px 0;
+  text-align: center;
+}
+
+.automatic {
+  background: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.automatic img {
+  width: 100%;
+}
+
+.mech {
+  background: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.mech img {
+  width: 100%;
+}
+
+.smart {
+  background: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.smart img {
+  width: 100%;
+}
+
+.titan {
+  background: #FDFAF5;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.titan1 {
+  background: #FDFAF5;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.titan1 img {
+  width: 100%;
+}
+
+.titan2 {
+  background: #FDFAF5;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.titan2 img {
+  width: 100%;
+}
+
+.titan3 {
+  background: #FDFAF5;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.titan3 img {
+  width: 100%;
+}
+
+.discover {
+  background: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.style {
+  background: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.style img {
+  width: 100%;
+}
+
+.services {
+  background: #FAFAFA;
+  padding: 10px 0;
+  margin: 20px 80px;
+  text-align: center;
+}
+
+.serve {
+  background: #FAFAFA;
+  padding: 10px;
+  text-align: center;
+}
+
+/* .serve img{
+  width: 25%;
+} */
+.login {
+  background: #FDFAF5;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.loginsection {
+  background: #FDFAF5;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.button {
+  text-align: center;
+  color: #5F3B2D;
+}
+
+.button button {
+  background:#5F3B2D;
+  padding: 15px 25px;
+  color: white;
+}
+
+.account{
+  padding: 10px 0;
+  background:#FDFAF5;
+  text-align: center;
+  color:black;
+} 
+.account :link{
+  color:#5F3B2D ;
+}

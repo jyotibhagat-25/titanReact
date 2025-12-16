@@ -1,0 +1,44 @@
+.toparea{
+  background: white;
+  text-align: center;
+  padding: 25px 0;
+  border: 1px solid blanchedalmond;
+}
+
+.toparea :link{
+       color: #5f3b2d !important;
+       text-decoration: none;
+}
+
+.menuarea{
+  background:white;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  
+}
+
+
+.navbar.navbar-expand-lg{
+       background: rgba(255,255,255,0.06);
+       backdrop-filter: blur(5px);
+       /* box-shadow: 0 2px 10px rgba(255,0.5,0,0.4); */
+       padding: 12px 32px;
+}
+
+.navbar .nav-link{
+      /* color: #5F3B2D; */
+      font-size: 20px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: 0.2s all;
+      margin-left: 12px;
+      margin-right: 12px;
+
+}
+.navbar .nav-link:hover{
+       background: rgba(255,255,255,0.14);
+       color:#5F3B2D;
+       transform: translateY(-2px);
+       text-decoration:underline;
+}
