@@ -64,7 +64,10 @@ const Login = () => {
                                                                              <Row>
                                                                                     
                                                                                     <Col>
-                                                                                           <p>if not logged in then <a href='Register'>Register</a></p><button type="submit">Submit</button>
+                                                                                           <p>if not logged in then <a href='Register'>Register</a></p>
+                                                                                           <div className='login-btn'>
+                                                                                                  <button type="submit">Submit</button>
+                                                                                           </div>
                                                                                     </Col>
                                                                              </Row>
                                                                       </div>

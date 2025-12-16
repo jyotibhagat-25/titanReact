@@ -5,3 +5,15 @@
        background:#CEC2B9;
        padding: 20px;
 }
+.login-btn{
+       
+       text-align: center;
+       padding: 10px 0;
+       background: #CEC2B9;
+       color:#5F3B2D ;
+}
+.submit-button{
+       background: #5F3B2D;
+       color: red;
+       padding: 10px 0;
+}

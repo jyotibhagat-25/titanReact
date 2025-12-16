@@ -406,7 +406,7 @@ const Home = () => {
                 </h3>
               </div>
               <div className='button'>
-                <button><a href='Login'/>Login Now</button>
+                <button><a href='Login'>Login Now</a></button>
               </div>
               <div className='account'>
                 <p><a href='Account'>Create An Account</a></p>
