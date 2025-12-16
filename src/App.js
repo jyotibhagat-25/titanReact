@@ -38,6 +38,8 @@ import Account from './Account';
 import AddProduct from './AddProduct';
 import Address1 from './Address1';
 import Category from './Category';
+import Wishlist from './Wishlist';
+import AddCategory from './AddCategory';
 
 
 function App() {
@@ -80,6 +82,8 @@ function App() {
         <Route path='/Addproduct' element={<AddProduct/>}/>
         <Route path='/Address1' element={<Address1/>}/>
         <Route path='/Category' element={<Category/>}/>
+        <Route path='/Wishlist' element={<Wishlist/>}/>
+        <Route path='/Addcategory' element={<AddCategory/>}/>
 
       </Routes>
       {/* <Men></Men> */}
