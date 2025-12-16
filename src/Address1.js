@@ -137,26 +137,22 @@ const Address1 = () => {
                                                                              </Form.Group>
 
                                                                       </Row>
-                                                                      <Row>
-                                                                             <Col>
-                                                                                    <Form.Group className="mb-3">
-                                                                                           <Form.Check
-                                                                                                  required
-                                                                                                  name="terms"
-                                                                                                  label="Agree to terms and conditions"
-                                                                                                  onChange={handleChange}
-                                                                                                  isInvalid={!!errors.terms}
-                                                                                                  feedback={errors.terms}
-                                                                                                  feedbackType="invalid"
-                                                                                                  id="validationFormik0"
-                                                                                           />
-                                                                                    </Form.Group></Col>
-                                                                      </Row>
-
+                                                                      <Form.Group className="mb-3">
+                                                                             <Form.Check
+                                                                                    required
+                                                                                    name="terms"
+                                                                                    label="Agree to terms and conditions"
+                                                                                    onChange={handleChange}
+                                                                                    isInvalid={!!errors.terms}
+                                                                                    feedback={errors.terms}
+                                                                                    feedbackType="invalid"
+                                                                                    id="validationFormik0"
+                                                                             />
+                                                                      </Form.Group>
+                                                                      <div className='submit-btn'>
+                                                                             <Button type="submit">Submit</Button>
+                                                                      </div>
                                                                </Form>
-                                                               <div className='submit-btn'>
-                                                                      <Button type="submit">Submit</Button>
-                                                               </div>
                                                         </div>
                                                  )}
                                           </Formik>
