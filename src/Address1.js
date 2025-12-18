@@ -92,7 +92,7 @@ const Address1 = () => {
                                                                              </Form.Group>
                                                                       </Row>
                                                                       <Row className="mb-3">
-                                                                             <Form.Group as={Col} md="6" controlId="validationFormik03">
+                                                                             <Form.Group as={Col} md="4" controlId="validationFormik03">
                                                                                     <Form.Label>City</Form.Label>
                                                                                     <Form.Control
                                                                                            type="text"
@@ -107,7 +107,7 @@ const Address1 = () => {
                                                                                            {errors.city}
                                                                                     </Form.Control.Feedback>
                                                                              </Form.Group>
-                                                                             <Form.Group as={Col} md="3" controlId="validationFormik04">
+                                                                             <Form.Group as={Col} md="4" controlId="validationFormik04">
                                                                                     <Form.Label>State</Form.Label>
                                                                                     <Form.Control
                                                                                            type="text"
@@ -121,7 +121,7 @@ const Address1 = () => {
                                                                                            {errors.state}
                                                                                     </Form.Control.Feedback>
                                                                              </Form.Group>
-                                                                             <Form.Group as={Col} md="3" controlId="validationFormik04">
+                                                                             <Form.Group as={Col} md="4" controlId="validationFormik04">
                                                                                     <Form.Label>District</Form.Label>
                                                                                     <Form.Control
                                                                                            type="text"

@@ -34,9 +34,9 @@ const Header = () => {
             </Col>
             <Col md={7}>
               <div>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                  {/* <button class="btn btn-outline-success" type="submit">Search</button> */}
+                <form className="d-flex" role="search">
+                  <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                  
                 </form>
               </div>
             </Col>

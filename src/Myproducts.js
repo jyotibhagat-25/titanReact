@@ -27,17 +27,17 @@ const Myproducts = () => {
                                                                products.map((product, index) => {
                                                                       return (
                                                                              <div>
-                                                                                    {product.id}
-                                                                                    {/* <Card style={{ width: '18rem' }}>
-                                                                                           <Card.Img variant="top" src="" />
+                                                                                    {/* {product.id} */}
+                                                                                    <Card style={{ width: '18rem' }}>
+                                                                                           <Card.Img variant="top" src={product.image} />
                                                                                            <Card.Body>
                                                                                                   <Card.Title>Card Title</Card.Title>
                                                                                                   <Card.Text>
-                                                                                                        
+                                                                                                       {product.id} 
                                                                                                   </Card.Text>
                                                                                                   <Button variant="primary">Go somewhere</Button>
                                                                                            </Card.Body>
-                                                                                    </Card> */}
+                                                                                    </Card>
                                                                                     
                                                                              </div>
                                                                       )
