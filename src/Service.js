@@ -1,11 +1,13 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { Col, Row } from 'react-bootstrap';
+import './Service.css';
 
 const Service = () => {
        const SignupSchema = Yup.object().shape({
               pincode: Yup.number()
-                     .max(6, '6 digit pin')
+                     // .max(6, '6 digit pin')
                      .required('Required'),
               // lastName: Yup.string()
               //        .min(2, 'Too Short!')
@@ -14,11 +16,11 @@ const Service = () => {
               // email: Yup.string().email('Invalid email').required('Required'),
        });
        return (
-              <div>
-                     <h1>Services</h1>
+              <div className='text-center'>
+                     <h3>Services</h3>
                      <Formik
                             initialValues={{
-                                   firstName: ''
+                                   pincode: ''
                                    // lastName: '',
                                    // email: '',
                             }}
@@ -30,11 +32,34 @@ const Service = () => {
                      >
                             {({ errors, touched }) => (
                                    <Form>
-                                          <Field name="pincode" />
-                                          {errors.pincode && touched.pincode ? (
-                                                 <div>{errors.pincode}</div>
-                                          ) : null}
-                                          <button type="submit">Submit</button>
+                                          <div className='service-form'>
+                                                 <Row>
+                                                        <Col>
+                                                               <label>Enter Pincode - </label>
+                                                        </Col>
+                                                        <Col>
+                                                               <Field name="pincode" />
+                                                               {errors.pincode && touched.pincode ? (
+                                                                      <div>{errors.pincode}</div>
+                                                               ) : null}
+                                                        </Col>
+                                                 </Row>
+                                                 <Row>
+                                                        <div className='submit-button'>
+                                                               <Col>
+                                                                      <button type="submit">Submit</button>
+                                                               </Col>
+                                                        </div>
+                                                 </Row>
+                                                 <Row>
+                                                        <div className='submit-button'>
+                                                               <Col>
+                                                                      <a href='Account'><button type='submit'>Admin/Login</button></a>
+                                                               </Col>
+                                                        </div>
+                                                 </Row>
+
+                                          </div>
                                           {/* <Field name="lastName" />
                                           {errors.lastName && touched.lastName ? (
                                                  <div>{errors.lastName}</div>

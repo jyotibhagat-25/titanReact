@@ -76,6 +76,20 @@ const Address1 = () => {
                                                                                            </Form.Control.Feedback>
                                                                                     </InputGroup>
                                                                              </Form.Group>
+                                                                             <Form.Group as={Col} md="4" controlId="validationFormik04">
+                                                                                    <Form.Label>Mobile</Form.Label>
+                                                                                    <Form.Control
+                                                                                           type="number"
+                                                                                           placeholder="mobile"
+                                                                                           name="mobile"
+                                                                                           value={values.mobile}
+                                                                                           onChange={handleChange}
+                                                                                           isInvalid={!!errors.mobile}
+                                                                                    />
+                                                                                    <Form.Control.Feedback type="invalid">
+                                                                                           {errors.mobile}
+                                                                                    </Form.Control.Feedback>
+                                                                             </Form.Group>
                                                                       </Row>
                                                                       <Row className="mb-3">
                                                                              <Form.Group as={Col} md="6" controlId="validationFormik03">
@@ -121,20 +135,7 @@ const Address1 = () => {
                                                                                            {errors.district}
                                                                                     </Form.Control.Feedback>
                                                                              </Form.Group>
-                                                                             <Form.Group as={Col} md="3" controlId="validationFormik04">
-                                                                                    <Form.Label>Mobile</Form.Label>
-                                                                                    <Form.Control
-                                                                                           type="number"
-                                                                                           placeholder="mobile"
-                                                                                           name="mobile"
-                                                                                           value={values.mobile}
-                                                                                           onChange={handleChange}
-                                                                                           isInvalid={!!errors.mobile}
-                                                                                    />
-                                                                                    <Form.Control.Feedback type="invalid">
-                                                                                           {errors.mobile}
-                                                                                    </Form.Control.Feedback>
-                                                                             </Form.Group>
+
 
                                                                       </Row>
                                                                       <Form.Group className="mb-3">
