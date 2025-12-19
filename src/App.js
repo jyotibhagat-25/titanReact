@@ -83,7 +83,7 @@ function App() {
         <Route path='/Address1' element={<Address1/>}/>
         <Route path='/Category' element={<Category/>}/>
         <Route path='/Wishlist' element={<Wishlist/>}/>
-        <Route path='/Addcategory' element={<AddCategory/>}/>
+        <Route path='/AddCategory' element={<AddCategory/>}/>
 
       </Routes>
       {/* <Men></Men> */}

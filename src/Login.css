@@ -1,18 +1,35 @@
-.loginform{
-       width: 40%;
-       margin: 10px auto;
-       border: solid 1px black;
-       background:#CEC2B9;
-       padding: 20px;
-}
-.login-btn{
+/* .body{
+       margin: auto;
+       background: pink;
+       background: url("login\ bg\ image.jpg");
        
+} */
+ .text-center{
+       margin: auto;
+       background: pink;
+       background: url("C:\Users\INTEL\Desktop\login-bg-image2.jpg");
+ }
+.loginform {
+       margin: 10px auto;
+       width: 45%;
+       height: 360px;
+       padding: 40px 30px;
+       border-radius: 20px;
+       box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
+       position: relative;
+       text-align: center;
+       border: 5px solid rgb(244, 242, 242);
+}
+
+.login-btn {
+
        text-align: center;
        padding: 10px 0;
-       background: #CEC2B9;
-       color:#5F3B2D ;
+       /* background: #CEC2B9; */
+       color: #5F3B2D;
 }
-.submit-button{
+
+.submit-button {
        background: #5F3B2D;
        color: red;
        padding: 10px 0;
