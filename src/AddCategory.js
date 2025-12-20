@@ -5,6 +5,9 @@ import { Col, Container, Row } from 'react-bootstrap';
 import './Addcategory.css';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import { CiEdit } from "react-icons/ci";
+import { AiOutlineDelete } from "react-icons/ai";
+
 
 
 const AddCategory = () => {
@@ -75,7 +78,7 @@ const AddCategory = () => {
                             )}
                      </Formik>
 
-                     <section>
+                     <section className='table-area'>
                             <Container>
                                    <Row>
                                           <Col>
@@ -84,24 +87,23 @@ const AddCategory = () => {
                                                                <tr>
                                                                       <th>Sl</th>
                                                                       <th> Name</th>
-                                                                      <th><img src='https://cdn-icons-png.flaticon.com/128/1159/1159633.png' alt=''/></th>
+                                                                      <th><CiEdit />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<AiOutlineDelete /></th>
+                                                                      
                                                                </tr>
                                                         </thead>
                                                         <tbody>
+
                                                                {
-                                                                      categories.map((category, index) => {
-                                                                             return (
-                                                                                    // <p>{category.name}</p>
-
-
-                                                                                    <tr>
-                                                                                           <td>#</td>
-                                                                                           <td>{category.name}</td>
-                                                                                    </tr>
-                                                                             )
-                                                                      })
-
-
+                                                                      categories ?
+                                                                             categories.map((category, index) => {
+                                                                                    return (
+                                                                                           <tr>
+                                                                                                  <td>{index+1}</td>
+                                                                                                  <td>{category.name}</td>
+                                                                                           </tr>
+                                                                                    )
+                                                                             })
+                                                                             : "loading"
                                                                }
                                                         </tbody>
                                                  </Table>
