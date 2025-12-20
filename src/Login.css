@@ -6,8 +6,7 @@
 } */
  .text-center{
        margin: auto;
-       background: pink;
-       background: url("C:\Users\INTEL\Desktop\login-bg-image2.jpg");
+       background: white;
  }
 .loginform {
        margin: 10px auto;
@@ -19,6 +18,8 @@
        position: relative;
        text-align: center;
        border: 5px solid rgb(244, 242, 242);
+       background: url("C:\Users\INTEL\Desktop\login bg image.jpg");
+
 }
 
 .login-btn {

@@ -26,6 +26,14 @@ const AddCategory = () => {
 
        });
 
+       const handleSubmit = (formData) => {
+              // console.log("Testing");
+              console.log("formData");
+              axios.post("http://localhost:8090/api/cats", formData)
+              console.log("successfully category added");
+              window.location.reload();
+       }
+
        return (
               <div className='text-center'>
                      <h3>Add Category</h3>
@@ -35,10 +43,8 @@ const AddCategory = () => {
 
                             }}
                             validationSchema={CategorySchema}
-                            onSubmit={values => {
-                                   // same shape as initial values
-                                   console.log(values);
-                            }}
+                            onSubmit={handleSubmit}
+
                      >
                             {({ errors, touched }) => (
                                    <Form>
@@ -68,32 +74,34 @@ const AddCategory = () => {
                                    </Form>
                             )}
                      </Formik>
-                     {/* <section>
+
+                     <section>
                             <Container>
                                    <Row>
                                           <Col>
-                                                 <Table striped bordered hover >
+                                                 <Table striped bordered hover>
                                                         <thead>
                                                                <tr>
-
-                                                                      <th>Category id</th>
-                                                                      <th>Category Name</th>
-                                                                      <th>Username</th>
+                                                                      <th>Sl</th>
+                                                                      <th> Name</th>
+                                                                      <th><img src='https://cdn-icons-png.flaticon.com/128/1159/1159633.png' alt=''/></th>
                                                                </tr>
                                                         </thead>
                                                         <tbody>
                                                                {
-                                                                      categories ?
-                                                                             categories.map((category, index) => {
-                                                                                    return (
-                                                                                           <div>
-                                                                                                  <td colSpan={2}>{category.id}</td>
-                                                                                                  <td>{category.name}</td>
+                                                                      categories.map((category, index) => {
+                                                                             return (
+                                                                                    // <p>{category.name}</p>
 
-                                                                                           </div>
-                                                                                    )
-                                                                             })
-                                                                             : "please wait"
+
+                                                                                    <tr>
+                                                                                           <td>#</td>
+                                                                                           <td>{category.name}</td>
+                                                                                    </tr>
+                                                                             )
+                                                                      })
+
+
                                                                }
                                                         </tbody>
                                                  </Table>
@@ -105,7 +113,7 @@ const AddCategory = () => {
                                           </Col>
                                    </Row>
                             </Container>
-                     </section> */}
+                     </section>
 
               </div>
        )
