@@ -1,19 +1,39 @@
 .add-category {
-       
+
        margin: 10px auto;
        width: 40%;
+       /* height: 360px; */
        padding: 40px 30px;
        border-radius: 20px;
        box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
        position: relative;
        text-align: center;
        border: 5px solid rgb(244, 242, 242);
+       background: url("C:\Users\INTEL\Desktop\login bg image.jpg");
+
 }
-.table-area{
-       background:white;
-       padding: 10px 0;
-       text-align: center;
+
+.btn-shine {
+       background: linear-gradient(135deg, #d16c24, #ff6b6b);
+       color: white;
+       position: relative;
+       overflow: hidden;
+       margin-top:75px;
+       padding: 10px 20px;
+
 }
-.table-area img{
-       width: 50px;
+
+.btn-shine::before {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: -100%;
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+       transition: left 0.7s ease;
+}
+
+.btn-shine:hover::before {
+       left: 100%;
 }

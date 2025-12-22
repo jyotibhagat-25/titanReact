@@ -34,10 +34,10 @@ const Service = () => {
                                    <Form>
                                           <div className='service-form'>
                                                  <Row>
-                                                        <Col>
+                                                        <Col md={4}>
                                                                <label>Enter Pincode - </label>
                                                         </Col>
-                                                        <Col>
+                                                        <Col md={8}>
                                                                <Field name="pincode" />
                                                                {errors.pincode && touched.pincode ? (
                                                                       <div>{errors.pincode}</div>
@@ -45,18 +45,19 @@ const Service = () => {
                                                         </Col>
                                                  </Row>
                                                  <Row>
-                                                        <div className='submit-button'>
+                                                        
                                                                <Col>
-                                                                      <button type="submit">Submit</button>
+                                                                      <button class="btn btn-service">submit</button>
                                                                </Col>
-                                                        </div>
+                                                 
                                                  </Row>
                                                  <Row>
-                                                        <div className='submit-button'>
-                                                               <Col>
-                                                                      <a href='Account'><button type='submit'>Admin/Login</button></a>
-                                                               </Col>
-                                                        </div>
+
+                                                        <Col>
+
+                                                               <a href='Account'><button class="btn btn-service">Account/Login</button></a>
+                                                        </Col>
+
                                                  </Row>
 
                                           </div>

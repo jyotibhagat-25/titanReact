@@ -69,10 +69,14 @@ const AddCategory = () => {
 
                                                  <Row>
                                                         <Col>
-                                                               <button type="submit">Add</button>
+                                                               
+                                                               <button class="btn btn-shine">Add</button>
                                                         </Col>
                                                  </Row>
 
+                                          </div>
+                                          <div >
+                                                 
                                           </div>
                                    </Form>
                             )}

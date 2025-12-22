@@ -10,14 +10,14 @@ const Login = () => {
                      .required('Required'),
               password: Yup.number()
                      .required('Required'),
-                     // .min(6, 'Minimum value is 6')
-                     // .max(1, 'Maximum value is 100')
-                     // .positive('Must be a positive number')
-                     // .negative('Must be a negative number')
-                     // .integer('Must be an integer')
-                     // .lessThan(10, 'Must be less than 10')
-                     // .moreThan(5, 'Must be more than 5')
-                     // .oneOf([1, 2, 3], 'Must be one of: 1, 2, 3'),
+              // .min(6, 'Minimum value is 6')
+              // .max(1, 'Maximum value is 100')
+              // .positive('Must be a positive number')
+              // .negative('Must be a negative number')
+              // .integer('Must be an integer')
+              // .lessThan(10, 'Must be less than 10')
+              // .moreThan(5, 'Must be more than 5')
+              // .oneOf([1, 2, 3], 'Must be one of: 1, 2, 3'),
        });
        return (
               <div className='text-center'>
@@ -62,12 +62,13 @@ const Login = () => {
                                                                                     </Col>
                                                                              </Row>
                                                                              <Row>
-                                                                                    
+
                                                                                     <Col>
                                                                                            <p>if not logged in then <a href='Register'>Register</a></p>
-                                                                                           <div className='login-btn'>
-                                                                                                  <button type="submit">Submit</button>
-                                                                                           </div>
+
+                                                                                           <button class="btn btn-shine">Login</button>
+
+
                                                                                     </Col>
                                                                              </Row>
                                                                       </div>

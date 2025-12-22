@@ -47,10 +47,10 @@ const Register = () => {
                                    <Form>
                                           <div className='registerform'>
                                                  <Row>
-                                                        <Col>
+                                                        <Col md={4}>
                                                                <label>FirstName : </label>
                                                         </Col>
-                                                        <Col>
+                                                        <Col md={8}>
                                                                <Field name="firstName" />
                                                                {errors.firstName && touched.firstName ? (
                                                                       <div>{errors.firstName}</div>
@@ -59,10 +59,10 @@ const Register = () => {
                                                  </Row>
 
                                                  <Row>
-                                                        <Col>
+                                                        <Col md={4}>
                                                                <label>LastName : </label>
                                                         </Col>
-                                                        <Col>
+                                                        <Col md={8}>
                                                                <Field name="lastName" />
                                                                {errors.lastName && touched.lastName ? (
                                                                       <div>{errors.lastName}</div>
@@ -71,37 +71,39 @@ const Register = () => {
                                                  </Row>
 
                                                  <Row>
-                                                        <Col>
+                                                        <Col md={4}>
                                                                <label>Email : </label>
                                                         </Col>
-                                                        <Col>
+                                                        <Col md={8}>
                                                                <Field name="email" type="email" />
                                                                {errors.email && touched.email ? <div>{errors.email}</div> : null}
                                                         </Col>
                                                  </Row>
 
                                                  <Row>
-                                                        <Col>
+                                                        <Col md={4}>
                                                                <label>Password</label>
                                                         </Col>
-                                                        <Col>
+                                                        <Col md={8}>
                                                                <Field name="password" type="password" />
                                                                {errors.password && touched.password ? <div>{errors.password}</div> : null}
                                                         </Col>
                                                  </Row>
 
                                                  <Row>
-                                                        <Col>
+                                                        <Col md={4}>
                                                                <label>Mobile : </label>
                                                         </Col>
-                                                        <Col>
+                                                        <Col md={8}>
                                                                <Field name="mobile" type="number" />
                                                                {errors.mobile && touched.mobile ? <div>{errors.mobile}</div> : null}
                                                         </Col>
                                                  </Row>
                                                  <Row>
                                                         <Col>
-                                                              <p>if already register <a href='Login'>login</a></p> <button type="submit">Submit</button>
+                                                               
+                                                              <p>if already register <a href='Login'>login</a></p> 
+                                                              <button class="btn btn-register">Register</button>
                                                         </Col>
                                                  </Row>
                                           </div>
