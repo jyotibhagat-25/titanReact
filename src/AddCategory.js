@@ -22,25 +22,26 @@ const AddCategory = () => {
 
        }, []);
        const checkNameExists = async (name) => {
-    // API call
-    const response = await fetch(`http://localhost:8090/api/cats/check?name=${name} `);
-    const data = await response.json();
-    return data.exists; // Should return true if name exists
-};
+              // API call
+              const response = await fetch(`http://localhost:8090/api/cats/check?name=${name} `);
+              const data = await response.json();
+              return data.exists; // Should return true if name exists
+       };
 
-const CategorySchema = Yup.object().shape({
-    name: Yup.string()
-        .required("Category name is required")
-        .test(
-            "checkDuplicateCategory",
-            "Category Name already exists",
-            async function (value) {
-                if (!value) return false;
-                const exists = await checkNameExists(value);
-                return !exists;
-            }
-        ),
-});
+       const CategorySchema = Yup.object().shape({
+              name: Yup.string()
+                     .required("Category name is required")
+                     .test(
+                            "checkDuplicateCategory",
+                            "Category Name already exists",
+                            async function (value) {
+                                   if (!value) return false;
+                                   const exists = await checkNameExists(value);
+                                   return !exists;
+                            }
+                     ),
+                    
+       });
 
 
        const handleSubmit = (formData) => {
@@ -68,7 +69,7 @@ const CategorySchema = Yup.object().shape({
                                           <div className='add-category'>
                                                  <Row>
                                                         <Col md={4}>
-                                                               <label>Category :- </label>
+                                                               <label>Select Category :- </label>
                                                         </Col>
                                                         <Col md={8}>
                                                                <Field name="name" />
@@ -80,17 +81,18 @@ const CategorySchema = Yup.object().shape({
 
 
                                                  </Row>
+                                                 
 
                                                  <Row>
                                                         <Col>
-                                                               
+
                                                                <button class="btn btn-shine">Add</button>
                                                         </Col>
                                                  </Row>
 
                                           </div>
                                           <div >
-                                                 
+
                                           </div>
                                    </Form>
                             )}
@@ -105,8 +107,9 @@ const CategorySchema = Yup.object().shape({
                                                                <tr>
                                                                       <th>Sl</th>
                                                                       <th> Name</th>
-                                                                      <th><CiEdit />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<AiOutlineDelete /></th>
-                                                                      
+                                                                      <th>Edit</th>
+                                                                      <th>Delete</th>
+
                                                                </tr>
                                                         </thead>
                                                         <tbody>
@@ -116,8 +119,10 @@ const CategorySchema = Yup.object().shape({
                                                                              categories.map((category, index) => {
                                                                                     return (
                                                                                            <tr>
-                                                                                                  <td>{index+1}</td>
+                                                                                                  <td>{index + 1}</td>
                                                                                                   <td>{category.name}</td>
+                                                                                                  <td><CiEdit /></td>
+                                                                                                  <td><AiOutlineDelete /></td>
                                                                                            </tr>
                                                                                     )
                                                                              })
