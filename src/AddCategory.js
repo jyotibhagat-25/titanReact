@@ -21,13 +21,27 @@ const AddCategory = () => {
               });
 
        }, []);
-       const CategorySchema = Yup.object().shape({
-              name: Yup.string()
-                     .min(2, 'Too Short!')
-                     .max(50, 'Too Long!')
-                     .required('Required'),
+       const checkNameExists = async (name) => {
+    // API call
+    const response = await fetch(`http://localhost:8090/api/cats/check?name=${name} `);
+    const data = await response.json();
+    return data.exists; // Should return true if name exists
+};
 
-       });
+const CategorySchema = Yup.object().shape({
+    name: Yup.string()
+        .required("Category name is required")
+        .test(
+            "checkDuplicateCategory",
+            "Category Name already exists",
+            async function (value) {
+                if (!value) return false;
+                const exists = await checkNameExists(value);
+                return !exists;
+            }
+        ),
+});
+
 
        const handleSubmit = (formData) => {
               // console.log("Testing");
