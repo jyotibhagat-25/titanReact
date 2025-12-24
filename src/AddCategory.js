@@ -52,6 +52,14 @@ const AddCategory = () => {
               window.location.reload();
        }
 
+       const handleDelete = (id) => {
+              console.log(id);
+              axios.delete("http://localhost:8090/api/cats/${id}").then((response) => {
+                     console.log(response.data);
+                     setCategories(response.data)
+              });
+       }
+
        return (
               <div className='text-center'>
                      <h3>Add Category</h3>
@@ -62,6 +70,7 @@ const AddCategory = () => {
                             }}
                             validationSchema={CategorySchema}
                             onSubmit={handleSubmit}
+                            // onSubmit={handleDelete}
 
                      >
                             {({ errors, touched }) => (
@@ -122,7 +131,7 @@ const AddCategory = () => {
                                                                                                   <td>{index + 1}</td>
                                                                                                   <td>{category.name}</td>
                                                                                                   <td><CiEdit /></td>
-                                                                                                  <td><AiOutlineDelete /></td>
+                                                                                                  <td><button onClick={() => handleDelete(category.id)}><AiOutlineDelete /></button></td>
                                                                                            </tr>
                                                                                     )
                                                                              })

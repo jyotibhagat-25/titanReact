@@ -1,26 +1,15 @@
 .addressform {
-       /* background:#CEC2B9;
-       padding: 10px 0;
-       text-align:left;
+
        margin: 10px auto;
-       width: 60%;
-       border: solid 1px black; */
-       /* width: 60%;
-       margin: 10px auto;
-       border: solid 1px black;
-       background: #CEC2B9;
-       padding: 20px;
-       text-align:left; */
-       /* background:#eece9c; */
-       margin: 10px auto;
-       width: 60%;
+       width: 40%;
+       /* height: 360px; */
        padding: 40px 30px;
        border-radius: 20px;
        box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
        position: relative;
-       text-align:left;
-       border: 5px solid rgb(235, 231, 231);
-       /* border-right: 5px solid #e7d4c6; */
+       text-align: center;
+       border: 5px solid rgb(244, 242, 242);
+       background: url("C:\Users\INTEL\Desktop\login bg image.jpg");
 
 }
 

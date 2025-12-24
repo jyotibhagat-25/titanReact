@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Col, Row } from 'react-bootstrap';
 import './AddProduct.css';
+import axios from 'axios';
 
 const AddProduct = () => {
   const SignupSchema = Yup.object().shape({
@@ -17,8 +18,17 @@ const AddProduct = () => {
     productCategory: Yup.string()
       .min(5, 'Atleast 5 Character!')
       .max(50, 'Too Long!')
+      // .test(
+      //   "checkDuplicateCategory",
+      //   "Category Name already exists",
+      //   async function (value) {
+      //     if (!value) return false;
+      //     const exists = await checkNameExists(value);
+      //     return !exists;
+      //   }
+      // )
       .required('Required'),
-    
+
     productPrice: Yup.number()
       .min(99, 'Minimum value is 99')
       .max(10000, 'Maximum value is 100000')
@@ -26,6 +36,22 @@ const AddProduct = () => {
 
 
   });
+  const [categories, setCategories] = useState();
+
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/cats").then((response) => {
+      console.log(response.data);
+      setCategories(response.data)
+    });
+
+  }, []);
+  // const checkNameExists = async (name) => {
+  //   // API call
+  //   const response = await fetch(`http://localhost:8090/api/cats/check?name=${name} `);
+  //   const data = await response.json();
+  //   return data.exists; // Should return true if name exists
+  // };
+
 
   return (
     <div className='text-center'>
@@ -78,12 +104,13 @@ const AddProduct = () => {
                 <Col md={8}>
 
                   <Field name="productCategory" />
+                  <option></option>
                   {errors.productCategory && touched.productCategory ? (
                     <div>{errors.productCategory}</div>
                   ) : null}
                 </Col>
               </Row>
-              
+
               <Row>
                 <Col md={4}>
                   <label>ProductPrice : </label>
