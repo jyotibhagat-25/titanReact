@@ -119,7 +119,7 @@ const AddCategory = () => {
                                                                <tr>
                                                                       <th>Sl</th>
                                                                       <th> Name</th>
-                                                                      <th>Edit</th>
+                                                                      {/* <th>Edit</th> */}
                                                                       <th>Delete</th>
 
                                                                </tr>
@@ -133,7 +133,7 @@ const AddCategory = () => {
                                                                                            <tr>
                                                                                                   <td>{index + 1}</td>
                                                                                                   <td>{category.name}</td>
-                                                                                                  <td><CiEdit /></td>
+                                                                                                  {/* <td><CiEdit /></td> */}
                                                                                                   <td><button onClick={() => handleDelete(category.id)}><AiOutlineDelete /></button></td>
                                                                                            </tr>
                                                                                     )
