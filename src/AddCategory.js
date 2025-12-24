@@ -40,7 +40,7 @@ const AddCategory = () => {
                                    return !exists;
                             }
                      ),
-                    
+
        });
 
 
@@ -56,7 +56,10 @@ const AddCategory = () => {
               console.log(id);
               axios.delete(`http://localhost:8090/api/cats/${id}`).then((response) => {
                      console.log(response.data);
-                     setCategories(response.data)
+                     console.log("successfully category delete");
+                     window.location.reload();
+
+
               });
        }
 
@@ -70,7 +73,7 @@ const AddCategory = () => {
                             }}
                             validationSchema={CategorySchema}
                             onSubmit={handleSubmit}
-                            // onSubmit={handleDelete}
+                     // onSubmit={handleDelete}
 
                      >
                             {({ errors, touched }) => (
@@ -90,7 +93,7 @@ const AddCategory = () => {
 
 
                                                  </Row>
-                                                 
+
 
                                                  <Row>
                                                         <Col>
