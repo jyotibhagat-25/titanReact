@@ -54,7 +54,7 @@ const AddCategory = () => {
 
        const handleDelete = (id) => {
               console.log(id);
-              axios.delete("http://localhost:8090/api/cats/${id}").then((response) => {
+              axios.delete(`http://localhost:8090/api/cats/${id}`).then((response) => {
                      console.log(response.data);
                      setCategories(response.data)
               });
