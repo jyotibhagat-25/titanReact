@@ -1,24 +1,52 @@
-import React from 'react'
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, Navigate } from "react-router-dom";
+import { Formik, Field, Form } from "formik";
+import * as Yup from "yup";
+
+import { login } from "./slices/auth";
+import { clearMessage } from "./slices/message";
 import './Login.css';
+const LoginSchema = Yup.object().shape({
+  username: Yup.string()
+    .matches(/^[6-9]\d{9}$/, 'Enter a valid 10-digit mobile number')
+    .required('Mobile number is required'),
+  password: Yup.string()
+    .min(8, 'Password must be at least 8 characters')
+    .required('Password is required'),
+});
+
 
 const Login = () => {
-       const SignupSchema = Yup.object().shape({
-              email: Yup.string().email('Invalid email')
-                     .required('Required'),
-              password: Yup.number()
-                     .required('Required'),
-              // .min(6, 'Minimum value is 6')
-              // .max(1, 'Maximum value is 100')
-              // .positive('Must be a positive number')
-              // .negative('Must be a negative number')
-              // .integer('Must be an integer')
-              // .lessThan(10, 'Must be less than 10')
-              // .moreThan(5, 'Must be more than 5')
-              // .oneOf([1, 2, 3], 'Must be one of: 1, 2, 3'),
-       });
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const { message } = useSelector((state) => state.message);
+
+  useEffect(() => {
+    dispatch(clearMessage());
+  }, [dispatch]);
+
+  const handleLogin = (formValue) => {
+    const { username, password } = formValue;
+    setLoading(true);
+
+    dispatch(login({ username, password }))
+      .unwrap()
+      .then(() => {
+        navigate("/home");
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  };
+
+  if (isLoggedIn) {
+    return <Navigate to="/home" />;
+  }
        return (
               <div className='text-center'>
                      <section>
@@ -28,10 +56,10 @@ const Login = () => {
                                                  <h3>Login</h3>
                                                  <Formik
                                                         initialValues={{
-                                                               email: '',
+                                                               username: '',
                                                                password: '',
                                                         }}
-                                                        validationSchema={SignupSchema}
+                                                        validationSchema={LoginSchema}
                                                         onSubmit={values => {
                                                                // same shape as initial values
                                                                console.log(values);
@@ -45,8 +73,8 @@ const Login = () => {
                                                                                            <label>Email :- </label>
                                                                                     </Col>
                                                                                     <Col>
-                                                                                           <Field name="email" type="email" />
-                                                                                           {errors.email && touched.email ? <div>{errors.email}</div> : null}
+                                                                                           <Field name="username" type="text" />
+                                                                                           {errors.username && touched.username ? <div>{errors.username}</div> : null}
 
                                                                                     </Col>
                                                                              </Row>
