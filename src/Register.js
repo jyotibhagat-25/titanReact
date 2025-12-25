@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Col, Row, Button } from "react-bootstrap";
@@ -18,8 +18,8 @@ const SignupSchema = Yup.object().shape({
     .required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
-    .min(8, 'Too Short!')
-    .max(50, 'Too Long!')
+    .min(8, "Too Short!")
+    .max(50, "Too Long!")
     .required("Required"),
   username: Yup.string()
     .matches(/^[6-9]\d{9}$/, "Enter a valid 10 Digit Mobile No. ")
@@ -31,13 +31,21 @@ const Register = () => {
 
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        dispatch(clearMessage());
+      }, 3000);
 
+      return () => clearTimeout(timer);
+    }
+  }, [message, dispatch]);
   useEffect(() => {
     dispatch(clearMessage());
   }, [dispatch]);
   const handleRegister = (formValue) => {
     console.log(formValue);
-    const {firstName, lastName, username, email, password } = formValue;
+    const { firstName, lastName, username, email, password } = formValue;
     setSuccessful(false);
     dispatch(register({ firstName, lastName, username, email, password }))
       .unwrap()
@@ -51,6 +59,14 @@ const Register = () => {
   return (
     <div className="text-center">
       <h3>___Register___</h3>
+      {message && (
+        <div
+          className={`alert ${successful ? "alert-success" : "alert-danger"}`}
+          role="alert"
+        >
+          {message}
+        </div>
+      )}
       <Formik
         initialValues={{
           firstName: "",
@@ -60,11 +76,11 @@ const Register = () => {
           username: "",
         }}
         validationSchema={SignupSchema}
-                // onSubmit={values => {
-                // same shape as initial values
-                // console.log(values);
-                // }}
-       onSubmit={handleRegister}
+        // onSubmit={values => {
+        // same shape as initial values
+        // console.log(values);
+        // }}
+        onSubmit={handleRegister}
       >
         {({ errors, touched }) => (
           <Form>

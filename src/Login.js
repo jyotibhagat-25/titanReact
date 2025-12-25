@@ -37,7 +37,7 @@ const Login = () => {
     dispatch(login({ username, password }))
       .unwrap()
       .then(() => {
-        navigate("/home");
+        navigate("/about");
       })
       .catch(() => {
         setLoading(false);
