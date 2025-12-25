@@ -22,10 +22,20 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); 
+   const [successful, setSuccessful] = useState(false);
+  
   const { isLoggedIn } = useSelector((state) => state.auth);
   const { message } = useSelector((state) => state.message);
+useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        dispatch(clearMessage());
+      }, 3000);
 
+      return () => clearTimeout(timer);
+    }
+  }, [message, dispatch]);
   useEffect(() => {
     dispatch(clearMessage());
   }, [dispatch]);
@@ -54,23 +64,28 @@ const Login = () => {
                                    <Row>
                                           <Col>
                                                  <h3>Login</h3>
+                                                  {message && (
+        <div
+          className={`alert ${successful ? "alert-success" : "alert-danger"}`}
+          role="alert"
+        >
+          {message}
+        </div>
+      )}
                                                  <Formik
                                                         initialValues={{
                                                                username: '',
                                                                password: '',
                                                         }}
                                                         validationSchema={LoginSchema}
-                                                        onSubmit={values => {
-                                                               // same shape as initial values
-                                                               console.log(values);
-                                                        }}
+                                                        onSubmit={handleLogin}
                                                  >
                                                         {({ errors, touched }) => (
                                                                <Form>
                                                                       <div className='loginform'>
                                                                              <Row>
                                                                                     <Col>
-                                                                                           <label>Email :- </label>
+                                                                                           <label>Mobile :- </label>
                                                                                     </Col>
                                                                                     <Col>
                                                                                            <Field name="username" type="text" />
