@@ -14,10 +14,10 @@ const Footer = () => {
                   |  COLLECTIONS
                 </h6>
                 <ul>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Titan Automatics</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Police Batman</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Stellar</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Raga Power Pearls</li>
+                  <li>&nbsp;&nbsp;Titan Automatics</li>
+                  <li>&nbsp;&nbsp;Police Batman</li>
+                  <li>&nbsp;&nbsp;Stellar</li>
+                  <li>&nbsp;&nbsp;Raga Power Pearls</li>
 
 
                 </ul>
@@ -29,10 +29,10 @@ const Footer = () => {
                   |  CUSTOMER SERVICE
                 </h6>
                 <ul>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Payment Options</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Track Order</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Encircle Program</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Find Titan World Stores</li>
+                  <li>&nbsp;&nbsp;Payment Options</li>
+                  <li>&nbsp;&nbsp;Track Order</li>
+                  <li>&nbsp;&nbsp;Encircle Program</li>
+                  <li>&nbsp;&nbsp;Find Titan World Stores</li>
 
                 </ul>
               </div>
@@ -43,10 +43,10 @@ const Footer = () => {
                   |  CONTACT US
                 </h6>
                 <ul>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;1800-266-0123</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;customercare</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Help & Contact</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;FAQs</li>
+                  <li>&nbsp;&nbsp;1800-266-0123</li>
+                  <li>&nbsp;&nbsp;customercare</li>
+                  <li>&nbsp;&nbsp;Help & Contact</li>
+                  <li>&nbsp;&nbsp;FAQs</li>
 
                 </ul>
               </div>
@@ -57,10 +57,10 @@ const Footer = () => {
                   |  ABOUT TITAN
                 </h6>
                 <ul>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Brand Protection</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Corporate</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Careers</li>
-                  <li><FaRegHandPointRight />&nbsp;&nbsp;Blog</li>
+                  <li>&nbsp;&nbsp;Brand Protection</li>
+                  <li>&nbsp;&nbsp;Corporate</li>
+                  <li>&nbsp;&nbsp;Careers</li>
+                  <li>&nbsp;&nbsp;Blog</li>
 
                 </ul>
               </div>
