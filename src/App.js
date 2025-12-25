@@ -84,6 +84,7 @@ function App() {
         <Route path='/Category' element={<Category/>}/>
         <Route path='/Wishlist' element={<Wishlist/>}/>
         <Route path='/AddCategory' element={<AddCategory/>}/>
+        <Route path='/Home' element={<Home/>}/>
 
       </Routes>
       {/* <Men></Men> */}

@@ -47,7 +47,7 @@ useEffect(() => {
     dispatch(login({ username, password }))
       .unwrap()
       .then(() => {
-        navigate("/about");
+        navigate("/home");
       })
       .catch(() => {
         setLoading(false);
