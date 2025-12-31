@@ -8,7 +8,7 @@ import {
   Navbar,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router";
+import { Link, Links } from "react-router";
 import { CiHeart } from "react-icons/ci";
 import { BsBag } from "react-icons/bs";
 import { IoIosLogOut } from "react-icons/io";
@@ -30,10 +30,10 @@ const Header = () => {
     if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
       console.log(currentUser.roles[0]);
 
-      navigate("/Home");
+      navigate("/Dashborad");
     }
   }, []);
-  
+
   const handleLogout = () => {
     dispatch(logout());
     // navigate('/login'); // Redirect to login page
@@ -82,7 +82,7 @@ const Header = () => {
                 <Col>
                   <CiUser />
                   <p>
-                    <a href="#">Admin</a>
+                    <Link to={'/Account'} >Account</Link>
                   </p>
                 </Col>
                 <Col>
@@ -98,10 +98,13 @@ const Header = () => {
                   </p>
                 </Col>
                 <Col>
-                  <Button onClick={handleLogout}>
-                    <IoIosLogOut />
-                    Log out
-                  </Button>
+                  {
+                    currentUser ? <Button onClick={handleLogout}>
+                      <IoIosLogOut />
+                      Log out
+                    </Button> : ""
+                  }
+
                 </Col>
               </Row>
             </Col>
