@@ -65,7 +65,7 @@ const Header = () => {
                 <img src="https://www.titan.co.in/on/demandware.static/Sites-Titan-Site/-/default/dw3486fc91/images/header/titan-logo.svg" />
               </div>
             </Col>
-            <Col md={7}>
+            <Col md={6}>
               <div>
                 <form className="d-flex" role="search">
                   <input
@@ -77,7 +77,7 @@ const Header = () => {
                 </form>
               </div>
             </Col>
-            <Col md={3}>
+            <Col md={4}>
               <Row>
                 <Col>
                   <CiUser />
@@ -88,13 +88,13 @@ const Header = () => {
                 <Col>
                   <CiHeart />
                   <p>
-                    <a href="#">Wishlist</a>
+                    <Link to={'/Wishlist'}>Wishlist</Link>
                   </p>
                 </Col>
                 <Col>
                   <BsBag />
                   <p>
-                    <a href="#">Cart</a>
+                    <Link to={'./Cart'}>Cart</Link>
                   </p>
                 </Col>
                 <Col>
