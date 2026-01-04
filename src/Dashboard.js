@@ -1,85 +1,4 @@
-// import React from 'react'
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from 'chart.js';
-// import { Bar } from 'react-chartjs-2';
-// import { Col, Container, Row, Breadcrumb } from 'react-bootstrap';
-// ChartJS.register(
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend
-// );
-// export const options = {
-//   responsive: true,
-//   plugins: {
-//     legend: {
-//       position: 'top',
-//     },
-//     title: {
-//       display: true,
-//       text: 'Chart.js Bar Chart',
-//     },
-//   },
-// };
-
-// const data = {
-//   labels: ["January", "February", "March", "April", "May"],
-//   datasets: [
-//     {
-//       label: "Sales",
-//       data: [12000, 19000, 3000, 5000, 2000],
-//       backgroundColor: "rgba(75, 192, 192, 0.5)",
-//       borderColor: "rgba(75, 192, 192, 1)",
-//       borderWidth: 1
-//     }
-//   ]
-// };
-// const Dashboard = () => {
-//   return (
-//     <div>
-//       <section>
-//         <Container>
-//           <Row>
-//             <Col>
-//               <Bar options={options} data={data} />
-//             </Col>
-//           </Row>
-//         </Container>
-//         <section>
-//           <Container>
-//             <Row>
-//               <Col>
-//                 <h1>
-//                   Admin Dashboard
-//                 </h1>
-//                 <Breadcrumb>
-//                   <Breadcrumb.Item href="#">Dashboard</Breadcrumb.Item>
-//                   <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-//                     Library
-//                   </Breadcrumb.Item>
-//                   <Breadcrumb.Item active>Data</Breadcrumb.Item>
-//                 </Breadcrumb>
-//               </Col>
-//             </Row>
-//           </Container>
-//         </section>
-//       </section>
-//     </div>
-//   )
-// }
-
-// export default Dashboard
-
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Col, Container, Row, Breadcrumb } from 'react-bootstrap'
 import './Dashboard.css';
 import {
@@ -94,6 +13,8 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -128,13 +49,27 @@ const data = {
     }
   ]
 };
+
 const Dashboard = () => {
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user: currentUser } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (currentUser) {
+      console.log(currentUser);
+    }
+    if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
+      console.log(currentUser.roles[0]);
+
+      navigate("/Home");
+    }
+  }, []);
   return (
     <div>
       <section className='dashboard'>
         <Container>
           <Row>
-            <Col md={4}>
+            <Col md={3} className='menu'>
               <Breadcrumb>
                 <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">Home</Breadcrumb.Item>
                 <Breadcrumb.Item href="#">
@@ -175,27 +110,27 @@ const Dashboard = () => {
 
             </Col>
 
-            <Col md={8}>
+            <Col md={9}>
               <Row>
-                <Col>
+                <Col className='box'>
                   <h6>
                     Total Sales
                   </h6>
                   <p>$252m</p>
                 </Col>
-                <Col>
+                <Col className='box'>
                   <h6>
                     Daily Sales
                   </h6>
                   <p>$432k</p>
                 </Col>
-                <Col>
+                <Col className='box'>
                   <h6>
                     Total Quantity
                   </h6>
                   <p>499</p>
                 </Col>
-                <Col>
+                <Col className='box'>
                   <h6>
                     Daily User
                   </h6>
@@ -215,25 +150,25 @@ const Dashboard = () => {
                 </Col>
               </Row>
               <Row>
-                <Col>
+                <Col className='box'>
                   <h6>
                     Income
                   </h6>
                   <p>$800m</p>
                 </Col>
-                <Col>
+                <Col className='box'>
                   <h6>
                     Expenses
                   </h6>
                   <p>$500m</p>
                 </Col>
-                <Col>
+                <Col className='box'>
                   <h6>
                     Spendings
                   </h6>
                   <p>247k</p>
                 </Col>
-                <Col>
+                <Col className='box'>
                   <h6>
                     Totals
                   </h6>

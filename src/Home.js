@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Carousel from 'react-bootstrap/Carousel';
 import Slide from './Slide';
 import Slide2 from './Slide2';
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
@@ -10,6 +12,19 @@ import Slide2 from './Slide2';
 
 
 const Home = () => {
+  let navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user: currentUser } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (currentUser) {
+      console.log(currentUser);
+    }
+    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+      console.log(currentUser.roles[0]);
+
+      navigate("/Dashboard");
+    }
+  }, []);
   const slides = [
     {
       "id": 1,
@@ -67,7 +82,7 @@ const Home = () => {
 
     }
   ]
-  
+
   return (
     <div>
 

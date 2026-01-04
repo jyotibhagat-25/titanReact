@@ -27,17 +27,13 @@ const Header = () => {
     if (currentUser) {
       console.log(currentUser);
     }
-    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
-      console.log(currentUser.roles[0]);
-
-      navigate("/Dashborad");
-    }
+    
   }, []);
 
   const handleLogout = () => {
     dispatch(logout());
-    // navigate('/login'); // Redirect to login page
-    window.location.reload();
+    navigate('/login'); // Redirect to login page
+    // window.location.reload();
   };
   return (
     <div>

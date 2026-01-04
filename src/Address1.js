@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 // import Col from 'react-bootstrap/Col';
@@ -8,6 +8,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import * as formik from 'formik';
 import * as yup from 'yup';
 import './Address1.css';
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 const Address1 = () => {
 
@@ -22,6 +24,19 @@ const Address1 = () => {
               mobile: yup.number().required(),
               terms: yup.bool().required().oneOf([true], 'Terms must be accepted'),
        });
+       let navigate = useNavigate();
+       const dispatch = useDispatch();
+       const { user: currentUser } = useSelector((state) => state.auth);
+       useEffect(() => {
+              if (currentUser) {
+                     console.log(currentUser);
+              }
+              if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
+                     console.log(currentUser.roles[0]);
+
+                     navigate("/Home");
+              }
+       }, []);
        return (
               <div className='text-center'>
                      <Row>
