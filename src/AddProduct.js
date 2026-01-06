@@ -112,7 +112,7 @@ let navigate = useNavigate();
             <div className="productform">
               <Row>
                 <Col md={4}>
-                  <label>ProductName : </label>
+                  <label>Product Name : </label>
                 </Col>
                 <Col md={8}>
                   <Field name="productName" />
@@ -124,7 +124,7 @@ let navigate = useNavigate();
 
               <Row>
                 <Col md={4}>
-                  <label>ProductDescription : </label>
+                  <label>Product Description : </label>
                 </Col>
                 <Col md={8}>
                   <Field name="productDescription" />
@@ -135,7 +135,7 @@ let navigate = useNavigate();
               </Row>
               <Row>
                 <Col md={4}>
-                  <label>ProductCategory : </label>
+                  <label>Product Category : </label>
                 </Col>
                 <Col md={8}>
                   <Field
@@ -143,7 +143,7 @@ let navigate = useNavigate();
                     name="productCategory"
                     id="productCategory"
                   >
-                    <option value="">-- Select a Category --</option>
+                    <option value="">--- Select a Category ---</option>
                     {categories
                       ? categories.map((category, index) => {
                           return (
@@ -163,7 +163,7 @@ let navigate = useNavigate();
 
               <Row>
                 <Col md={4}>
-                  <label>ProductPrice : </label>
+                  <label>Product Price : </label>
                 </Col>
                 <Col md={8}>
                   <Field name="productPrice" />
@@ -173,7 +173,7 @@ let navigate = useNavigate();
                 </Col>
               </Row>
               <Row>
-                <Col md={6}>Images</Col>
+                <Col md={6}>Images :</Col>
                 <Col md={6}>
                   <input
                     type="file"
