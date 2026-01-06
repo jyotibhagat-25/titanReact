@@ -47,7 +47,7 @@ const Service = () => {
                                                  <Row>
                                                         
                                                                <Col>
-                                                                      <button class="btn btn-service">submit</button>
+                                                                      <button className="btn btn-service">submit</button>
                                                                </Col>
                                                  
                                                  </Row>
@@ -55,7 +55,7 @@ const Service = () => {
 
                                                         <Col>
 
-                                                               <a href='Account'><button class="btn btn-service">Account/Login</button></a>
+                                                               <a href='Account'><button className="btn btn-service">Account/Login</button></a>
                                                         </Col>
 
                                                  </Row>

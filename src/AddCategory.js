@@ -98,7 +98,7 @@ const AddCategory = () => {
                                                  <Row>
                                                         <Col>
 
-                                                               <button class="btn btn-shine">Add</button>
+                                                               <button className="btn btn-shine">Add</button>
                                                         </Col>
                                                  </Row>
 

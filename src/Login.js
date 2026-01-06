@@ -109,7 +109,7 @@ useEffect(() => {
                                                                                     <Col>
                                                                                            <p>if not logged in then <a href='Register'>Register</a></p>
 
-                                                                                           <button class="btn btn-shine">Login</button>
+                                                                                           <button className="btn btn-shine">Login</button>
 
 
                                                                                     </Col>
