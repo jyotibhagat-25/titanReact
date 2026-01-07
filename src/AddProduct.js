@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import "./AddProduct.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import TestProduct from "./TestProduct";
 
 const AddProduct = () => {
   const SignupSchema = Yup.object().shape({
@@ -14,7 +15,7 @@ const AddProduct = () => {
       .max(50, "Too Long!")
       .required("Required"),
     productDescription: Yup.string()
-      .min(10, "Too Short!")
+      .min(5, "Too Short!")
       .max(100, "Too Long!")
       .required("Required"),
     productCategory: Yup.string()
@@ -30,16 +31,20 @@ const AddProduct = () => {
       //   }
       // )
       .required("Required"),
+    genderDetails: Yup.string()
+      .min(2, "Must be at least 2 characters!")
+      .max(10, "Too Long!")
+      .required("Required"),
 
     productPrice: Yup.number()
       .min(99, "Minimum value is 99")
-      .max(10000, "Maximum value is 100000")
+      .max(10000, "Maximum value is 10000")
       .required("Required"),
   });
   const [categories, setCategories] = useState();
-const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedImages, setSelectedImages] = useState([]);
 
-let navigate = useNavigate();
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
   useEffect(() => {
@@ -51,7 +56,7 @@ let navigate = useNavigate();
 
       navigate("/Home");
     }
-  }, []);
+  }, [currentUser]);
   useEffect(() => {
     axios.get("http://localhost:8090/api/cats").then((response) => {
       console.log(response.data);
@@ -71,7 +76,10 @@ let navigate = useNavigate();
           productName: "",
           productDescription: "",
           productCategory: "",
+          genderDetails: "",
           productPrice: "",
+
+
         }}
         validationSchema={SignupSchema}
         onSubmit={async (values, { resetForm }) => {
@@ -111,10 +119,10 @@ let navigate = useNavigate();
           <Form>
             <div className="productform">
               <Row>
-                <Col md={4}>
-                  <label>Product Name : </label>
+                <Col md={6}>
+                  <label>ProductName : </label>
                 </Col>
-                <Col md={8}>
+                <Col md={6}>
                   <Field name="productName" />
                   {errors.productName && touched.productName ? (
                     <div>{errors.productName}</div>
@@ -123,10 +131,10 @@ let navigate = useNavigate();
               </Row>
 
               <Row>
-                <Col md={4}>
-                  <label>Product Description : </label>
+                <Col md={6}>
+                  <label>ProductDescription : </label>
                 </Col>
-                <Col md={8}>
+                <Col md={6}>
                   <Field name="productDescription" />
                   {errors.productDescription && touched.productDescription ? (
                     <div>{errors.productDescription}</div>
@@ -134,24 +142,24 @@ let navigate = useNavigate();
                 </Col>
               </Row>
               <Row>
-                <Col md={4}>
-                  <label>Product Category : </label>
+                <Col md={6}>
+                  <label>ProductCategory : </label>
                 </Col>
-                <Col md={8}>
+                <Col md={6}>
                   <Field
                     as="select"
                     name="productCategory"
                     id="productCategory"
                   >
-                    <option value="">--- Select a Category ---</option>
+                    <option value="">-- Select a Category --</option>
                     {categories
                       ? categories.map((category, index) => {
-                          return (
-                            <option value={category.name} key={index}>
-                              {category.name}
-                            </option>
-                          );
-                        })
+                        return (
+                          <option value={category.name} key={index}>
+                            {category.name}
+                          </option>
+                        );
+                      })
                       : "No Category Found"}
                   </Field>
                   <option></option>
@@ -162,10 +170,27 @@ let navigate = useNavigate();
               </Row>
 
               <Row>
-                <Col md={4}>
-                  <label>Product Price : </label>
+                <Col md={6}>
+                  <label>Gender:</label>
                 </Col>
-                <Col md={8}>
+
+                <Col md={6}>
+                  <label>
+                    <Field type="radio" name="genderDetails" value="Male" />
+                    Male
+                  </label>
+                  <label>
+                    <Field type="radio" name="genderDetails" value="Female" />
+                    Female
+                  </label>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col md={6}>
+                  <label>ProductPrice : </label>
+                </Col>
+                <Col md={6}>
                   <Field name="productPrice" />
                   {errors.productPrice && touched.productPrice ? (
                     <div>{errors.productPrice}</div>
@@ -173,7 +198,7 @@ let navigate = useNavigate();
                 </Col>
               </Row>
               <Row>
-                <Col md={6}>Images :</Col>
+                <Col md={6}>Images</Col>
                 <Col md={6}>
                   <input
                     type="file"
@@ -195,6 +220,16 @@ let navigate = useNavigate();
           </Form>
         )}
       </Formik>
+
+<section>
+  <Container>
+    <Row>
+      <Col>
+      <TestProduct></TestProduct>
+      </Col>
+    </Row>
+  </Container>
+</section>
     </div>
   );
 };
