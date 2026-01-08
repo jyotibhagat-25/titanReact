@@ -4,16 +4,16 @@ import { Col, Container, Row } from 'react-bootstrap'
 import Table from 'react-bootstrap/Table';
 
 const Cart = () => {
-  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState();
 
   useEffect(() => {
     axios.get("http://localhost:8090/api/carts").then((response) => {
       console.log(response.data);
-      setProducts(response.data)
+      setCategories(response.data)
     });
 
   }, []);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   console.log(count);
   
   const increase = () => {
@@ -63,31 +63,33 @@ const Cart = () => {
                 <thead>
                   <tr>
                     <th>Sl</th>
-                    <th>Product Name</th>
+                    <th>Product Id</th>
                     <th>Product image</th>
                     <th>Product Quantity</th>
+                    {/* <th>Product Price</th> */}
 
                   </tr>
                 </thead>
                 <tbody>
 
                   {
-                    // products ?
-                      products.map((product, index) => {
+                    categories ?
+                      categories.map((category, index) => {
                         return (
                           <tr>
                             <td>{index + 1}</td>
-                            <td>{product.name}</td>
-                            {/* <td><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dwfb4dcc13/images/Fastrack/Catalog/FV60100WM01W_1.jpg?sw=360&sh=360'/></td> */}
-                            <td><button onClick={increase}>+</button>&nbsp;&nbsp;
+                            <td>{category.id}</td>
+                            <td><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dwfb4dcc13/images/Fastrack/Catalog/FV60100WM01W_1.jpg?sw=360&sh=360'/></td>
+                            <td><button onClick={increase}>+</button>&nbsp;{count}&nbsp;
                               <button onClick={decrease}>-</button></td>
+                            {/* <td>{category.price}</td> */}
                           
                               
 
                           </tr>
                         )
                       })
-                      // : "loading"
+                      : "loading"
                   }
                 </tbody>
               </Table>

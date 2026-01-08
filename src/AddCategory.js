@@ -15,7 +15,7 @@ const AddCategory = () => {
        const [categories, setCategories] = useState();
 
        useEffect(() => {
-              axios.get("http://localhost:8090/api/cats").then((response) => {
+              axios.get(" http://localhost:8090/api/cats").then((response) => {
                      console.log(response.data);
                      setCategories(response.data)
               });

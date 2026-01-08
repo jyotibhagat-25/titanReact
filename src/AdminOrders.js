@@ -1,17 +1,71 @@
-import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Col, Container, Row, Table } from 'react-bootstrap'
+import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 
 const AdminOrders = () => {
+  const [products, setProducts] = useState();
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/ssproducts").then((response) => {
+      console.log(response.data);
+      setProducts(response.data)
+    });
+
+  }, []);
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:8090/api/ssproducts/${id}`).then((response) => {
+      console.log(response.data);
+      console.log("successfully category delete");
+      window.location.reload();
+
+
+    });
+  }
   return (
     <div>
       <section>
-       <Container>
-              <Row>
-                     <Col>
-                     
-                     </Col>
-              </Row>
-       </Container>
+        <Container>
+          <Row>
+            <Col>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Sl</th>
+                    <th> Name</th>
+                    <th> Category</th>
+                    <th> Description</th>
+                    <th> Price</th>
+
+                    <th>Edit</th>
+                    <th>Delete</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {
+                    products ?
+                      products.map((product, index) => {
+                        return (
+                          <tr>
+                            <td>{index + 1}</td>
+                            <td>{product.productName}</td>
+                            <td>{product.productCategory}</td>
+                            <td>{product.productDescription}</td>
+                            <td>{product.productPrice}</td>
+                            <td><AiOutlineEdit/></td>
+                            <td><button onClick={() => handleDelete(product.id)}><AiOutlineDelete /></button></td>
+                          </tr>
+                        )
+                      })
+                      : "loading"
+                  }
+                </tbody>
+              </Table>
+            </Col>
+          </Row>
+        </Container>
       </section>
     </div>
   )

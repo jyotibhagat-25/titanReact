@@ -42,6 +42,7 @@ import Wishlist from './Wishlist';
 import AddCategory from './AddCategory';
 import Success_order_placed from './Success_order_placed';
 import TestProduct from './TestProduct';
+import AdminOrders from './AdminOrders';
 
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
         <Route path='/Home' element={<Home/>}/>
         <Route path='/Success_order_placed' element={<Success_order_placed/>}/>
         <Route path='/TestProduct' element={<TestProduct/>}/>
+        <Route path='/AdminOrders' element={<AdminOrders/>}/>
 
       </Routes>
       {/* <Men></Men> */}
