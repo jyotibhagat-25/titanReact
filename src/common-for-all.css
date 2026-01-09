@@ -7,53 +7,107 @@
 .images img {
        width: 100%;
 }
-.images{
-       background:white;
+
+.images {
+       background: white;
        margin-bottom: 30px;
        text-align: center;
        overflow: auto;
        opacity: 0.9;
        border-radius: 15px;
-       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-
+       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+       position: relative;
 }
-.images:hover{
+
+.images:hover {
        /* border: solid 1px #5F3B2D; */
-       box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
        opacity: 1;
 }
 
-.text p{
+.text p {
        text-align: justify;
        opacity: 0.8;
-       padding:0 15px;
+       padding: 0 15px;
 }
 
 .text p {
-       text-align:justify;
+       text-align: justify;
        color: black;
 }
-.price p{
+
+.price p {
        text-align: center;
        margin: 20px 10px;
 }
 
-.buttonarea{
+.buttonarea {
        background: white;
        margin-bottom: 30px;
-       text-align:center;
+       text-align: center;
        margin-top: 10px;
 }
-.buttons{
+
+.buttons {
        background: #5F3B2D;
-       text-align:center;
+       text-align: center;
        padding: 10px 25px;
-       border-color:white;
-       margin-right:10px;
+       border-color: white;
+       margin-right: 10px;
 }
-.buttons:hover{
+
+.buttons:hover {
        background: #6f4529;
        transform: scale(1);
 }
 
+/* .icon{
+       position: absolute;
+       top: 12px;
+       right: 12px;
+       display: flex;
+       gap: 8px;
+       z-index: 10;
+} */
+.icon-btn {
+       /* background: white; */
+       padding: 8px;
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       /* display: flex; */
 
+}
+
+
+
+.icon-btn-wishlist {
+       position: absolute;
+       top: 12px;
+       right: 10px;
+       background-color: #5F3B2D;
+       color: white;
+       border: none;
+       border-radius: 50%;
+
+
+}
+.icon-btn-wishlist:hover {
+       background-color: #5F3B2D;
+
+}
+
+.icon-btn-cart {
+       position: absolute;
+       top: 55px;
+       background-color: #5F3B2D;
+       color: white;
+       right: 10px;
+       border: none;
+       border-radius: 50%;
+
+}
+.icon-btn-cart:hover {
+       background-color: #5F3B2D;
+
+}

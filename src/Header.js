@@ -73,29 +73,29 @@ const Header = () => {
                 </form>
               </div>
             </Col>
-            <Col md={4}>
+            <Col md={4} >
               <Row>
                 <Col>
                   <CiUser />
                   <p>
-                    <Link to={'/Account'} >Account</Link>
+                    <Link to={'/Account'} className="link-area">Account</Link>
                   </p>
                 </Col>
                 <Col>
                   <CiHeart />
                   <p>
-                    <Link to={'/Wishlist'}>Wishlist</Link>
+                    <Link to={'/Wishlist'} className="link-area">Wishlist</Link>
                   </p>
                 </Col>
                 <Col>
                   <BsBag /><sup><b>1</b></sup>
                   <p>
-                    <Link to={'./Cart'}>Cart</Link>
+                    <Link to={'./Cart'} className="link-area">Cart</Link>
                   </p>
                 </Col>
                 <Col>
                   {
-                    currentUser ? <Button onClick={handleLogout}>
+                    currentUser ? <Button onClick={handleLogout} >
                       <IoIosLogOut />
                       Log out
                     </Button> : ""

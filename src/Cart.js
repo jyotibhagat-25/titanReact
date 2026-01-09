@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState();
-  
+
   // const [selectedImages, setSelectedImages] = useState([]);
 
   let navigate = useNavigate();
@@ -41,7 +41,7 @@ const Cart = () => {
     setCount(count - 1);
   }
 
-  
+
   return (
     <div>
       <section>
@@ -55,8 +55,8 @@ const Cart = () => {
                     <th>Product Id</th>
                     {/* <th>Product image</th>*/}
                     <th>Product Price</th>
-                    <th>Product Quantity</th> 
-                    
+                    <th>Product Quantity</th>
+
 
                   </tr>
                 </thead>
@@ -71,10 +71,10 @@ const Cart = () => {
                             <td>{cartItem.productId}</td>
                             <td>{cartItem.price}</td>
                             <td>
-                              <button onClick={increase}>+</button>&nbsp;{count}&nbsp;
-                              <button onClick={decrease}>-</button>
+                              <button onClick={decrease}>-</button>&nbsp;{count}&nbsp;
+                              <button onClick={increase}>+</button>
                             </td>
-                            
+
 
 
 
