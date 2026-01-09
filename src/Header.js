@@ -88,7 +88,7 @@ const Header = () => {
                   </p>
                 </Col>
                 <Col>
-                  <BsBag /><sup><b>4</b></sup>
+                  <BsBag /><sup><b>1</b></sup>
                   <p>
                     <Link to={'./Cart'}>Cart</Link>
                   </p>
