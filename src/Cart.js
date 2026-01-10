@@ -53,7 +53,7 @@ const Cart = () => {
                   <tr>
                     <th>Sl</th>
                     <th>Product Id</th>
-                    {/* <th>Product image</th>*/}
+                    <th>Product image</th>
                     <th>Product Price</th>
                     <th>Product Quantity</th>
 
@@ -69,11 +69,13 @@ const Cart = () => {
                           <tr>
                             <td>{index + 1}</td>
                             <td>{cartItem.productId}</td>
+                            <td>{cartItem.images}</td>
                             <td>{cartItem.price}</td>
                             <td>
                               <button onClick={decrease}>-</button>&nbsp;{count}&nbsp;
                               <button onClick={increase}>+</button>
                             </td>
+                            
 
 
 

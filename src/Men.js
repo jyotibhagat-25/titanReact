@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
@@ -9,6 +10,12 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 
 
 const Men = () => {
+       // const [categories, setCategories] = useState();
+
+       // const handleCart = (product) => {
+       //        console.log(product);
+
+       // }
        return (
               <div>
 
@@ -21,7 +28,7 @@ const Men = () => {
                                                         <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw782a5c1a/images/Titan/Catalog/1733KL03_1.jpg?sw=360&sh=360' />
                                                         <div className='icon-btn'>
                                                                <Button type="submit" className='icon-btn-wishlist'><IoMdHeartEmpty /></Button><br></br>
-                                                               <Button type="submit" className='icon-btn-cart'><MdOutlineShoppingCart /></Button>
+                                                               {/* <Button type="submit" className='icon-btn-cart' onClick={() => handleCart(product)}><MdOutlineShoppingCart /></Button> */}
                                                         </div>
 
                                                         <div className='text'>

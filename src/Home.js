@@ -4,7 +4,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import Slide from './Slide';
 import Slide2 from './Slide2';
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { login } from './slices/auth';
 // import ExampleCarouselImage from 'components/ExampleCarouselImage';
 // import Carousel from "react-multi-carousel";
 // import "react-multi-carousel/lib/styles.css";
@@ -421,7 +422,7 @@ const Home = () => {
                 </h3>
               </div>
               <div className='button'>
-                <button><a href='Login'>Login Now</a></button>
+                <button><Link to={login}>login</Link></button>
               </div>
               <div className='account'>
                 <p><a href='Account'>Create An Account</a></p>

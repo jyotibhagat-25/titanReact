@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+// import { MdOutlineShoppingCart } from 'react-icons/md';
 
 const Wishlist = () => {
   const products = [
@@ -84,7 +85,7 @@ const Wishlist = () => {
       <section>
         <Container>
           <Row>
-            {
+            {/* {
               products.map((product, index) => {
                 return (
                   // <img src={product.image}/>
@@ -97,6 +98,33 @@ const Wishlist = () => {
                           <p>{product.description}</p>
                         </Card.Text>
                         <Button variant="primary">Buy Now</Button>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                );
+              })
+            } */}
+
+            {
+              products.map((product, index) => {
+                return (
+                  // <img src={product.image}/>
+                  <Col className='card-product'>
+                    <Card style={{ width: '18rem' }}>
+                      <Card.Img variant="top" src={product.image} />
+                      <Card.Body>
+                        <Card.Title>{product.category}</Card.Title>
+                        <Card.Text>
+                          {/* <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p> */}
+                          <p> {product.id}</p>
+                          <p>{product.description}</p>
+                          
+                          {/* <Button type="submit" className='icon-btn-cart' onClick={() => handleCart(product)}><MdOutlineShoppingCart /></Button> */}
+                        </Card.Text>
+                        <Col>
+
+                          <Button type="submit" className='buttons'>Buy Now</Button>
+                        </Col>
                       </Card.Body>
                     </Card>
                   </Col>
