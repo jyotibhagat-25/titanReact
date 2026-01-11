@@ -31,11 +31,7 @@ const Address1 = () => {
               if (currentUser) {
                      console.log(currentUser);
               }
-              if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
-                     console.log(currentUser.roles[0]);
-
-                     navigate("/Home");
-              }
+              
        }, []);
        return (
               <div className='text-center'>
