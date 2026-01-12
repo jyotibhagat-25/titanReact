@@ -49,6 +49,7 @@ const Wishlist = () => {
                       <Card.Body>
                         <Card.Title>{wishlistproduct.category}</Card.Title>
                         <Card.Text>
+                          <p></p>
                           <p>{wishlistproduct.description}</p>
                         </Card.Text>
                         {/* <Button variant="primary">Buy Now</Button> */}
