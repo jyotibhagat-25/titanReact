@@ -54,15 +54,38 @@ let navigate = useNavigate();
           userId: currentUser.id,
           productId: product.id,
     }
-    console.log(data)
-    axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
+    // try{
+      console.log(data)
+      axios.post(`http://localhost:8090/api/wishlist`, data).then((response) => {
       console.log(response.data);
       console.log("successfully Added to wishlist");
       window.location.reload();
 
 
-    });
+    })
+    .catch((error)=>{
+      console.log(error.response)
+      if(error.response?.status===409){
+        alert("product already in wishlist")
+      }
+      else{
+        alert("Something wrong")
+      }
+    })
+   
   }
+  //   catch(error){
+  //     console.log(error.response)
+  //     if(error.response?.status===409){
+  //       alert("product already in wishlist")
+  //     }
+  //     else{
+  //       alert("Something wrong")
+  //     }
+  //   }
+
+  // }
+  
        return (
               <div>
        

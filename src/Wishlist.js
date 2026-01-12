@@ -19,11 +19,12 @@ const Wishlist = () => {
     if (currentUser) {
       console.log(currentUser);
     }
+    //   THIS IS FOR ADMIN ONLY
     // if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
     //   console.log(currentUser.roles[0]);
 
     //   navigate("/Wishlist");
-    // }
+    // }      
   }, [currentUser]);
 
   useEffect(() => {
@@ -47,10 +48,13 @@ const Wishlist = () => {
                     <Card style={{ width: '18rem' }}>
                       {/* <Card.Img variant="top" src={product.image} /> */}
                       <Card.Body>
-                        <Card.Title>{wishlistproduct.category}</Card.Title>
+                        <Card.Title>{wishlistproduct.productId.productName}</Card.Title>
                         <Card.Text>
-                          <p></p>
-                          <p>{wishlistproduct.description}</p>
+                          {/* <p><img src={`http://localhost:8090/upload/${wishlistproduct.images[0]}`} /></p> */}
+                          <p>{wishlistproduct.productId.images}</p>
+                          <p>{wishlistproduct.productId.productCategory}</p>
+                          <p>₹{wishlistproduct.productId.productPrice}</p>
+                          <p>{wishlistproduct.productId.productDescription}</p>
                         </Card.Text>
                         {/* <Button variant="primary">Buy Now</Button> */}
                       </Card.Body>

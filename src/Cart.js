@@ -59,7 +59,7 @@ const Cart = () => {
                   <thead>
                     <tr>
                       <th>Sl</th>
-                      <th>Product Id</th>
+                      <th>Product Name</th>
                       <th>Product image</th>
                       <th>Product Price</th>
                       <th>Product Quantity</th>
@@ -77,7 +77,7 @@ const Cart = () => {
                             <tr key={index}>
                               <td>{index + 1}</td>
                               <td>{cartItem.productDetails.productName}</td>
-                              <td>{cartItem.images}</td>
+                              <td>{cartItem.productDetails.images}</td>
                               <td>{cartItem.price}</td>
                               <td>
                                 <button onClick={decrease}>-</button>&nbsp;{count}&nbsp;
