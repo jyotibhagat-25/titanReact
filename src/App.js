@@ -44,6 +44,7 @@ import Success_order_placed from './Success_order_placed';
 import TestProduct from './TestProduct';
 import AdminOrders from './AdminOrders';
 import UserOrders from './UserOrders';
+import Address from './Address';
 
 
 function App() {
@@ -94,6 +95,7 @@ function App() {
         <Route path='/TestProduct' element={<TestProduct/>}/>
         <Route path='/AdminOrders' element={<AdminOrders/>}/>
         <Route path='/UserOrders' element={<UserOrders/>}/>
+        <Route path='/Address' element={<Address/>}/>
 
       </Routes>
       {/* <Men></Men> */}
