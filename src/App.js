@@ -87,7 +87,7 @@ function App() {
         <Route path='/Account' element={<Account/>}/>
         <Route path='/Addproduct' element={<AddProduct/>}/>
         <Route path='/Address1' element={<Address1/>}/>
-        <Route path='/Category' element={<Category/>}/>
+        <Route path='/Category/:categoryName' element={<Category/>}/>
         <Route path='/Wishlist' element={<Wishlist/>}/>
         <Route path='/AddCategory' element={<AddCategory/>}/>
         <Route path='/Home' element={<Home/>}/>
