@@ -99,7 +99,7 @@ const Cart = () => {
                   </tbody>
                 </Table>
                 <p>Total Amount</p>
-               <Link to={'/Address1'}> <Button>next</Button></Link>
+               <Link to={'/Address'}> <Button>next</Button></Link>
               </Col>
             </Row>
           </Container>

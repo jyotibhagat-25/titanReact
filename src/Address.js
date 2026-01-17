@@ -1,66 +1,11 @@
-// import React from 'react'
-// import { Formik, Form, Field } from 'formik';
-// import * as Yup from 'yup';
-
-// const Address = () => {
-//   const SignupSchema = Yup.object().shape({
-//     FirstName: Yup.string()
-//       .min(3, 'Must be at least 2 characters!')
-//       .max(30, 'Must be at most 30 characters!')
-//       .required('Required'),
-//     lastName: Yup.string()
-//       .min(2, 'Too Short!')
-//       .max(50, 'Too Long!')
-//       .required('Required'),
-//     email: Yup.string().email('Invalid email').required('Required'),
-//   });
-//   return (
-//     <div>
-//       <h1>Signup</h1>
-//       <Formik
-//         initialValues={{
-//           FirstName: '',
-//           lastName: '',
-//           email: '',
-//         }}
-//         validationSchema={SignupSchema}
-//         onSubmit={values => {
-//           // same shape as initial values
-//           console.log(values);
-//         }}
-//       >
-//         {({ errors, touched }) => (
-//           <Form>
-//             <Field name="firstName" />
-//             {errors.firstName && touched.firstName ? (
-//               <div>{errors.firstName}</div>
-//             ) : null}
-//             <Field name="lastName" />
-//             {errors.lastName && touched.lastName ? (
-//               <div>{errors.lastName}</div>
-//             ) : null}
-//             <Field name="email" type="email" />
-//             {errors.email && touched.email ? <div>{errors.email}</div> : null}
-//             <button type="submit">Submit</button>
-//           </Form>
-//         )}
-//       </Formik>
-//     </div>
-//   )
-// }
-
-// export default Address
-
-
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import './Address.css';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate, Navigate, Link } from "react-router-dom";
 
 
 
@@ -128,11 +73,11 @@ const Address = () => {
     if (currentUser) {
       console.log(currentUser);
     }
-    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
-      console.log(currentUser.roles[0]);
+    // if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+    //   console.log(currentUser.roles[0]);
 
-      navigate("/Home");
-    }
+    //   navigate("/Home");
+    // }
   }, []);
 
   const handleSubmit = () => {
@@ -340,7 +285,7 @@ const Address = () => {
 
               <Row >
                 <Col>
-                  <button type="submit" className='address-btn' onClick={() => handleSubmit()}>Submit</button>
+                  <button type="submit"  className="btn btn-shine" onClick={() => handleSubmit()}>Submit</button>
                 </Col>
               </Row>
             </div>
@@ -353,7 +298,7 @@ const Address = () => {
       <section>
         <Container>
           <Row>
-            <Col className='addressform'>
+            <Col className='order-placed-form'>
               <Formik
                 validationSchema={AddressSchema}
                 onSubmit={handleAddress}
@@ -385,9 +330,9 @@ const Address = () => {
                                     <Row>
                                       <Col>
                                         <label>
-                                          <Field type="radio" name="addressId" value={address.id} />
-                                          {address.addressLine1},
-                                          {address.addressLine2},
+                                          <Field type="radio" name="addressId" value={address.id} className='addressform' />
+                                          <p>{address.addressLine1}</p>
+                                          {/* <p>{address.addressLine2}</p> */}
                                         </label>
                                       </Col>
 
@@ -408,7 +353,7 @@ const Address = () => {
 
 
 
-                      <button type="submit" className=' cate-btn'>Order</button>
+                      <Button className="btn-order" ><Link to={'/Success_order_placed'} >Order</Link></Button>
                     </Form>
                   </div>
                 )}

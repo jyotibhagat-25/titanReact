@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert';
+import { Link } from 'react-router';
 
 
 const Success_order_placed = () => {
@@ -19,7 +20,7 @@ const Success_order_placed = () => {
                                                         {/* <p className="mb-0">
                                                                Continue Shopping
                                                         </p> */}
-                                                        <Button>Continue Shopping</Button>
+                                                        <Button className='btn btn-product'><Link to={'/Home'}>Continue Shopping</Link></Button>
                                                  </Alert>
                                           </Col>
                                    </Row>
