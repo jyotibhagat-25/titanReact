@@ -16,11 +16,11 @@ const TestProduct = () => {
     if (currentUser) {
       console.log(currentUser);
     }
-    if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
-      console.log(currentUser.roles[0]);
+    // if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
+    //   console.log(currentUser.roles[0]);
 
-      navigate("/TestProduct");
-    }
+    //   navigate("/TestProduct");
+    // }
   }, [currentUser]);
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssproducts").then((response) => {
@@ -74,17 +74,7 @@ const TestProduct = () => {
       })
 
   }
-  //   catch(error){
-  //     console.log(error.response)
-  //     if(error.response?.status===409){
-  //       alert("product already in wishlist")
-  //     }
-  //     else{
-  //       alert("Something wrong")
-  //     }
-  //   }
-
-  // }
+  
 
   return (
     <div>

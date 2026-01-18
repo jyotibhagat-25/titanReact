@@ -77,19 +77,13 @@ const Cart = () => {
                             <tr key={index}>
                               <td>{index + 1}</td>
                               <td>{cartItem.productDetails.productName}</td>
-                              <td></td>
+                              <td><img src={`http://localhost:8090/upload/${cartItem.productDetails.images[0]}`} /></td>
                               <td>{cartItem.price}</td>
                               <td>
                                 <button onClick={decrease}>-</button>&nbsp;{count}&nbsp;
                                 <button onClick={increase}>+</button>
                               </td>
                               <td><button onClick={() => handleDelete()}><AiOutlineDelete /></button></td>
-
-
-
-
-
-
 
                             </tr>
                           )

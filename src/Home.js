@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import Carousel from 'react-bootstrap/Carousel';
 import Slide from './Slide';
 import Slide2 from './Slide2';
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { login } from './slices/auth';
-// import ExampleCarouselImage from 'components/ExampleCarouselImage';
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
+
 
 
 
@@ -421,11 +419,11 @@ const Home = () => {
                   LOGIN FOR THE BEST EXPERIENCE
                 </h3>
               </div>
-              <div className='button'>
-                <button><Link to={login}>login</Link></button>
+              <div>
+                <Button type="submit" className='buttons'><Link to={'Login'}>Login</Link></Button>
               </div>
               <div className='account'>
-                <p><a href='Account'>Create An Account</a></p>
+                <Link to={'/Register'}>Create An Account</Link>
               </div>
             </Col>
           </Row>
