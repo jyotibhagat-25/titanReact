@@ -38,7 +38,7 @@ const AddProduct = () => {
 
     productPrice: Yup.number()
       .min(99, "Minimum value is 99")
-      .max(10000, "Maximum value is 10000")
+      .max(100000, "Maximum value is 10000")
       .required("Required"),
   });
   const [categories, setCategories] = useState();
