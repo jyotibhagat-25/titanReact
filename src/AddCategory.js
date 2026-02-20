@@ -7,6 +7,8 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -21,6 +23,19 @@ const AddCategory = () => {
               });
 
        }, []);
+       let navigate = useNavigate();
+       const dispatch = useDispatch();
+       const { user: currentUser } = useSelector((state) => state.auth);
+       useEffect(() => {
+              if (currentUser) {
+                     console.log(currentUser);
+              }
+              if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
+                     console.log(currentUser.roles[0]);
+
+                     navigate("/Home");
+              }
+       }, [currentUser]);
        const checkNameExists = async (name) => {
               // API call
               const response = await fetch(`http://localhost:8090/api/cats/check?name=${name} `);

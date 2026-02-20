@@ -42,7 +42,7 @@ const Category = () => {
                       <Card.Body>
                         <Card.Title>{product.category}</Card.Title>
                         <Card.Text>
-                          <p><img src={`http://localhost:8090/upload/${items.productDetails.images[0]}`} /></p>
+                          <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
                           <p><b>| {product.productName}</b></p>
                           <p>{product.productDescription}</p>
                           <p>{product.productCategory}</p>

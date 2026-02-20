@@ -49,7 +49,7 @@ const Wishlist = () => {
                     <Card style={{ width: '18rem' }}>
                       {/* <Card.Img variant="top" src={product.image} /> */}
                       <Card.Body>
-                        <Card.Title>{wishlistproduct.productId.productName}</Card.Title>
+                        {/* <Card.Title>{wishlistproduct.productId.productName}</Card.Title> */}
                         <Card.Text>
                           <p><img src={`http://localhost:8090/upload/${wishlistproduct.productId.images[0]}`} /></p>
                           <p>{wishlistproduct.productId.productCategory}</p>
