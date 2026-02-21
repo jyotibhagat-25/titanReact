@@ -420,7 +420,7 @@ const Home = () => {
                 </h3>
               </div>
               <div>
-                <Button type="submit" className='buttons'><Link to={'Login'}>Login</Link></Button>
+                <Button type="submit" className='buttons'><Link to={'/Login'}>Login</Link></Button>
               </div>
               <div className='account'>
                 <Link to={'/Register'}>Create An Account</Link>

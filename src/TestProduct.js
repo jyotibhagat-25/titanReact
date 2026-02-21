@@ -5,7 +5,7 @@ import { IoMdHeartEmpty } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { MdOutlineShoppingCart } from "react-icons/md";
-
+// import "./common-for-all.css";
 
 const TestProduct = () => {
   const [products, setProducts] = useState([]);
