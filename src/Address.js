@@ -78,7 +78,7 @@ const Address = () => {
 
     //   navigate("/Home");
     // }
-  }, []);
+  }, [currentUser]);
 
   const handleSubmit = () => {
     console.log("Submit button clicked")

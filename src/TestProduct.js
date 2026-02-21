@@ -80,7 +80,7 @@ const TestProduct = () => {
     <div>
 
 
-      <section>
+      <section >
         <Container>
           <Row>
             {
@@ -90,7 +90,7 @@ const TestProduct = () => {
                   <Col className='card-product'>
                     <Card style={{ width: '18rem' }}>
                       {/* <Card.Img variant="top" src={product.image} /> */}
-                      <Card.Body>
+                      <Card.Body className='images'>
                         <Card.Title>{product.category}</Card.Title>
                         <Card.Text>
                           <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>

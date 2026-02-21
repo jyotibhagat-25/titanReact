@@ -1,7 +1,7 @@
 .card-product{
        margin: auto;
        padding: 10px;
-
+       border: none;
 }
 .card-product img{
        width: 100%;

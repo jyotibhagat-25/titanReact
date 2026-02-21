@@ -21,7 +21,7 @@ const Cart = () => {
     if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
       console.log(currentUser.roles[0]);
 
-      navigate("/Cart");
+      navigate("/home");
     }
   }, [currentUser]);
 
@@ -93,7 +93,7 @@ const Cart = () => {
                   </tbody>
                 </Table>
                 <p>Total Amount</p>
-               <Link to={'/Address'}> <Button>next</Button></Link>
+               <Link to={'/Address'}> <Button>Next</Button></Link>
               </Col>
             </Row>
           </Container>
