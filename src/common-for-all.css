@@ -11,13 +11,13 @@
 .images {
        background: white;
        margin-bottom: 30px;
-       text-align: center;
+       text-align: left;
        overflow: auto;
        opacity: 0.9;
        border-radius: 15px;
        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
        position: relative;
-       border: none;
+       border:0;
 }
 
 .images:hover {

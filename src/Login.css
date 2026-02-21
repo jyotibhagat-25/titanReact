@@ -30,7 +30,8 @@
        overflow: hidden;
        margin-top: 75px;
        padding: 10px 20px;
-
+       border: none;
+       text-decoration: none;
 }
 
 .login-btn::before {

@@ -14,7 +14,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -71,42 +71,79 @@ const Dashboard = () => {
           <Row>
             <Col md={3} className='menu'>
               <Breadcrumb>
-                <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="/Home">Home</Breadcrumb.Item>
                 <Breadcrumb.Item href="#">
                   Dashboard
                 </Breadcrumb.Item>
 
               </Breadcrumb>
-              <Row>
-                <h6>Menu</h6>
-                <p>Dashboard</p>
-              </Row>
-              <Row>
-                <p>Analytics</p>
+              <div >
+                <Row>
+                  <h6>Menu</h6>
+                  <Link to={'/Dashboard'} className='link-area'><p>Dashboard</p></Link>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
+                  
 
-              </Row>
-              <Row>
-                <p>Sales</p>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <Link to={'/Men'} className='link-area'><p>Men</p></Link>
 
-              </Row>
-              <Row>
-                <h6>Management</h6>
-                <p>Products</p>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <Link to={'/Women'} className='link-area'><p>Women</p></Link>
+                  
 
-              </Row>
-              <Row>
-                <p>Customers</p>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <Link to={'/Smartwatch'} className='link-area'><p>Smartwatch</p></Link>
+                  
 
-              </Row>
-              <Row>
-                <h6>Notification</h6>
-                <p>Transaction</p>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <Link to={'/Gifting'} className='link-area'><p>Gifting</p></Link>
+                  
 
-              </Row>
-              <Row>
-                <p>Message</p>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <h6>Management</h6>
+                  <Link to={'/TestProduct'} className='link-area'><p>Products</p></Link>
 
-              </Row>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <Link to={'/AdminOrders'} className='link-area'><p>Total Products</p></Link>
+                  
+
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <h6>Notification</h6>
+                  <p>Transaction</p>
+
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <p>Message</p>
+
+                </Row>
+              </div>
 
             </Col>
 
