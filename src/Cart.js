@@ -18,11 +18,11 @@ const Cart = () => {
     if (currentUser) {
       console.log(currentUser);
     }
-    if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
-      console.log(currentUser.roles[0]);
+    // if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
+    //   console.log(currentUser.roles[0]);
 
-      navigate("/home");
-    }
+    //   navigate("/home");
+    // }
   }, [currentUser]);
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const Cart = () => {
     });
 
   }, []);
+  
   const [count, setCount] = useState(1);
   console.log(count);
 
@@ -41,12 +42,36 @@ const Cart = () => {
   const decrease = () => {
     setCount(count - 1);
   }
-  const handleDelete = () => {
-    console.log("delete button clicked");
+  // const handleDelete = () => {
+  //   console.log("delete button clicked");
     
 
 
-    };
+  //   };
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}/item/${id}`).then((response) => {
+      console.log(response.data);
+      console.log("successfully cart item deleted");
+      window.location.reload();
+
+
+    });
+  }
+
+  const quantityUpdate =(productId,newQuantity)=>{
+    console.log(productId)
+    console.log(newQuantity)
+    if(newQuantity<1) return;
+    axios.put(`http://localhost:8090/api/carts/user/${currentUser.id}/item/${productId}`,{quantity:newQuantity}).then((response) => {
+      console.log(response.data);
+      console.log("successfully cart item updated");
+      window.location.reload();
+
+
+    });
+
+  }
 
 
     return (
@@ -76,14 +101,16 @@ const Cart = () => {
                           return (
                             <tr key={index}>
                               <td>{index + 1}</td>
-                              <td>{cartItem.productDetails.productName}</td>
-                              <td><img src={`http://localhost:8090/upload/${cartItem.productDetails.images[0]}`} /></td>
+                              {/* <td>{cartItem.productDetails.productName}</td> */}
+                              {/* <td><img src={`http://localhost:8090/upload/${cartItem.productDetails.images[0]}`} /></td> */}
                               <td>{cartItem.price}</td>
                               <td>
-                                <button onClick={decrease}>-</button>&nbsp;{count}&nbsp;
-                                <button onClick={increase}>+</button>
+                                <button onClick={() => quantityUpdate(cartItem.productId, cartItem.quantity-1)} disabled={cartItem.quantity<=1}>-</button>&nbsp;{cartItem.quantity}&nbsp;
+                                <button onClick={() => quantityUpdate(cartItem.productId, cartItem.quantity+1)}>+</button>
                               </td>
-                              <td><button onClick={() => handleDelete()}><AiOutlineDelete /></button></td>
+                              <td>{cartItem.price*cartItem.quantity}</td>
+
+                              <td><button onClick={() => handleDelete(cartItem.productId)}><AiOutlineDelete /></button></td>
 
                             </tr>
                           )

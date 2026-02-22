@@ -27,8 +27,8 @@ const Category = () => {
       <section>
         <Container>
           <Row>
-            <Col>
-            <h1>{categoryName}</h1>
+            <Col className='category-name'>
+            <h2>{categoryName}</h2>
             </Col>
           </Row>
           <Row>

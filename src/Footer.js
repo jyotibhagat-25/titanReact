@@ -1,6 +1,12 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { FaRegHandPointRight } from "react-icons/fa";
+import { FaHandPointRight, FaRegHandPointRight } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaTwitterSquare } from "react-icons/fa";
+import { Link } from 'react-router';
+
+
 
 const Footer = () => {
   return (
@@ -66,7 +72,7 @@ const Footer = () => {
               </div>
             </Col>
             <Col md={4}>
-              <div>
+              <div className='footer-col'>
                 <h6>
                   |  Download Titan World App
                 </h6>
@@ -78,7 +84,12 @@ const Footer = () => {
               </div>
               <div className='follow-us'>
                 <h6>Follow Us With</h6>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw1803b970/images/footer/facebook.svg' /><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw3c0d8bc6/images/footer/instagram.svg' /><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw812cf34d/images/footer/Footer-Twitter_White%20%281%29.svg' /><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwd1278123/images/footer/youtube.svg' />
+                <div className='social-icons'>
+                  <Link><FaFacebook /></Link>
+                  <Link><FaInstagramSquare /></Link>
+                  <Link><FaTwitterSquare /></Link>
+                </div>
+                {/* <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw1803b970/images/footer/facebook.svg' /><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw3c0d8bc6/images/footer/instagram.svg' /><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw812cf34d/images/footer/Footer-Twitter_White%20%281%29.svg' /><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwd1278123/images/footer/youtube.svg' /> */}
               </div>
               <div className='footerpara'>
                 <p>
@@ -86,7 +97,7 @@ const Footer = () => {
                   Operating Hours: 10:00AM To 10:00PM Monday To Sunday
                 </p>
               </div>
-              
+
 
             </Col>
             <div className='lines'>
@@ -95,7 +106,7 @@ const Footer = () => {
           </Row>
         </Container>
       </section>
-      
+
     </div>
   )
 }

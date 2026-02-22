@@ -121,23 +121,32 @@ const Header = () => {
                         <Nav.Link as={Link} to={""}>
                           HOME
                         </Nav.Link>
-                        <Nav.Link as={Link} to={"/Men"}>
+                        <Nav.Link as={Link} to={'Category/Men'}>
                           MEN
                         </Nav.Link>
-                        <Nav.Link as={Link} to={"/Women"}>
+                        <Nav.Link as={Link} to={'Category/Women'}>
                           WOMEN
                         </Nav.Link>
-                        <Nav.Link as={Link} to={"/Smartwatch"}>
-                          SMART WATCHES
+                        <Nav.Link as={Link} to={'Category/Fastrack'}>
+                          FASTRACK
                         </Nav.Link>
-                        <Nav.Link as={Link} to={"/Gifting"}>
-                          GIFTING
+                        <Nav.Link as={Link} to={'Category/Titan'}>
+                          TITAN
                         </Nav.Link>
-                        <Nav.Link as={Link} to={"/Brand"}>
-                          INTERNATIONAL BRANND
+                        <Nav.Link as={Link} to={'Category/Raga'}>
+                          RAGA
+                        </Nav.Link>
+                        <Nav.Link as={Link} to={'Category/Police'}>
+                          POLICE
+                        </Nav.Link>
+                        <Nav.Link as={Link} to={'Category/Sonata'}>
+                          SONATA
+                        </Nav.Link>
+                        <Nav.Link as={Link} to={'Category/Ducati'}>
+                          DUCATI
                         </Nav.Link>
                         <Nav.Link as={Link} to={"/Service"}>
-                          WATCH SERVICES
+                          SERVICES
                         </Nav.Link>
 
                         <NavDropdown title="MORE" id="basic-nav-dropdown">

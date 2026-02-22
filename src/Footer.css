@@ -1,7 +1,9 @@
 .footersection{
-       background:black;
+       background:linear-gradient(135deg,#141e30,#243b55);
+       color:white;
        padding: 20px 0;
        text-align: center;
+       font-family: 'poppins',sans-serif;
 }
 .footersection h6{
        color: white;
@@ -18,43 +20,60 @@
        padding: 5px 0;
        margin: 15px;
        text-align: left;
-       background:black;
+       background:linear-gradient(135deg,#141e30,#243b55);
        transition: all 2s;
        
+}
+.footersection link li{
+       text-decoration: none;
 }
 .footersection li:hover{
        /* text-decoration: underline; */
        transform: translateX(10px);
 }
 .download{
-       background:black;
+       background:#223750;
        padding: 10px 0;
-       text-align: center;
+       text-align:left;
 }
 .download img{
        width: 40%;
-       padding: 10px 5px;
+       /* padding: 10px 5px; */
 }
 .follow-us{
-       background: black;
+       background:#223750;
        padding: 10px 0;
-       text-align: center;
+       text-align:left;
 }
-.follow-us img{
+/* .follow-us img{
        width: 18%;
        padding: 10px;
-}
+} */
 .footerpara{
-       background:black;
+       background:#223750;
        padding: 10px 0;
        text-align: center;
 }
 .footerpara p{
        color: white;
+       text-align:justify;
 }
 .lines{
        color: grey;
        /* background: linear-gradient(90deg,#38bdf8,#818cf8); */
 
 
+}
+
+.social-icons a{
+       display: inline-block;
+       margin-right: 15px;
+       color: white;
+       font-size: 18px;
+       transition: 0.3s;
+}
+
+.social-icons a:hover{
+       color: #ff9800;
+       transform: scale(1.2);
 }
