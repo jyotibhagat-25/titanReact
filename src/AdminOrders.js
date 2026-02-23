@@ -70,7 +70,7 @@ const AdminOrders = () => {
                             <td>{product.productName}</td>
                             <td>{product.productCategory}</td>
                             <td>{product.productDescription}</td>
-                            <td>{product.productPrice}</td>
+                            <td>₹{product.productPrice}</td>
                             <td><AiOutlineEdit /></td>
                             <td><button onClick={() => handleDelete(product.id)}><AiOutlineDelete /></button></td>
                           </tr>

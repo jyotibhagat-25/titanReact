@@ -145,11 +145,11 @@ const Address = () => {
             <div className='addressform'>
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>Name:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="name" />
                   {errors.name && touched.name ? (
                     <div>{errors.name}</div>
@@ -158,11 +158,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>Address Line1:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="addressLine1" />
                   {errors.addressLine1 && touched.addressLine1 ? (
                     <div>{errors.addressLine1}</div>
@@ -171,11 +171,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>Address Line2:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="addressLine2" />
                   {errors.addressLine2 && touched.addressLine2 ? (
                     <div>{errors.addressLine2}</div>
@@ -184,11 +184,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>City:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="city" />
                   {errors.city && touched.city ? (
                     <div>{errors.city}</div>
@@ -198,11 +198,11 @@ const Address = () => {
 
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>District:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="district" />
                   {errors.district && touched.district ? (
                     <div>{errors.district}</div>
@@ -211,11 +211,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>State:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="state" />
                   {errors.state && touched.state ? (
                     <div>{errors.state}</div>
@@ -225,11 +225,11 @@ const Address = () => {
 
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>Pin:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="pin" />
                   {errors.pin && touched.pin ? (
                     <div>{errors.pin}</div>
@@ -238,11 +238,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>Mobile:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="mobile" />
                   {errors.mobile && touched.mobile ? (
                     <div>{errors.mobile}</div>
@@ -252,11 +252,11 @@ const Address = () => {
 
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>Email:</label>
                 </Col>
 
-                <Col>
+                <Col md={6}>
                   <Field name="email" />
                   {errors.email && touched.email ? (
                     <div>{errors.email}</div>
@@ -265,7 +265,7 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col>
+                <Col md={6}>
                   <label>Addess type:</label>
                 </Col>
 

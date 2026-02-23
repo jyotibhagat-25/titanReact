@@ -74,13 +74,16 @@
        height: 100%;
        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
        transition: left 0.7s ease;
+       
 
 }
 .btn-order:hover::before {
        left: 100%;
 }
+
 .order-placed-form :link{
-       color: #5f3b2d !important;
+       /* color: #5f3b2d !important; */
        text-decoration: none;
+       /* background: red; */
 
 }

@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import "./Wishlist.css";
+// import "./Wishlist.css";
 // import { MdOutlineShoppingCart } from 'react-icons/md';
 
 const Wishlist = () => {
@@ -20,11 +20,11 @@ const Wishlist = () => {
     if (currentUser) {
       console.log(currentUser);
     }
-    //   THIS IS FOR ADMIN ONLY
+    //   THIS IS FOR ADMIN PAGE ONLY
     // if (currentUser && currentUser.roles[0] !== "ROLE_ADMIN") {
     //   console.log(currentUser.roles[0]);
 
-    //   navigate("/Wishlist");
+    //   navigate("/home");
     // }      
   }, [currentUser]);
 
@@ -49,12 +49,12 @@ const Wishlist = () => {
                     <Card style={{ width: '18rem' }}>
                       {/* <Card.Img variant="top" src={product.image} /> */}
                       <Card.Body>
-                        <Card.Title>{wishlistproduct.productId.productName}</Card.Title>
+                        {/* <Card.Title>{wishlistproduct.productId.productName}</Card.Title> */}
                         <Card.Text>
                           <p><img src={`http://localhost:8090/upload/${wishlistproduct.productId.images[0]}`} /></p>
-                          <p>{wishlistproduct.productId.productCategory}</p>
-                          <p>₹{wishlistproduct.productId.productPrice}</p>
-                          <p>{wishlistproduct.productId.productDescription}</p>
+                          {/* <p>{wishlistproduct.productId.productCategory}</p> */}
+                          {/* <p>₹{wishlistproduct.productId.productPrice}</p> */}
+                          {/* <p>{wishlistproduct.productId.productDescription}</p> */}
                         </Card.Text>
                        
                       </Card.Body>

@@ -108,3 +108,12 @@
        text-align: center;
        padding: 10px 0;
 }
+.cart-item{
+       background:white;
+       padding: 10px 0;
+       text-align: center;
+
+}
+.cart-item img{
+       width: 25%;
+}

@@ -78,7 +78,7 @@ const Cart = () => {
       <div>
         <section>
           <Container>
-            <Row>
+            <Row className='cart-item'>
               <Col>
                 <Table striped bordered hover>
                   <thead>
@@ -88,6 +88,7 @@ const Cart = () => {
                       <th>Product image</th>
                       <th>Product Price</th>
                       <th>Product Quantity</th>
+                      <th>Total Amount</th>
                       <th>Delete</th>
 
 
@@ -101,14 +102,14 @@ const Cart = () => {
                           return (
                             <tr key={index}>
                               <td>{index + 1}</td>
-                              {/* <td>{cartItem.productDetails.productName}</td> */}
-                              {/* <td><img src={`http://localhost:8090/upload/${cartItem.productDetails.images[0]}`} /></td> */}
-                              <td>{cartItem.price}</td>
+                              <td>{cartItem.productDetails.productName}</td>
+                              <td><img src={`http://localhost:8090/upload/${cartItem.productDetails.images[0]}`} /></td>
+                              <td>₹{cartItem.price}</td>
                               <td>
                                 <button onClick={() => quantityUpdate(cartItem.productId, cartItem.quantity-1)} disabled={cartItem.quantity<=1}>-</button>&nbsp;{cartItem.quantity}&nbsp;
                                 <button onClick={() => quantityUpdate(cartItem.productId, cartItem.quantity+1)}>+</button>
                               </td>
-                              <td>{cartItem.price*cartItem.quantity}</td>
+                              <td>₹{cartItem.price*cartItem.quantity}</td>
 
                               <td><button onClick={() => handleDelete(cartItem.productId)}><AiOutlineDelete /></button></td>
 
