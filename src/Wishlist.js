@@ -14,6 +14,9 @@ const Wishlist = () => {
 
   const [wishlistproducts, setWishlistProducts] = useState([]);
 
+  const [products, setProducts] = useState([]);
+
+
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
@@ -84,7 +87,7 @@ const Wishlist = () => {
 
                           </Col> */}
                           <Col md={12}>
-                            <Button type="submit" className='buttons' onClick={() => handleCart(wishlistproduct)}>Add To Cart</Button>
+                            <Button type="submit" className='buttons' onClick={() => handleCart(wishlistproducts)}>Add To Cart</Button>
                           </Col>
                         </Row>
 

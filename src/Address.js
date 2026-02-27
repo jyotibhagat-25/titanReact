@@ -85,12 +85,17 @@ const Address = () => {
     alert("submit button clicked");
   }
 
-  const handleAddress = () => {
+  const handleAddress = (formData) => {
+    formData.userId = currentUser.id;
+    console.log(formData)
+
     console.log("Submit button clicked")
     alert("submit button clicked");
-    axios.post("http://localhost:8090/api/addresses").then((response) => {
+    axios.post(`http://localhost:8090/api/addresses`, formData).then((response) => {
       console.log(response.data)
     })
+    window.location.reload();
+
   }
 
 
@@ -133,11 +138,7 @@ const Address = () => {
 
         validationSchema={SignupSchema}
 
-        onSubmit={values => {
-          values.userId = currentUser.id;
-          // same shape as initial values
-          console.log(values);
-        }}
+        onSubmit={handleAddress}
       >
 
         {({ errors, touched }) => (
@@ -285,7 +286,7 @@ const Address = () => {
 
               <Row >
                 <Col>
-                  <button type="submit"  className="btn btn-shine" onClick={() => handleSubmit()}>Submit</button>
+                  <button type="submit" className="btn btn-shine" onClick={() => handleSubmit()}>Submit</button>
                 </Col>
               </Row>
             </div>

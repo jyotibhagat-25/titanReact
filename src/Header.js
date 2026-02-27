@@ -36,6 +36,25 @@ const Header = () => {
     navigate('/login'); // Redirect to login page
     // window.location.reload();
   };
+
+  // const handleCart = (product) => {
+  //     console.log(product);
+  //     const data = {
+  //       userId: currentUser.id,
+  //       items: [{
+  //         productId: product.id,
+  //         quantity: 1,
+  //         price: product.productPrice
+  //       }]
+  //     }
+  //     axios.post(`http://localhost:8090/api/carts`, data).then((response) => {
+  //       console.log(response.data);
+  //       console.log("successfully Added");
+  //       window.location.reload();
+  
+  
+  //     });
+  //   }
   return (
     <div>
       <section className="offer">
