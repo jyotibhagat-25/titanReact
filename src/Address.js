@@ -6,7 +6,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Navigate, Link } from "react-router-dom";
-
+import Badge from 'react-bootstrap/Badge';
+import Stack from 'react-bootstrap/Stack';
 
 
 
@@ -107,14 +108,20 @@ const Address = () => {
 
     });
 
-
-
-
-
   }, []);
 
+  const handleChoosedaddress = (chooseData) => {
+    // chooseData.userId = currentUser.id;
+    console.log(chooseData)
 
+    console.log("order button clicked")
+    // alert("submit button clicked");
+    // axios.post(`http://localhost:8090/api/addresses`, formData).then((response) => {
+    //   console.log(response.data)
+    // })
+    // window.location.reload();
 
+  }
 
 
 
@@ -302,10 +309,10 @@ const Address = () => {
             <Col className='order-placed-form'>
               <Formik
                 validationSchema={AddressSchema}
-                onSubmit={handleAddress}
+                onSubmit={handleChoosedaddress}
                 // onSubmit={handleDelete}
                 initialValues={{
-                  addressId: '',
+                  addressId: ''
 
                 }}
               >
@@ -317,7 +324,7 @@ const Address = () => {
                       <Row>
 
                         <Col>
-                          <label>Choose Address</label>
+                          <label><b>Choose Address</b></label>
                         </Col>
                       </Row>
                       <Row>
@@ -332,7 +339,17 @@ const Address = () => {
                                       <Col>
                                         <label>
                                           <Field type="radio" name="addressId" value={address.id} className='addressform' />
-                                          <p>{address.addressLine1}</p>
+                                          {address.addressLine1}, {address.addressLine2}, {address.city}, {address.district}, {address.pin}
+
+                                          <Stack direction="horizontal">
+                                            <Badge pill bg="info">
+                                              {address.addressType}
+                                            </Badge>
+
+
+                                          </Stack>
+
+
                                           {/* <p>{address.addressLine2}</p> */}
                                         </label>
                                       </Col>
@@ -354,7 +371,7 @@ const Address = () => {
 
 
 
-                      <Button className="btn-order" ><Link to={'/Success_order_placed'} >Order</Link></Button>
+                      <Button className="btn-order" onClick={() => handleChoosedaddress()}>Order</Button>
                     </Form>
                   </div>
                 )}
