@@ -84,10 +84,10 @@ useEffect(() => {
                                                                <Form>
                                                                       <div className='loginform'>
                                                                              <Row>
-                                                                                    <Col>
+                                                                                    <Col md={6}>
                                                                                            <label>Mobile :- </label>
                                                                                     </Col>
-                                                                                    <Col>
+                                                                                    <Col md={6}>
                                                                                            <Field name="username" type="text" />
                                                                                            {errors.username && touched.username ? <div>{errors.username}</div> : null}
 
@@ -95,10 +95,10 @@ useEffect(() => {
                                                                              </Row>
 
                                                                              <Row>
-                                                                                    <Col>
+                                                                                    <Col md={6}>
                                                                                            <label>Password :- </label>
                                                                                     </Col>
-                                                                                    <Col>
+                                                                                    <Col md={6}>
                                                                                            <Field name="password" type="password" />
                                                                                            {errors.password && touched.password ? <div>{errors.password}</div> : null}
 
@@ -106,7 +106,7 @@ useEffect(() => {
                                                                              </Row>
                                                                              <Row>
 
-                                                                                    <Col>
+                                                                                    <Col md={12}>
                                                                                            <p>if not logged in then <a href='Register'>Register</a></p>
 
                                                                                            <button className="btn btn-shine">Login</button>

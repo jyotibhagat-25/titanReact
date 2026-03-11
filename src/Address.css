@@ -1,7 +1,8 @@
 .addressform {
 
        margin: 10px auto;
-       width: 40%;
+       width: 100%;
+       max-width: 650px;
        /* height: 360px; */
        padding: 40px 30px;
        border-radius: 20px;
@@ -43,11 +44,10 @@
        left: 100%;
 }
 .order-placed-form{
-
        margin: 10px auto;
        width: 40%;
        /* height: 360px; */
-       padding: 40px 30px;
+       padding: 10px 30px;
        border-radius: 20px;
        box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
        position: relative;

@@ -110,9 +110,9 @@ const Address = () => {
 
   }, []);
 
-  const handleChoosedaddress = (chooseData) => {
+  const handleaddress2 = (values) => {
     // chooseData.userId = currentUser.id;
-    console.log(chooseData)
+    console.log(values.addressId)
 
     console.log("order button clicked")
     // alert("submit button clicked");
@@ -153,11 +153,11 @@ const Address = () => {
             <div className='addressform'>
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>Name:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="name" />
                   {errors.name && touched.name ? (
                     <div>{errors.name}</div>
@@ -166,11 +166,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>Address Line1:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="addressLine1" />
                   {errors.addressLine1 && touched.addressLine1 ? (
                     <div>{errors.addressLine1}</div>
@@ -179,11 +179,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>Address Line2:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="addressLine2" />
                   {errors.addressLine2 && touched.addressLine2 ? (
                     <div>{errors.addressLine2}</div>
@@ -192,11 +192,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>City:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="city" />
                   {errors.city && touched.city ? (
                     <div>{errors.city}</div>
@@ -206,11 +206,11 @@ const Address = () => {
 
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>District:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="district" />
                   {errors.district && touched.district ? (
                     <div>{errors.district}</div>
@@ -219,11 +219,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>State:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="state" />
                   {errors.state && touched.state ? (
                     <div>{errors.state}</div>
@@ -233,11 +233,11 @@ const Address = () => {
 
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>Pin:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="pin" />
                   {errors.pin && touched.pin ? (
                     <div>{errors.pin}</div>
@@ -246,11 +246,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>Mobile:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="mobile" />
                   {errors.mobile && touched.mobile ? (
                     <div>{errors.mobile}</div>
@@ -260,11 +260,11 @@ const Address = () => {
 
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>Email:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <Field name="email" />
                   {errors.email && touched.email ? (
                     <div>{errors.email}</div>
@@ -273,11 +273,11 @@ const Address = () => {
               </Row>
 
               <Row>
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>Addess type:</label>
                 </Col>
 
-                <Col md={6}>
+                <Col xs={12} md={6}>
                   <label>
                     <Field type="radio" name="addressType" value="Home" />
                     Home
@@ -309,7 +309,7 @@ const Address = () => {
             <Col className='order-placed-form'>
               <Formik
                 validationSchema={AddressSchema}
-                onSubmit={handleChoosedaddress}
+                onSubmit={handleaddress2}
                 // onSubmit={handleDelete}
                 initialValues={{
                   addressId: ''
@@ -324,7 +324,7 @@ const Address = () => {
                       <Row>
 
                         <Col>
-                          <label><b>Choose Address</b></label>
+                          <label><h3>Choose Address</h3></label>
                         </Col>
                       </Row>
                       <Row>
@@ -338,7 +338,7 @@ const Address = () => {
                                     <Row>
                                       <Col>
                                         <label>
-                                          <Field type="radio" name="addressId" value={address.id} className='addressform' />
+                                          <Field type="radio" name="addressId" value={address.id} className='order-placed-form' />
                                           {address.addressLine1}, {address.addressLine2}, {address.city}, {address.district}, {address.pin}
 
                                           <Stack direction="horizontal">
@@ -371,7 +371,7 @@ const Address = () => {
 
 
 
-                      <Button className="btn-order" onClick={() => handleChoosedaddress()}>Order</Button>
+                      <Button className="btn-order" onClick={() => handleaddress2(values)}>Order</Button>
                     </Form>
                   </div>
                 )}
