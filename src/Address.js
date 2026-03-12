@@ -76,11 +76,7 @@ const Address = () => {
     if (currentUser) {
       console.log(currentUser);
     }
-    // if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
-    //   console.log(currentUser.roles[0]);
 
-    //   navigate("/Home");
-    // }
   }, [currentUser]);
 
   const handleSubmit = () => {
@@ -120,39 +116,26 @@ const Address = () => {
         return total + (product.quantity * product.productDetails.productPrice);
       }, 0);
       setSubTotal(subTotal)
+
     });
 
   }, [currentUser.id]);
 
   const handleaddress2 = (values) => {
-    // values.userId = currentUser.id;
+
     const data = {
       addressId: values.addressId,
-      subTotal: subTotal
+      subTotal: subTotal,
+      userId: currentUser.id,
+      productDetails: cartItems.items,  
+      paymentStatus: "Paid",          
+      orderStatus: "Placed"
     };
     console.log(data);
-    values.userId = currentUser.id;
-    console.log(values)
+    // console.log(values)
 
     console.log("order button clicked")
-    // alert("submit button clicked");
-    // axios.post(`http://localhost:8090/api/addresses`, formData).then((response) => {
-    //   console.log(response.data)
-    // })
-    // window.location.reload();
-
   }
-
-
-  const calculateTotal = () => {
-    console.log(cartItems)
-    if (!Array.isArray(cartItems.items)) return 0;
-    return cartItems.items.reduce((total, product) => {
-      return total + (product.quantity * product.productDetails.productPrice);
-    }, 0);
-  };
-
-
   return (
     <div className='text-center'>
       <h2>Address</h2>
@@ -362,60 +345,33 @@ const Address = () => {
                             addresses ?
                               addresses.map((address, index) => {
                                 return (
-                                  // <div>
-                                  //   <Row>
-                                  //     <Col>
-                                  //       <label>
-                                  //         <Field type="radio" name="addressId" value={address.id} className='order-placed-form' />
-
-                                  //           {address.addressLine1}, {address.addressLine2}, {address.city}, {address.district}, {address.pin}
-
-
-                                  //         <Stack direction="horizontal">
-                                  //           <Badge pill bg="info">
-                                  //             {address.addressType}
-                                  //           </Badge>
-
-
-                                  //         </Stack>
-
-
-                                  //         {/* <p>{address.addressLine2}</p> */}
-                                  //       </label>
-                                  //     </Col>
-
-
-                                  //   </Row>
-                                  // </div>
-
-
-
                                   <div>
                                     <Row>
                                       <Col>
-                                        <label className="d-flex align-items-center gap-2">
+                                        <label className='address-row'>
+                                          <Field type="radio" name="addressId" value={address.id} className='order-placed-form' />
 
-                                          <Field
-                                            type="radio"
-                                            name="addressId"
-                                            value={address.id}
-                                            className="order-placed-form"
-                                          />
-
-                                          <span>
+                                          <span className='address-text'>
                                             {address.addressLine1}, {address.addressLine2}, {address.city}, {address.district}, {address.pin}
                                           </span>
 
-                                          <Badge pill bg="info">
-                                            {address.addressType}
-                                          </Badge>
 
+                                          <Stack direction="horizontal">
+                                            <Badge pill bg="info" className='address-badge'>
+                                              {address.addressType}
+                                            </Badge>
+
+
+                                          </Stack>
+
+
+                                          {/* <p>{address.addressLine2}</p> */}
                                         </label>
                                       </Col>
+
+
                                     </Row>
                                   </div>
-
-
 
                                 )
                               }) : "no address available"
