@@ -70,6 +70,8 @@ const Address = () => {
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
   const [addresses, setAddresses] = useState([])
+  const [cartItems, setCartItems] = useState();
+  const [subTotal, setSubTotal] = useState(0);
   useEffect(() => {
     if (currentUser) {
       console.log(currentUser);
@@ -110,9 +112,27 @@ const Address = () => {
 
   }, []);
 
+  useEffect(() => {
+    axios.get(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
+      console.log(response.data);
+      setCartItems(response.data);
+      const subTotal = response.data.items.reduce((total, product) => {
+        return total + (product.quantity * product.productDetails.productPrice);
+      }, 0);
+      setSubTotal(subTotal)
+    });
+
+  }, [currentUser.id]);
+
   const handleaddress2 = (values) => {
-    // chooseData.userId = currentUser.id;
-    console.log(values.addressId)
+    // values.userId = currentUser.id;
+    const data = {
+      addressId: values.addressId,
+      subTotal: subTotal
+    };
+    console.log(data);
+    values.userId = currentUser.id;
+    console.log(values)
 
     console.log("order button clicked")
     // alert("submit button clicked");
@@ -123,6 +143,14 @@ const Address = () => {
 
   }
 
+
+  const calculateTotal = () => {
+    console.log(cartItems)
+    if (!Array.isArray(cartItems.items)) return 0;
+    return cartItems.items.reduce((total, product) => {
+      return total + (product.quantity * product.productDetails.productPrice);
+    }, 0);
+  };
 
 
   return (
@@ -334,27 +362,56 @@ const Address = () => {
                             addresses ?
                               addresses.map((address, index) => {
                                 return (
+                                  // <div>
+                                  //   <Row>
+                                  //     <Col>
+                                  //       <label>
+                                  //         <Field type="radio" name="addressId" value={address.id} className='order-placed-form' />
+
+                                  //           {address.addressLine1}, {address.addressLine2}, {address.city}, {address.district}, {address.pin}
+
+
+                                  //         <Stack direction="horizontal">
+                                  //           <Badge pill bg="info">
+                                  //             {address.addressType}
+                                  //           </Badge>
+
+
+                                  //         </Stack>
+
+
+                                  //         {/* <p>{address.addressLine2}</p> */}
+                                  //       </label>
+                                  //     </Col>
+
+
+                                  //   </Row>
+                                  // </div>
+
+
+
                                   <div>
                                     <Row>
                                       <Col>
-                                        <label>
-                                          <Field type="radio" name="addressId" value={address.id} className='order-placed-form' />
-                                          {address.addressLine1}, {address.addressLine2}, {address.city}, {address.district}, {address.pin}
+                                        <label className="d-flex align-items-center gap-2">
 
-                                          <Stack direction="horizontal">
-                                            <Badge pill bg="info">
-                                              {address.addressType}
-                                            </Badge>
+                                          <Field
+                                            type="radio"
+                                            name="addressId"
+                                            value={address.id}
+                                            className="order-placed-form"
+                                          />
 
+                                          <span>
+                                            {address.addressLine1}, {address.addressLine2}, {address.city}, {address.district}, {address.pin}
+                                          </span>
 
-                                          </Stack>
+                                          <Badge pill bg="info">
+                                            {address.addressType}
+                                          </Badge>
 
-
-                                          {/* <p>{address.addressLine2}</p> */}
                                         </label>
                                       </Col>
-
-
                                     </Row>
                                   </div>
 
