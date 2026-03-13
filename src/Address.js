@@ -79,6 +79,38 @@ const Address = () => {
 
   }, [currentUser]);
 
+  const handleaddress2 = (values) => {
+    const products=cartItems.items.map((item)=>({
+      productId:item.productId,
+      price:item.productDetails.productPrice,
+      quantity:item.quantity
+    }))
+    const data = {
+      addressId: values.addressId,
+      userId: currentUser.id,
+      products:products,
+      totalAmount: subTotal,  
+      status: "Processing"          
+      
+    };
+    axios.post("http://localhost:8090/api/ssorders", data).then((response) => {
+      console.log("successfull",response.data)
+
+    });
+    console.log(data);
+    // console.log(values)
+
+    console.log("order button clicked")
+  };  
+    
+axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
+      console.log(response.data);
+      console.log("successfully cartItem item deleted");
+      window.location.reload();
+
+
+    });
+
   const handleSubmit = () => {
     console.log("Submit button clicked")
     alert("submit button clicked");
@@ -121,21 +153,9 @@ const Address = () => {
 
   }, [currentUser.id]);
 
-  const handleaddress2 = (values) => {
+  
+  
 
-    const data = {
-      addressId: values.addressId,
-      subTotal: subTotal,
-      userId: currentUser.id,
-      productDetails: cartItems.items,  
-      paymentStatus: "Paid",          
-      orderStatus: "Placed"
-    };
-    console.log(data);
-    // console.log(values)
-
-    console.log("order button clicked")
-  }
   return (
     <div className='text-center'>
       <h2>Address</h2>
@@ -384,7 +404,9 @@ const Address = () => {
 
 
 
+                      <Link to="/Success_order_placed">
                       <Button className="btn-order" onClick={() => handleaddress2(values)}>Order</Button>
+                      </Link>
                     </Form>
                   </div>
                 )}
