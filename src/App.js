@@ -45,6 +45,7 @@ import TestProduct from './TestProduct';
 import AdminOrders from './AdminOrders';
 import UserOrders from './UserOrders';
 import Address from './Address';
+import CustomerDetails from './CustomerDetails';
 
 
 function App() {
@@ -98,6 +99,7 @@ function App() {
         <Route path='/AdminOrders' element={<AdminOrders/>}/>
         <Route path='/UserOrders' element={<UserOrders/>}/>
         <Route path='/Address' element={<Address/>}/>
+        <Route path='/CustomerDetails' element={<CustomerDetails/>}/>
 
       </Routes>
       {/* <Men></Men> */}

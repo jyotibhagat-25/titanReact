@@ -79,37 +79,37 @@ const Address = () => {
 
   }, [currentUser]);
 
-  const handleaddress2 = (values) => {
-    const products=cartItems.items.map((item)=>({
-      productId:item.productId,
-      price:item.productDetails.productPrice,
-      quantity:item.quantity
-    }))
+
+
+  const handleAddress2 = (values) => {
+
+    const products = cartItems.items.map((item) => ({
+      productId: item.productId,
+      price: item.productDetails.productPrice,
+      quantity: item.quantity
+    }));
+
     const data = {
       addressId: values.addressId,
       userId: currentUser.id,
-      products:products,
-      totalAmount: subTotal,  
-      status: "Processing"          
-      
+      products: products,
+      totalAmount: subTotal,
+      status: "Processing"
     };
-    axios.post("http://localhost:8090/api/ssorders", data).then((response) => {
-      console.log("successfull",response.data)
 
-    });
-    console.log(data);
-    // console.log(values)
+    axios.post("http://localhost:8090/api/ssorders", data)
+      .then((response) => {
 
-    console.log("order button clicked")
-  };  
-    
-axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
-      console.log(response.data);
-      console.log("successfully cartItem item deleted");
-      window.location.reload();
+        console.log("successfull", response.data);
 
+        axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`)
+          .then(() => {
+            console.log("Cart deleted");
+            navigate("/Success_order_placed");
+          });
 
-    });
+      });
+  };
 
   const handleSubmit = () => {
     console.log("Submit button clicked")
@@ -153,8 +153,8 @@ axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((res
 
   }, [currentUser.id]);
 
-  
-  
+
+
 
   return (
     <div className='text-center'>
@@ -305,7 +305,7 @@ axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((res
 
               <Row>
                 <Col xs={12} md={6}>
-                  <label>Addess type:</label>
+                  <label>Address type:</label>
                 </Col>
 
                 <Col xs={12} md={6}>
@@ -340,7 +340,7 @@ axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((res
             <Col className='order-placed-form'>
               <Formik
                 validationSchema={AddressSchema}
-                onSubmit={handleaddress2}
+                onSubmit={handleAddress2}
                 // onSubmit={handleDelete}
                 initialValues={{
                   addressId: ''
@@ -405,7 +405,7 @@ axios.delete(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((res
 
 
                       <Link to="/Success_order_placed">
-                      <Button className="btn-order" onClick={() => handleaddress2(values)}>Order</Button>
+                        <Button className="btn-order" onClick={() => handleAddress2(values)}>Order</Button>
                       </Link>
                     </Form>
                   </div>

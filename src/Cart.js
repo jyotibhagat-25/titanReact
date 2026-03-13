@@ -83,7 +83,7 @@ const Cart = () => {
       <section>
         <Container>
           <Row className='cart-item'>
-            <Col>
+            <Col md={12}>
               <Table striped bordered hover>
                 <thead>
                   <tr>
