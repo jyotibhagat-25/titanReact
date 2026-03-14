@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row, Breadcrumb } from 'react-bootstrap'
 import './Dashboard.css';
 import {
@@ -15,6 +15,7 @@ import { Bar } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router";
+import axios from 'axios';
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -64,6 +65,19 @@ const Dashboard = () => {
       navigate("/Home");
     }
   }, []);
+
+
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/ssorders/reports/daily").then((response) => {
+      console.log(response.data);
+      setOrders(response.data);
+      
+    });
+  }, []);
+
+
   return (
     <div>
       <section className='dashboard'>
@@ -86,7 +100,7 @@ const Dashboard = () => {
               <div>
                 <Row>
                   <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
-                  
+
 
                 </Row>
               </div>
@@ -99,21 +113,21 @@ const Dashboard = () => {
               <div>
                 <Row>
                   <Link to={'/Women'} className='link-area'><p>Women</p></Link>
-                  
+
 
                 </Row>
               </div>
               <div>
                 <Row>
                   <Link to={'/Smartwatch'} className='link-area'><p>Smartwatch</p></Link>
-                  
+
 
                 </Row>
               </div>
               <div>
                 <Row>
                   <Link to={'/Gifting'} className='link-area'><p>Gifting</p></Link>
-                  
+
 
                 </Row>
               </div>
@@ -127,7 +141,7 @@ const Dashboard = () => {
               <div>
                 <Row>
                   <Link to={'/AdminOrders'} className='link-area'><p>Total Orders</p></Link>
-                  
+
 
                 </Row>
               </div>
