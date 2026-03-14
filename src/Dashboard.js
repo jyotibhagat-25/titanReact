@@ -66,16 +66,81 @@ const Dashboard = () => {
     }
   }, []);
 
+  // Total SALES
 
-  const [orders, setOrders] = useState([]);
+  const [totalOrders, setTotalOrders] = useState(0);
+
 
   useEffect(() => {
-    axios.get("http://localhost:8090/api/ssorders/reports/daily").then((response) => {
-      console.log(response.data);
-      setOrders(response.data);
-      
-    });
-  }, []);
+
+    axios.get("http://localhost:8090/api/ssorders")
+      .then((response) => {
+        setTotalOrders(response.data.length);
+      })
+
+  }, [])
+
+  // TOTAL SALES
+
+  // const [totalSales, setTotalSales] = useState(0);
+
+  // const [reportSummary, setReportSummary] = useState();
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:8090/api/ssorders/reports/summary")
+  //     .then((response) => {
+  //       setReportSummary(response.data);
+  //     })
+  // }, []);
+
+  // useEffect(() => {
+
+  //   axios.get("http://localhost:8090/api/ssorders/reports/summary")
+  //     .then((response) => {
+  //       console.log(response.data)
+
+  //       const total = response.data.reduce((sum, item) => {
+  //         return sum + item.totalSales;
+  //       }, 0)
+
+  //       setTotalSales(total)
+
+  //     })
+
+  // }, [])
+
+  // DAILY SALES
+
+  const [dailySales, setDailySales] = useState(0);
+
+  // useEffect(() => {
+
+  //   axios.get("http://localhost:8090/api/ssorders/reports/daily")
+  //     .then((response) => {
+
+  //       const todaySales = response.data.reduce((sum, item) => {
+  //         return sum + item.totalSales;
+  //       }, 0)
+
+  //       setDailySales(todaySales)
+
+  //     })
+
+  // }, [])
+
+  //  TOP SELLING PRODUCTS
+
+  const [topProducts, setTopProducts] = useState([]);
+
+  useEffect(() => {
+
+    axios.get("http://localhost:8090/api/ssorders/top-selling-products")
+      .then((response) => {
+        setTopProducts(response.data)
+        console.log(response.data)
+      })
+
+  }, [])
 
 
   return (
@@ -165,27 +230,33 @@ const Dashboard = () => {
               <Row>
                 <Col className='box'>
                   <h6>
+                    Total Orders
+                  </h6>
+                  <p>{totalOrders}</p>
+                </Col>
+                <Col className='box'>
+                  <h6>
                     Total Sales
                   </h6>
-                  <p>$252m</p>
+                  {/* <p>{reportSummary}</p> */}
                 </Col>
                 <Col className='box'>
                   <h6>
-                    Daily Sales
+                    Top Selling Product
                   </h6>
-                  <p>$432k</p>
+                  {topProducts.map((product) => (
+                    <Col key={product.productDetails.productName}>
+                      <p>{product.productDetails.productName}</p>
+                      {/* <p>Sold: {product.totalSoled}</p> */}
+                    </Col>
+                  ))}
+
                 </Col>
                 <Col className='box'>
                   <h6>
-                    Total Quantity
+                    Daily sales
                   </h6>
-                  <p>499</p>
-                </Col>
-                <Col className='box'>
-                  <h6>
-                    Daily User
-                  </h6>
-                  <p>5048</p>
+                  <p>{dailySales}</p>
                 </Col>
               </Row>
               <Row>
