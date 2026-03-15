@@ -66,7 +66,7 @@ const Dashboard = () => {
     }
   }, []);
 
-  // Total SALES
+  //      Total SALES
 
   const [totalOrders, setTotalOrders] = useState(0);
 
@@ -75,73 +75,26 @@ const Dashboard = () => {
 
     axios.get("http://localhost:8090/api/ssorders")
       .then((response) => {
+        console.log(response.data)
         setTotalOrders(response.data.length);
       })
 
   }, [])
 
-  // TOTAL SALES
+  //         Daily sales
 
-  // const [totalSales, setTotalSales] = useState(0);
-
-  // const [reportSummary, setReportSummary] = useState();
-
-  // useEffect(() => {
-  //   axios.get("http://localhost:8090/api/ssorders/reports/summary")
-  //     .then((response) => {
-  //       setReportSummary(response.data);
-  //     })
-  // }, []);
-
-  // useEffect(() => {
-
-  //   axios.get("http://localhost:8090/api/ssorders/reports/summary")
-  //     .then((response) => {
-  //       console.log(response.data)
-
-  //       const total = response.data.reduce((sum, item) => {
-  //         return sum + item.totalSales;
-  //       }, 0)
-
-  //       setTotalSales(total)
-
-  //     })
-
-  // }, [])
-
-  // DAILY SALES
-
-  const [dailySales, setDailySales] = useState(0);
-
-  // useEffect(() => {
-
-  //   axios.get("http://localhost:8090/api/ssorders/reports/daily")
-  //     .then((response) => {
-
-  //       const todaySales = response.data.reduce((sum, item) => {
-  //         return sum + item.totalSales;
-  //       }, 0)
-
-  //       setDailySales(todaySales)
-
-  //     })
-
-  // }, [])
-
-  //  TOP SELLING PRODUCTS
-
-  const [topProducts, setTopProducts] = useState([]);
+  const [dailyReport, setDailyReport] = useState([]);
 
   useEffect(() => {
-
-    axios.get("http://localhost:8090/api/ssorders/top-selling-products")
-      .then((response) => {
-        setTopProducts(response.data)
-        console.log(response.data)
+    axios.get("http://localhost:8090/api/ssorders/reports/daily")
+      .then((res) => {
+        console.log(res.data);
+        setDailyReport(res.data);
       })
-
-  }, [])
-
+    // .catch((err) => {
+    //   console.log("Error:", err);
+    // });
+  }, []);
 
   return (
     <div>
@@ -238,25 +191,29 @@ const Dashboard = () => {
                   <h6>
                     Total Sales
                   </h6>
-                  {/* <p>{reportSummary}</p> */}
+                  <p></p>
                 </Col>
                 <Col className='box'>
                   <h6>
                     Top Selling Product
                   </h6>
-                  {topProducts.map((product) => (
-                    <Col key={product.productDetails.productName}>
-                      <p>{product.productDetails.productName}</p>
-                      {/* <p>Sold: {product.totalSoled}</p> */}
-                    </Col>
-                  ))}
+
 
                 </Col>
                 <Col className='box'>
                   <h6>
                     Daily sales
                   </h6>
-                  <p>{dailySales}</p>
+                  {/* {dailyReport.map((item, index) => (
+                    <div key={index}>
+                      <p>Date: {item.date}</p>
+                      <p>Total Orders: {item.totalOrders}</p>
+                      <p>Total Sales: {item.totalSales}</p>
+                    </div>
+                  ))} */}
+                  {/* {dailyReport.map((item, index) => (
+                    <p key={index}>{item.date} - {item.totalSales}</p>
+                  ))} */}
                 </Col>
               </Row>
               <Row>
