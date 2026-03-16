@@ -81,19 +81,48 @@ const Dashboard = () => {
 
   }, [])
 
+
+  //         Summary Report
+
+  const [summaryReport, setSummaryReport] = useState(null);
+
+
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/ssorders/reports/summary")
+      .then((res) => {
+        console.log(res.data);
+        setSummaryReport(res.data);
+      })
+    // .catch((err) => console.log(err));
+  }, []);
+
   //         Daily sales
 
-  const [dailyReport, setDailyReport] = useState([]);
+  const [dailyReports, setDailyReports] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssorders/reports/daily")
       .then((res) => {
         console.log(res.data);
-        setDailyReport(res.data);
+        setDailyReports(res.data);
       })
     // .catch((err) => {
-    //   console.log("Error:", err);
+    //   console.log(err);
     // });
+  }, []);
+
+
+  //        Chart Data
+
+  const [chartDataApi, setChartDataApi] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/ssorders/chartdata")
+      .then((res) => {
+        console.log("Chart Data:", res.data);
+        setChartDataApi(res.data);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -204,16 +233,10 @@ const Dashboard = () => {
                   <h6>
                     Daily sales
                   </h6>
-                  {/* {dailyReport.map((item, index) => (
-                    <div key={index}>
-                      <p>Date: {item.date}</p>
-                      <p>Total Orders: {item.totalOrders}</p>
-                      <p>Total Sales: {item.totalSales}</p>
-                    </div>
-                  ))} */}
-                  {/* {dailyReport.map((item, index) => (
-                    <p key={index}>{item.date} - {item.totalSales}</p>
-                  ))} */}
+                  <p>Date: {dailyReports?.date}</p>
+                  <p>Total Orders: {dailyReports?.totalOrders}</p>
+
+
                 </Col>
               </Row>
               <Row>
@@ -231,15 +254,25 @@ const Dashboard = () => {
               <Row>
                 <Col className='box'>
                   <h6>
-                    Income
+                    Summary Report
                   </h6>
-                  <p>$800m</p>
+                  {summaryReport ? (
+
+                    <p>Total Orders : {summaryReport.totalOrders}</p>
+
+                  ) : (
+                    <p>No Data</p>
+                  )}
                 </Col>
                 <Col className='box'>
                   <h6>
-                    Expenses
+                    Income
                   </h6>
-                  <p>$500m</p>
+                  {summaryReport ? (
+                    <p>{summaryReport.totalRevenue}</p>
+                  ) : (
+                    <p>No Data</p>
+                  )}
                 </Col>
                 <Col className='box'>
                   <h6>
