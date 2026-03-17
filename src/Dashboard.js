@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Row, Breadcrumb } from 'react-bootstrap'
+import { Col, Container, Row, Breadcrumb,Table } from 'react-bootstrap'
 import './Dashboard.css';
 import {
   Chart as ChartJS,
@@ -33,23 +33,12 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: 'Chart data',
     },
   },
 };
 
-const data = {
-  labels: ["January", "February", "March", "April", "May"],
-  datasets: [
-    {
-      label: "Sales",
-      data: [12000, 19000, 3000, 5000, 2000],
-      backgroundColor: "rgba(75, 192, 192, 0.5)",
-      borderColor: "rgba(75, 192, 192, 1)",
-      borderWidth: 1
-    }
-  ]
-};
+
 
 const Dashboard = () => {
   let navigate = useNavigate();
@@ -66,7 +55,7 @@ const Dashboard = () => {
     }
   }, []);
 
-  //      Total SALES
+  //      Total Orders
 
   const [totalOrders, setTotalOrders] = useState(0);
 
@@ -112,17 +101,33 @@ const Dashboard = () => {
   }, []);
 
 
+  //        Top Selling Products
+
+  const [topProducts, setTopProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8090/api/ssorders/top-selling-products")
+      .then((res) => {
+        console.log(res.data);
+        setTopProducts(res.data);
+      })
+    // .catch((err) => console.log(err));
+  }, []);
+
+
   //        Chart Data
 
-  const [chartDataApi, setChartDataApi] = useState([]);
+  const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssorders/chartdata")
-      .then((res) => {
-        console.log("Chart Data:", res.data);
-        setChartDataApi(res.data);
+      .then((response) => {
+        console.log(response.data);
+        setChartData(response.data);
       })
-      .catch((err) => console.log(err));
+      // .catch((error) => {
+      //   console.log(error);
+      // })
   }, []);
 
   return (
@@ -220,15 +225,17 @@ const Dashboard = () => {
                   <h6>
                     Total Sales
                   </h6>
-                  <p></p>
+                  <p>{ }</p>
                 </Col>
-                <Col className='box'>
+                {/* <Col className='box'>
                   <h6>
                     Top Selling Product
                   </h6>
+                  {topProducts.map((product, index) => (
+                    <p key={index}>{product.productDetails.productName}</p>
+                  ))}
 
-
-                </Col>
+                </Col> */}
                 <Col className='box'>
                   <h6>
                     Daily sales
@@ -240,7 +247,7 @@ const Dashboard = () => {
                 </Col>
               </Row>
               <Row>
-                <Col md={6}>
+                {/* <Col md={6}>
                   <Bar options={options} data={data} />
                 </Col>
                 <Col md={6}>
@@ -249,6 +256,40 @@ const Dashboard = () => {
                     data={data}
                   // {...props}
                   />
+                </Col> */}
+                <Col md={6}>
+
+                  <h4>Top Selling Products</h4>
+                  <div >
+
+
+
+                    <Table striped bordered hover>
+                      <thead>
+                        <tr>
+                          <th>Sl no.</th>
+                          <th>Product Name</th>
+                          <th>Total Sold</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        {topProducts.map((item, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{item.productDetails?.productName}</td>
+                            <td>{item.totalSold}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </div>
+                </Col>
+
+                <Col md={6}>
+                  {chartData && chartData.labels && (
+                    <Bar options={options} data={chartData} />
+                  )}
                 </Col>
               </Row>
               <Row>
@@ -278,14 +319,9 @@ const Dashboard = () => {
                   <h6>
                     Spendings
                   </h6>
-                  <p>247k</p>
+                  {/* <p>247k</p> */}
                 </Col>
-                <Col className='box'>
-                  <h6>
-                    Totals
-                  </h6>
-                  <p>990</p>
-                </Col>
+                
               </Row>
             </Col>
           </Row>
