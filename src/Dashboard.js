@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Row, Breadcrumb,Table } from 'react-bootstrap'
+import { Col, Container, Row, Breadcrumb, Table } from 'react-bootstrap'
 import './Dashboard.css';
 import {
   Chart as ChartJS,
@@ -38,7 +38,18 @@ export const options = {
   },
 };
 
-
+const data = {
+  labels: ["Raga", "Titan", "Fastrack", "Tommy Hilfiger", "poze"],
+  datasets: [
+    {
+      label: "Sales",
+      data: [12000, 19000, 3000, 5000, 2000],
+      backgroundColor: "rgba(75, 192, 192, 0.5)",
+      borderColor: "rgba(75, 192, 192, 1)",
+      borderWidth: 1
+    }
+  ]
+};
 
 const Dashboard = () => {
   let navigate = useNavigate();
@@ -116,18 +127,40 @@ const Dashboard = () => {
 
 
   //        Chart Data
-
+  const data = {
+    // labels: ["Raga", "Titan", "Fastrack", "Tommy Hilfiger", "poze"],
+    datasets: [
+      // {
+      //   label: "Sales",
+      //   data: [12000, 19000, 3000, 5000, 2000],
+      //   backgroundColor: "rgba(75, 192, 192, 0.5)",
+      //   borderColor: "rgba(75, 192, 192, 1)",
+      //   borderWidth: 1
+      // }
+      {
+        "label": "Order statistics",
+        "data": [
+          155152
+        ],
+        "backgroundColor": "rgba(75, 192, 192, 0.5)",
+        "borderColor": "rgba(75, 192, 192, 1)",
+        "borderWidth": 1
+      }
+    ]
+  };
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssorders/chartdata")
       .then((response) => {
         console.log(response.data);
-        setChartData(response.data);
+        setChartData({ label: response.data.data, data : response.data.label
+        
+         });
       })
-      // .catch((error) => {
-      //   console.log(error);
-      // })
+    // .catch((error) => {
+    //   console.log(error);
+    // })
   }, []);
 
   return (
@@ -247,7 +280,7 @@ const Dashboard = () => {
                 </Col>
               </Row>
               <Row>
-                {/* <Col md={6}>
+                <Col md={6}>
                   <Bar options={options} data={data} />
                 </Col>
                 <Col md={6}>
@@ -256,7 +289,7 @@ const Dashboard = () => {
                     data={data}
                   // {...props}
                   />
-                </Col> */}
+                </Col>
                 <Col md={6}>
 
                   <h4>Top Selling Products</h4>
@@ -288,7 +321,7 @@ const Dashboard = () => {
 
                 <Col md={6}>
                   {chartData && chartData.labels && (
-                    <Bar options={options} data={chartData} />
+                    <Bar options={options} data={data} />
                   )}
                 </Col>
               </Row>
@@ -321,7 +354,7 @@ const Dashboard = () => {
                   </h6>
                   {/* <p>247k</p> */}
                 </Col>
-                
+
               </Row>
             </Col>
           </Row>

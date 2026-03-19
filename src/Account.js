@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 import React, { useEffect } from "react";
 import { Container, Col, Row, ListGroup } from "react-bootstrap";
 import { Link } from 'react-router';
@@ -38,7 +38,7 @@ const Account = () => {
 
                                                  <ListGroup.Item as="li">
                                                         <Link to="/Address" className="text-decoration-none text-dark">
-                                                               Add Address
+                                                               Saved Address
                                                         </Link>
                                                  </ListGroup.Item>
                                                  {/* <ListGroup.Item as="li">
