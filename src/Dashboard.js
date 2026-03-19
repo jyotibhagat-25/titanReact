@@ -38,18 +38,18 @@ export const options = {
   },
 };
 
-const data = {
-  labels: ["Raga", "Titan", "Fastrack", "Tommy Hilfiger", "poze"],
-  datasets: [
-    {
-      label: "Sales",
-      data: [12000, 19000, 3000, 5000, 2000],
-      backgroundColor: "rgba(75, 192, 192, 0.5)",
-      borderColor: "rgba(75, 192, 192, 1)",
-      borderWidth: 1
-    }
-  ]
-};
+// const data = {
+//   labels: ["Raga", "Titan", "Fastrack", "Tommy Hilfiger", "poze"],
+//   datasets: [
+//     {
+//       label: "Sales",
+//       data: [12000, 19000, 3000, 5000, 2000],
+//       backgroundColor: "rgba(75, 192, 192, 0.5)",
+//       borderColor: "rgba(75, 192, 192, 1)",
+//       borderWidth: 1
+//     }
+//   ]
+// };
 
 const Dashboard = () => {
   let navigate = useNavigate();
@@ -154,9 +154,10 @@ const Dashboard = () => {
     axios.get("http://localhost:8090/api/ssorders/chartdata")
       .then((response) => {
         console.log(response.data);
-        setChartData({ label: response.data.data, data : response.data.label
-        
-         });
+        setChartData({
+          label: response.data.data, data: response.data.label
+
+        });
       })
     // .catch((error) => {
     //   console.log(error);
@@ -204,14 +205,14 @@ const Dashboard = () => {
               </div>
               <div>
                 <Row>
-                  <Link to={'/Smartwatch'} className='link-area'><p>Smartwatch</p></Link>
+                  <Link to={'/AddProduct'} className='link-area'><p>Add Product</p></Link>
 
 
                 </Row>
               </div>
               <div>
                 <Row>
-                  <Link to={'/Gifting'} className='link-area'><p>Gifting</p></Link>
+                  <Link to={'/AddCategory'} className='link-area'><p>Add Category</p></Link>
 
 
                 </Row>
@@ -227,6 +228,13 @@ const Dashboard = () => {
                 <Row>
                   <Link to={'/AdminOrders'} className='link-area'><p>Total Orders</p></Link>
 
+
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  
+                  <Link to={'/CustomerDetails'} className='link-area'><p>Customer Details</p></Link>
 
                 </Row>
               </div>
@@ -343,7 +351,7 @@ const Dashboard = () => {
                     Income
                   </h6>
                   {summaryReport ? (
-                    <p>{summaryReport.totalRevenue}</p>
+                    <p>Rs {summaryReport.totalRevenue}</p>
                   ) : (
                     <p>No Data</p>
                   )}

@@ -1,33 +1,130 @@
-import React from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap'
-import Alert from 'react-bootstrap/Alert';
-import { Link } from 'react-router';
+// import React from 'react'
+// import { Button, Col, Container, Row } from 'react-bootstrap'
+// import Alert from 'react-bootstrap/Alert';
+// import { Link } from 'react-router';
 
 
-const Success_order_placed = () => {
-       return (
-              <div>
-                     <section>
-                            <Container>
-                                   <Row>
-                                          <Col>
-                                                 <Alert variant="success">
-                                                        <Alert.Heading>order placed</Alert.Heading>
-                                                        <p>
-                                                               Order successfully placed
-                                                        </p>
-                                                        <hr />
-                                                        {/* <p className="mb-0">
-                                                               Continue Shopping
-                                                        </p> */}
-                                                        <Button className='btn btn-product'><Link to={'/Home'}>Continue Shopping</Link></Button>
-                                                 </Alert>
-                                          </Col>
-                                   </Row>
-                            </Container>
-                     </section>
-              </div>
-       )
-}
+// const Success_order_placed = () => {
+//        return (
+//               <div>
+//                      <section>
+//                             <Container>
+//                                    <Row>
+//                                           <Col>
+//                                                  <Alert variant="success">
+//                                                         <Alert.Heading>order placed</Alert.Heading>
+//                                                         <p>
+//                                                                Order successfully placed
+//                                                         </p>
+//                                                         <hr />
+//                                                         {/* <p className="mb-0">
+//                                                                Continue Shopping
+//                                                         </p> */}
+//                                                         <Button className='btn btn-product'><Link to={'/Home'}>Continue Shopping</Link></Button>
+//                                                  </Alert>
+//                                           </Col>
+//                                    </Row>
+//                             </Container>
+//                      </section>
+//               </div>
+//        )
+// }
 
-export default Success_order_placed
+// export default Success_order_placed
+
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import Toast from 'react-bootstrap/Toast';
+import { useNavigate } from "react-router-dom";
+import { FaCheckSquare } from "react-icons/fa";
+// import { FaGift } from "react-icons/fa";
+import { GiPartyPopper } from "react-icons/gi";
+
+
+const Order = () => {
+
+  const [show, setShow] = useState(true);
+  const navigate = useNavigate();
+
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+
+    axios.get("http://localhost:8090/api/ssorders")
+      .then((response) => {
+        console.log("API Response:", response.data);
+        setOrders(response.data);
+      })
+
+
+  }, []);
+
+
+  return (
+    <section style={{ marginTop: "40px" }}>
+      <Container>
+        <Row className="justify-content-center">
+          <Col md={6}>
+
+            <Card className="text-center p-4 shadow">
+
+              {/* <h2 style={{ color: "green" }}>✅ Order Placed Successfully</h2> */}
+              <h2 style={{ color: " green" }}>
+                <FaCheckSquare size={40} color="#58D68E" /> Order Placed Successfully
+              </h2>
+
+
+
+              <p>Your order has been confirmed.</p>
+
+
+
+              <Button
+                variant="primary"
+                onClick={() => navigate("/Home")}
+              >
+                Continue Shopping
+              </Button>
+
+            </Card>
+
+            {/* Toast Message */}
+            <Toast
+              show={show}
+              onClose={() => setShow(false)}
+              delay={3000}
+              autohide
+              style={{
+                position: "fixed",
+                top: "150px",
+                right: "160px",
+                left:"570px"
+              }}
+            >
+              <Toast.Header>
+                <strong className="me-auto">Order</strong>
+              </Toast.Header>
+              <Toast.Body>
+
+
+                {<p style={{ color: "green" }}>Orders placed successfully</p>}
+                
+                <div>
+                  <GiPartyPopper size={40} color="orange" />
+                  <GiPartyPopper size={40} color="red" />
+                  <GiPartyPopper size={40} color="purple" />
+                  <GiPartyPopper size={40} color="green" />
+                </div>
+              </Toast.Body>
+            </Toast>
+
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+};
+
+export default Order;

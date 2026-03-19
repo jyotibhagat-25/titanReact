@@ -124,7 +124,7 @@ const Cart = () => {
                   }
                 </tbody>
               </Table>
-              <p>Total Amount= &#8377;  {subTotal}</p>
+              <p><b>Total Amount =</b> &#8377;  {subTotal}</p>
               <Link to={'/Address'}> <Button>Next</Button></Link>
             </Col>
           </Row>

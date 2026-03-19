@@ -29,8 +29,7 @@ const Account = () => {
                                    <Col md={4}>
                                           <ListGroup className="float-list">
                                                  <ListGroup.Item as="li">Account</ListGroup.Item>
-                                                 <ListGroup.Item as="li">
-                                                        <Link to="/Cart" className="text-decoration-none text-dark">Cart</Link></ListGroup.Item>
+                                                 
                                                  <ListGroup.Item as="li">
                                                         <Link to="/Wishlist" className="text-decoration-none text-dark">
                                                                Wishlist
@@ -38,7 +37,7 @@ const Account = () => {
 
                                                  <ListGroup.Item as="li">
                                                         <Link to="/Address" className="text-decoration-none text-dark">
-                                                               Saved Address
+                                                               Add Address
                                                         </Link>
                                                  </ListGroup.Item>
                                                  {/* <ListGroup.Item as="li">
@@ -51,8 +50,8 @@ const Account = () => {
                                    </Col>
 
 
-                                   <Col md={8}>
-                                          <div >
+                                   <Col md={8} >
+                                          <div>
                                                  <h3>Account</h3>
                                                  {
                                                         currentUser ?
