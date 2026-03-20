@@ -283,6 +283,7 @@ const Dashboard = () => {
                   </h6>
                   <p>Date: {dailyReports?.date}</p>
                   <p>Total Orders: {dailyReports?.totalOrders}</p>
+                  <p>Total income : {dailyReports?.orders.product}</p>
 
 
                 </Col>

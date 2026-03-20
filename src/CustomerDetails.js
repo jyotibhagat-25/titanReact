@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import Accordion from 'react-bootstrap/Accordion';
+
 
 
 const CustomerDetails = () => {
@@ -30,6 +32,10 @@ const CustomerDetails = () => {
 
               });
        }, []);
+
+
+
+
        return (
               <div>
                      <section>
@@ -58,58 +64,34 @@ const CustomerDetails = () => {
                             <Container>
                                    <Row>
                                           <Col md={12}>
-                                                 <Table striped bordered hover>
-                                                        <thead>
-                                                               <tr>
-                                                                      <th>Sl</th>
-                                                                      <th>Product Id</th>
-                                                                      <th>Product Price</th>
-                                                                      
-                                                                      <th>Payment Status</th>
-                                                                      {/* <th>Product order Date</th> */}
+                                                 
+                                                 {
+                                                        orders.map((order, index) => {
+                                                               return (
+                                                                      <div>
+                                                                             <Accordion defaultActiveKey="0">
+                                                                                    <Accordion.Item eventKey="0">
+                                                                                           <Accordion.Header><b>order id : </b> {order.id} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Date :</b> {new Date(order.createdAt).toLocaleDateString()}</Accordion.Header>
+                                                                                           <Accordion.Body>
+                                                                                                  {
+                                                                                                         orders.map((order,index)=>{
+                                                                                                                return(
+                                                                                                                       <div>
+                                                                                                                              {/* <p>{order.products.quantity}</p> */}
+                                                                                                                              <p>price{order.products.productId}</p>
+                                                                                                                       </div>
+                                                                                                                )
+                                                                                                         })
+                                                                                                  }
+                                                                                           </Accordion.Body>
+                                                                                    </Accordion.Item>
+                                                                                    
+                                                                             </Accordion>
 
-
-                                                               </tr>
-                                                        </thead>
-                                                        <tbody>
-
-                                                               {/* {
-                                                                      orders ?
-                                                                             orders.map((order, index) => {
-                                                                                    return (
-                                                                                           <tr key={index}>
-                                                                                                  <td>{index + 1}</td>
-                                                                                                  <td>{order.products.productName}</td>
-                                                                                                  <td><img src={`http://localhost:8090/upload/${order.productDetails.images[0]}`} /></td>
-                                                                                                  <td>₹{order.products.status}</td>
-                                                                                                  
-                                                                                                  
-
-                                                                                           </tr>
-                                                                                    )
-                                                                             })
-                                                                             : "No items available"
-                                                               } */}
-
-                                                               {orders.map((order, index) => (
-                                                                      <tr key={index}>
-                                                                             <td>{index + 1}</td>
-                                                                             <td>{order.id}</td>
-                                                                             <td>₹{order.totalAmount}</td>
-                                                                             <td>{order.status}</td>
-                                                                             {/* <td>{new Date(order.createdAt).toLocaleDateString()}</td> */}
-                                                                      </tr>
-                                                               ))}
-
-                                                               {/* {orders.map((order, index) => (
-                                                                      <div key={index} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
-                                                                             <p><b>Order ID:</b> {order._id}</p>
-                                                                             <p><b>Total Amount:</b> {order.totalAmount}</p>
-                                                                             <p><b>Status:</b> {order.status}</p>
                                                                       </div>
-                                                               ))} */}
-                                                        </tbody>
-                                                 </Table>
+                                                               )
+                                                        })
+                                                 }
 
                                           </Col>
                                    </Row>
