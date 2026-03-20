@@ -7,6 +7,8 @@ import { IoMdHeartEmpty } from 'react-icons/io';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { MdDelete } from "react-icons/md";
+
 // import "./Wishlist.css";
 // import { MdOutlineShoppingCart } from 'react-icons/md';
 
@@ -33,12 +35,24 @@ const Wishlist = () => {
   }, [currentUser]);
 
   useEffect(() => {
-    axios.get(` http://localhost:8090/api/wishlist/user/${currentUser.id}`).then((response) => {
+    axios.get(`http://localhost:8090/api/wishlist/user/${currentUser.id}`).then((response) => {
       console.log(response.data);
       setWishlistProducts(response.data)
     });
 
   }, []);
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:8090/api/wishlist/${id}`).then((response) => {
+      console.log(response.data);
+      console.log("successfully deleted");
+      window.location.reload();
+
+
+    });
+  }
+
   const handleCart = (product) => {
     console.log(product);
     const data = {
@@ -86,8 +100,11 @@ const Wishlist = () => {
                             <Button type="submit" className='buttons'>Buy Now</Button>
 
                           </Col> */}
-                          <Col md={12}>
-                            <Button type="submit" className='buttons' onClick={() => handleCart(wishlistproducts)}>Add To Cart</Button>
+                          <Col md={8}>
+                            <Button type="submit" className='buttons' onClick={() => handleCart(wishlistproduct.productId)}>Add To Cart</Button>
+                          </Col>
+                          <Col md={4}>
+                            <Button type="submit" className='buttons' onClick={() => handleDelete(wishlistproduct._id)}><MdDelete /></Button>
                           </Col>
                         </Row>
 
