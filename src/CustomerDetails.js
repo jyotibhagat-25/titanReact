@@ -130,7 +130,7 @@ const CustomerDetails = () => {
                                                                                                                                                    <td>{product.quantity}</td>
                                                                                                                                                    <td>₹{product.price * product.quantity}</td>
 
-                                                                                                                                                   
+
 
                                                                                                                                             </tr>
                                                                                                                                      )

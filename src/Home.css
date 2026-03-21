@@ -210,12 +210,3 @@
   color: white;
 }
 
-.account{
-  padding: 10px 0;
-  background:#FDFAF5;
-  text-align: center;
-  color:black;
-} 
-.account :link{
-  color:#5F3B2D ;
-}

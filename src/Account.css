@@ -1,4 +1,4 @@
-.form {
+/* .form {
        margin: 10px auto;
        width: 40%;
        padding: 40px 30px;
@@ -8,4 +8,24 @@
        text-align: center;
        border: 5px solid rgb(244, 242, 242);
        
+} */
+
+.account-info{
+       padding:50px;
+       background:white;
+       text-align: center;
+       padding-bottom: 100px ;
+}
+.account{
+  padding: 10px 0;
+  background:#FDFAF5;
+  text-align: center;
+  color:black;
+} 
+.account :link{
+  color:#5F3B2D ;
+}
+.account-text h3{
+       text-align: center;
+       padding-bottom: 20px;
 }

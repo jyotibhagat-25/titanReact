@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row, Card, Button } from 'react-bootstrap'
 
 const UserOrders = () => {
-       const [products, setProducts] = useState();
+       const [products, setProducts] = useState([]);
        useEffect(() => {
               axios.get("http://localhost:8090/api/ssproducts").then((response) => {
                      console.log(response.data);
@@ -25,10 +25,12 @@ const UserOrders = () => {
                                                                              <Card.Body>
                                                                                     <Card.Title>{product.title}</Card.Title>
                                                                                     <Card.Text>
-                                                                                           <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
-                                                                                           <p>{product.productCategory}</p>
-                                                                                           <p>{product.productName}</p>
-                                                                                           <p>Rs{product.productPrice}</p>
+                                                                                           <div key={index}>
+                                                                                                  <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
+                                                                                                  <p>{product.productCategory}</p>
+                                                                                                  <p>{product.productName}</p>
+                                                                                                  <p>Rs{product.productPrice}</p>
+                                                                                           </div>
                                                                                     </Card.Text>
                                                                                     <Col md={5}>
 

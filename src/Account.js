@@ -4,6 +4,7 @@ import { Container, Col, Row, ListGroup } from "react-bootstrap";
 import { Link } from 'react-router';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import "./Account.css";
 
 const Account = () => {
        let navigate = useNavigate();
@@ -23,7 +24,7 @@ const Account = () => {
 
 
 
-              <section>
+              <section className='account-info'>
                      <Container>
                             <Row>
                                    <Col md={4}>
@@ -40,9 +41,9 @@ const Account = () => {
                                                                Add Address
                                                         </Link>
                                                  </ListGroup.Item>
-                                                 {/* <ListGroup.Item as="li">
-                                                        <Link to={'/UserOrders'}>UserOrders</Link>
-                                                 </ListGroup.Item> */}
+                                                 <ListGroup.Item as="li">
+                                                        <Link to="/CustomerDetails" className="text-decoration-none text-dark">Order Details</Link>
+                                                 </ListGroup.Item>
                                                  {/* <ListGroup.Item as="li">Cras justo odio</ListGroup.Item> */}
                                           </ListGroup>
 
@@ -51,7 +52,7 @@ const Account = () => {
 
 
                                    <Col md={8} >
-                                          <div>
+                                          <div className='account-text'>
                                                  <h3>Account</h3>
                                                  {
                                                         currentUser ?

@@ -87,10 +87,10 @@ const TestProduct = () => {
             {
               products.map((product, index) => {
                 return (
-                  // <img src={product.image}/>
+                  
                   <Col className='card-product'>
                     <Card style={{ width: '18rem' }}>
-                      {/* <Card.Img variant="top" src={product.image} /> */}
+                      
                       <Card.Body className='images'>
                         <Card.Title>{product.category}</Card.Title>
                         <Card.Text>

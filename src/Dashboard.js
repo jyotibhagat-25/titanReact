@@ -226,7 +226,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <Row>
-                  <Link to={'/AdminOrders'} className='link-area'><p>Total Orders</p></Link>
+                  <Link to={'/AdminOrders'} className='link-area'><p>Product Details</p></Link>
 
 
                 </Row>
