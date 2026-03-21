@@ -38,7 +38,7 @@ const CustomerDetails = () => {
 
        return (
               <div>
-                     <section>
+                     {/* <section>
                             <Container>
                                    <Row>
                                           <Col>
@@ -49,8 +49,8 @@ const CustomerDetails = () => {
                                                                       <div className="account">
                                                                              <p>Mobile : {currentUser.username}</p>
                                                                              <p>Email : {currentUser.email}</p>
-                                                                             {/* <p>Name : {currentUser.}</p> */}
-                                                                             {/* <p>{orders}</p> */}
+                                                                             
+                                                                            
                                                                       </div> : ""
                                                         }
 
@@ -59,33 +59,89 @@ const CustomerDetails = () => {
                                           </Col>
                                    </Row>
                             </Container>
-                     </section>
+                     </section> */}
                      <section>
                             <Container>
                                    <Row>
                                           <Col md={12}>
-                                                 
+
                                                  {
                                                         orders.map((order, index) => {
                                                                return (
-                                                                      <div>
+                                                                      <div key={index}>
                                                                              <Accordion defaultActiveKey="0">
                                                                                     <Accordion.Item eventKey="0">
                                                                                            <Accordion.Header><b>order id : </b> {order.id} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Date :</b> {new Date(order.createdAt).toLocaleDateString()}</Accordion.Header>
                                                                                            <Accordion.Body>
-                                                                                                  {
+                                                                                                  {/* {
                                                                                                          orders.map((order,index)=>{
                                                                                                                 return(
                                                                                                                        <div>
-                                                                                                                              {/* <p>{order.products.quantity}</p> */}
-                                                                                                                              <p>price{order.products.productId}</p>
+                                                                                                                              
+                                                                                                                              {
+                                                                                                                                     order.products ?
+                                                                                                                                            order.products.map((product, index)=>{
+                                                                                                                                                   return(
+                                                                                                                                                  <div key={index}>
+                                                                                                                                                   <p>{product.productId}</p>
+                                                                                                                                                   <p>{product.price}</p>
+                                                                                                                                                   <p>{product.quantity}</p>
+                                                                                                                                                   <p>{product.price * product.quantity}</p>
+                                                                                                                                                  </div>
+                                                                                                                                                  
+                                                                                                                                            )
+                                                                                                                                            
+                                                                                                                                            }
+                                                                                                                                            
+                                                                                                                                            )
+                                                                                                                                     :
+
+                                                                                                                                     "Something wrong"
+
+                                                                                                                              }
                                                                                                                        </div>
                                                                                                                 )
                                                                                                          })
-                                                                                                  }
+                                                                                                  } */}
+
+                                                                                                  <Table striped bordered hover>
+                                                                                                         <thead>
+                                                                                                                <tr>
+                                                                                                                       <th>Sl</th>
+                                                                                                                       <th>Product Id</th>
+                                                                                                                       <th>Product Price</th>
+                                                                                                                       <th>Product Quantity</th>
+                                                                                                                       <th>Total Amount</th>
+
+
+                                                                                                                </tr>
+                                                                                                         </thead>
+                                                                                                         <tbody>
+
+                                                                                                                {
+                                                                                                                       order.products ?
+                                                                                                                              order.products.map((product, index) => {
+                                                                                                                                     return (
+                                                                                                                                            <tr key={index}>
+                                                                                                                                                   <td>{index + 1}</td>
+                                                                                                                                                   <td>{product.productId}</td>
+                                                                                                                                                   {/* <td><img src={`http://localhost:8090/upload/${cartItem.productDetails.images[0]}`} /></td> */}
+                                                                                                                                                   <td>₹{product.price}</td>
+                                                                                                                                                   <td>{product.quantity}</td>
+                                                                                                                                                   <td>₹{product.price * product.quantity}</td>
+
+                                                                                                                                                   
+
+                                                                                                                                            </tr>
+                                                                                                                                     )
+                                                                                                                              })
+                                                                                                                              : "No items available"
+                                                                                                                }
+                                                                                                         </tbody>
+                                                                                                  </Table>
                                                                                            </Accordion.Body>
                                                                                     </Accordion.Item>
-                                                                                    
+
                                                                              </Accordion>
 
                                                                       </div>

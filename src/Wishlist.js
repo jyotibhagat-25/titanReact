@@ -104,7 +104,7 @@ const Wishlist = () => {
                             <Button type="submit" className='buttons' onClick={() => handleCart(wishlistproduct.productId)}>Add To Cart</Button>
                           </Col>
                           <Col md={4}>
-                            <Button type="submit" className='buttons' onClick={() => handleDelete(wishlistproduct._id)}><MdDelete /></Button>
+                            <Button type="submit" className='icon-btn-wishlist' onClick={() => handleDelete(wishlistproduct._id)}><MdDelete /></Button>
                           </Col>
                         </Row>
 
