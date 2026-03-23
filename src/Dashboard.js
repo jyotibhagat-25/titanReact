@@ -237,6 +237,11 @@ const Dashboard = () => {
                   <Link to={'/CustomerDetails'} className='link-area'><p>Customer Details</p></Link>
 
                 </Row>
+                <Row>
+                  
+                  <Link to={'/UserOrders'} className='link-area'><p>User Orders Details</p></Link>
+
+                </Row>
               </div>
               <div>
                 <Row>

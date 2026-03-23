@@ -38,28 +38,7 @@ const CustomerDetails = () => {
 
        return (
               <div>
-                     {/* <section>
-                            <Container>
-                                   <Row>
-                                          <Col>
-                                                 <div >
-                                                        <h3>Details</h3>
-                                                        {
-                                                               currentUser ?
-                                                                      <div className="account">
-                                                                             <p>Mobile : {currentUser.username}</p>
-                                                                             <p>Email : {currentUser.email}</p>
-                                                                             
-                                                                            
-                                                                      </div> : ""
-                                                        }
-
-
-                                                 </div>
-                                          </Col>
-                                   </Row>
-                            </Container>
-                     </section> */}
+                     
                      <section>
                             <Container>
                                    <Row>
