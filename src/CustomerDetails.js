@@ -26,12 +26,12 @@ const CustomerDetails = () => {
        const [orders, setOrders] = useState([]);
 
        useEffect(() => {
-              axios.get("http://localhost:8090/api/ssorders/user/6959eeffaa95aa7abaf6035a").then((response) => {
+              axios.get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`).then((response) => {
                      console.log("Success", response.data);
                      setOrders(response.data);
 
               });
-       }, []);
+       }, [currentUser.id]);
 
 
 
