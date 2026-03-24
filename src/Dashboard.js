@@ -53,7 +53,7 @@ export const options = {
 
 const Dashboard = () => {
   let navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
   useEffect(() => {
     if (currentUser) {
@@ -90,7 +90,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssorders/reports/summary")
       .then((res) => {
-        console.log(res.data);
+        console.log("summary report data", res.data);
         setSummaryReport(res.data);
       })
     // .catch((err) => console.log(err));
@@ -103,7 +103,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssorders/reports/daily")
       .then((res) => {
-        console.log(res.data);
+        console.log("daily reports", res.data);
         setDailyReports(res.data);
       })
     // .catch((err) => {
@@ -119,7 +119,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssorders/top-selling-products")
       .then((res) => {
-        console.log(res.data);
+        console.log("top products data", res.data);
         setTopProducts(res.data);
       })
     // .catch((err) => console.log(err));
@@ -153,7 +153,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssorders/chartdata")
       .then((response) => {
-        console.log(response.data);
+        console.log("chart data", response.data);
         setChartData({
           label: response.data.data, data: response.data.label
 
@@ -233,12 +233,12 @@ const Dashboard = () => {
               </div>
               <div>
                 <Row>
-                  
+
                   <Link to={'/CustomerDetails'} className='link-area'><p>Customer Details</p></Link>
 
                 </Row>
                 <Row>
-                  
+
                   <Link to={'/UserOrders'} className='link-area'><p>User Orders Details</p></Link>
 
                 </Row>
