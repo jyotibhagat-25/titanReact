@@ -68,18 +68,20 @@ const Dashboard = () => {
 
   //      Total Orders
 
-  const [totalOrders, setTotalOrders] = useState(0);
 
 
-  useEffect(() => {
+  // const [totalOrders, setTotalOrders] = useState(0);
 
-    axios.get("http://localhost:8090/api/ssorders")
-      .then((response) => {
-        console.log(response.data)
-        setTotalOrders(response.data.length);
-      })
 
-  }, [])
+  // useEffect(() => {
+
+  //   axios.get("http://localhost:8090/api/ssorders")
+  //     .then((response) => {
+  //       console.log(response.data)
+  //       setTotalOrders(response.data.length);
+  //     })
+
+  // }, [])
 
 
   //         Summary Report
@@ -265,7 +267,7 @@ const Dashboard = () => {
                   <h6>
                     Total Orders
                   </h6>
-                  <p>{totalOrders}</p>
+                  {/* <p>{totalOrders}</p> */}
                 </Col>
                 <Col className='box'>
                   <h6>
@@ -288,7 +290,7 @@ const Dashboard = () => {
                   </h6>
                   <p>Date: {dailyReports?.date}</p>
                   <p>Total Orders: {dailyReports?.totalOrders}</p>
-                  <p>Total income : {dailyReports?.orders.product}</p>
+                  {/* <p>Total income : {dailyReports?.orders.product}</p> */}
 
 
                 </Col>

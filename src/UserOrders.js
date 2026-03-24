@@ -28,6 +28,16 @@ const UserOrders = () => {
 
               });
        }, []);
+
+       const [status, setStatus] = useState([]);
+
+       useEffect(() => {
+              axios.put(`http://localhost:8090/api/ssorders/69ba1bcbf1fa622511298ff4/status`).then((response) => {
+                     console.log("Success", response.data);
+                     setStatus(response.data);
+
+              });
+       }, []);
        return (
               <div>
                      <section>
@@ -40,7 +50,7 @@ const UserOrders = () => {
                                                                return (
                                                                       <div key={index}>
 
-                                                                             
+
 
                                                                              <Table striped bordered hover>
                                                                                     <thead>

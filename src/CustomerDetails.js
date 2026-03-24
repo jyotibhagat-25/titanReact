@@ -91,6 +91,7 @@ const CustomerDetails = () => {
                                                                                                                        <th>Product Price</th>
                                                                                                                        <th>Product Quantity</th>
                                                                                                                        <th>Total Amount</th>
+                                                                                                                       <th></th>
 
 
                                                                                                                 </tr>
