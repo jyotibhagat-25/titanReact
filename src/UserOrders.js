@@ -23,21 +23,24 @@ const UserOrders = () => {
 
        useEffect(() => {
               axios.get("http://localhost:8090/api/ssorders").then((response) => {
-                     console.log("Success", response.data);
+                     console.log("order", response.data);
                      setOrders(response.data);
 
               });
        }, []);
 
+       // Order Status
+
        const [status, setStatus] = useState([]);
 
        useEffect(() => {
-              axios.put(`http://localhost:8090/api/ssorders/69ba1bcbf1fa622511298ff4/status`).then((response) => {
-                     console.log("Success", response.data);
+              axios.put(`http://localhost:8090/api/ssorders/69b38d7899a9d581afe578d2/status`).then((response) => {
+                     console.log("Status Success", response.data);
                      setStatus(response.data);
 
               });
        }, []);
+
        return (
               <div>
                      <section>
@@ -82,8 +85,7 @@ const UserOrders = () => {
                                                                                                                               <td>{product.productDescription}</td>
                                                                                                                               <td>₹{product.productPrice}</td>
                                                                                                                               <td>{order.status}</td>
-                                                                                                                              {/* <td><AiOutlineEdit /></td> */}
-                                                                                                                              {/* <td><button onClick={() => handleDelete(product.id)}><AiOutlineDelete /></button></td> */}
+                                                                                                                              
                                                                                                                        </tr>
                                                                                                                 )
                                                                                                          })

@@ -44,7 +44,9 @@ const Account = () => {
                                                  <ListGroup.Item as="li">
                                                         <Link to="/CustomerDetails" className="text-decoration-none text-dark">Order Details</Link>
                                                  </ListGroup.Item>
-                                                 {/* <ListGroup.Item as="li">Cras justo odio</ListGroup.Item> */}
+                                                 <ListGroup.Item as="li">
+                                                        <Link to="/OrderStatus" className="text-decoration-none text-dark">Order Status</Link>
+                                                 </ListGroup.Item>
                                           </ListGroup>
 
 

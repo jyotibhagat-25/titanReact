@@ -46,6 +46,7 @@ import AdminOrders from './AdminOrders';
 import UserOrders from './UserOrders';
 import Address from './Address';
 import CustomerDetails from './CustomerDetails';
+import OrderStatus from './OrderStatus';
 
 
 function App() {
@@ -100,6 +101,7 @@ function App() {
         <Route path='/UserOrders' element={<UserOrders/>}/>
         <Route path='/Address' element={<Address/>}/>
         <Route path='/CustomerDetails' element={<CustomerDetails/>}/>
+        <Route path='/OrderStatus' element={<OrderStatus/>}/>
 
       </Routes>
       {/* <Men></Men> */}
