@@ -1,17 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import "./CustomerDetails.css"
 import {
        MDBBtn,
        MDBCard,
        MDBCardBody,
-       MDBCardFooter,
-       MDBCardHeader,
-       MDBCardImage,
        MDBCol,
        MDBContainer,
        MDBIcon,
        MDBRow,
-       MDBTypography,
 } from "mdb-react-ui-kit";
 
 const OrderStatus = () => {
@@ -29,12 +26,12 @@ const OrderStatus = () => {
        // }, []);
        // Order Status
 
-       const [status, setStatus] = useState([]);
+       const [track, setTrack] = useState([]);
 
        useEffect(() => {
               axios.put(`http://localhost:8090/api/ssorders/69b38d7899a9d581afe578d2/status`).then((response) => {
                      console.log("Status Success", response.data);
-                     setStatus(response.data);
+                     setTrack(response.data);
 
               });
        }, []);
