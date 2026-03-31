@@ -70,18 +70,18 @@ const Dashboard = () => {
 
 
 
-  // const [totalOrders, setTotalOrders] = useState(0);
+  const [totalOrders, setTotalOrders] = useState(0);
 
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   axios.get("http://localhost:8090/api/ssorders")
-  //     .then((response) => {
-  //       console.log(response.data)
-  //       setTotalOrders(response.data.length);
-  //     })
+    axios.get("http://localhost:8090/api/ssorders")
+      .then((response) => {
+        console.log(response.data)
+        setTotalOrders(response.data.length);
+      })
 
-  // }, [])
+  }, [])
 
 
   //         Summary Report
@@ -267,7 +267,7 @@ const Dashboard = () => {
                   <h6>
                     Total Orders
                   </h6>
-                  {/* <p>{totalOrders}</p> */}
+                  <p>{totalOrders}</p>
                 </Col>
                 <Col className='box'>
                   <h6>

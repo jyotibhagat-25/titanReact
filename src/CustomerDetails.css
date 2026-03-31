@@ -26,9 +26,9 @@
   display: inline-block;
 }
 
-.big-dot i {
-  font-size: 12px;
-}
+/* .big-dot i {
+  font-size: 40px;
+} */
 
 .card-stepper {
   z-index: 0
