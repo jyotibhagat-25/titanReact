@@ -210,6 +210,195 @@
 
 
 
+// import React, { useEffect, useState } from 'react'
+// import { Container, Col, Row } from "react-bootstrap";
+// import { useSelector } from "react-redux";
+// import { useNavigate } from "react-router";
+// import axios from 'axios';
+// import Table from 'react-bootstrap/Table';
+// import Accordion from 'react-bootstrap/Accordion';
+// import {
+//        MDBBtn,
+//        MDBCard,
+//        MDBCardBody,
+//        MDBCol,
+//        MDBContainer,
+//        MDBIcon,
+//        MDBRow,
+// } from "mdb-react-ui-kit";
+
+// const CustomerDetails = () => {
+
+//        let navigate = useNavigate();
+//        const { user: currentUser } = useSelector((state) => state.auth);
+
+//        //  Auth check
+//        useEffect(() => {
+//               if (!currentUser) {
+//                      navigate("/Login");
+//               }
+//        }, [currentUser]);
+
+//        //  Fetch orders safely
+//        const [orders, setOrders] = useState([]);
+
+//        useEffect(() => {
+//               axios.get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`).then((response) => {
+//                      console.log("Success", response.data);
+//                      setOrders(response.data);
+
+//               });
+//        }, [currentUser.id]);
+
+//        //    Status
+
+
+//        // const [status, setStatus] = useState([]);
+
+//        // useEffect(() => {
+//        //        axios.put(`http://localhost:8090/api/ssorders/69b38d7899a9d581afe578d2/status`).then((response) => {
+//        //               console.log("Status Success", response.data);
+//        //               setStatus(response.data);
+
+//        //        });
+//        // }, []);
+
+//        //  Step logic
+//        const getStep = (status) => {
+//               const s = status?.toLowerCase(); // ✅ normalize
+
+//               if (s === "orders" || s === "placed") return 1;
+//               if (s === "shipped") return 2;
+//               if (s === "out for delivery" || s === "out for delivery") return 3;
+//               if (s === "delivered") return 4;
+
+//               return 1; // default
+//        };
+
+//        return (
+//               <Container>
+//                      <Row>
+//                             <Col md={12}>
+
+//                                    {
+//                                           orders.map((order, index) => {
+
+//                                                  const step = getStep(order.status); // ✅ correct place
+
+//                                                  return (
+//                                                         <Accordion key={index} defaultActiveKey="0">
+//                                                                <Accordion.Item eventKey="0">
+
+//                                                                       {/* ✅ HEADER */}
+//                                                                       <Accordion.Header>
+//                                                                              <b>Order ID:</b> {order.id}
+//                                                                              &nbsp;&nbsp;&nbsp;
+//                                                                              <b>Date:</b> {new Date(order.createdAt).toLocaleDateString()}
+//                                                                       </Accordion.Header>
+
+//                                                                       <Accordion.Body>
+
+//                                                                              {/* ✅ TABLE FIRST */}
+//                                                                              <Table striped bordered hover>
+//                                                                                     <thead>
+//                                                                                            <tr>
+//                                                                                                   <th>Sl</th>
+//                                                                                                   <th>Product Name</th>
+//                                                                                                   <th>Price</th>
+//                                                                                                   <th>Quantity</th>
+//                                                                                                   <th>Total</th>
+//                                                                                                   <th>Status</th>
+//                                                                                            </tr>
+//                                                                                     </thead>
+
+//                                                                                     <tbody>
+//                                                                                            {
+//                                                                                                   order.products?.length > 0 ? (
+//                                                                                                          order.products.map((product, i) => (
+//                                                                                                                 <tr key={i}>
+//                                                                                                                        <td>{i + 1}</td>
+//                                                                                                                        <td>{product.productId._id}</td>
+//                                                                                                                        <td>₹{product.price}</td>
+//                                                                                                                        <td>{product.quantity}</td>
+//                                                                                                                        <td>₹{product.price * product.quantity}</td>
+//                                                                                                                        <td>{order.status}</td>
+//                                                                                                                 </tr>
+//                                                                                                          ))
+//                                                                                                   ) : (
+//                                                                                                          <tr>
+//                                                                                                                 <td colSpan="5">No items available</td>
+//                                                                                                          </tr>
+//                                                                                                   )
+//                                                                                            }
+//                                                                                     </tbody>
+//                                                                              </Table>
+
+//                                                                              {/* ORDER STATUS */}
+//                                                                              <MDBContainer className="py-4">
+//                                                                                     <MDBRow>
+//                                                                                            <MDBCol>
+
+//                                                                                                   <MDBCard style={{ borderRadius: "10px" }}>
+//                                                                                                          <MDBCardBody>
+
+//                                                                                                                 <div className="d-flex justify-content-between">
+//                                                                                                                        <h5>Order Status</h5>
+//                                                                                                                        <MDBBtn outline size="sm">Track</MDBBtn>
+//                                                                                                                 </div>
+
+//                                                                                                                 <hr />
+
+//                                                                                                                 {/* ✅ STEP TRACKER */}
+//                                                                                                                 <div className="d-flex align-items-center">
+
+//                                                                                                                        <span className={step >= 1 ? "big-dot" : "dot"}></span>
+//                                                                                                                        <hr className="flex-fill track-line" />
+
+//                                                                                                                        <span className={step >= 2 ? "big-dot" : "dot"}></span>
+//                                                                                                                        <hr className="flex-fill track-line" />
+
+//                                                                                                                        <span className={step >= 3 ? "big-dot" : "dot"}></span>
+//                                                                                                                        <hr className="flex-fill track-line" />
+
+
+
+//                                                                                                                        <span className={step >= 4 ? "big-dot" : "dot"}>
+//                                                                                                                               {step === 5 && <MDBIcon icon="check text-white" />}
+//                                                                                                                        </span>
+
+//                                                                                                                 </div>
+
+//                                                                                                                 {/* ✅ LABELS */}
+//                                                                                                                 <div className="d-flex justify-content-between mt-3 small">
+//                                                                                                                        <span>Ordered</span>
+//                                                                                                                        <span>Shipped</span>
+//                                                                                                                        <span>Out for Delivery</span>
+//                                                                                                                        <span>Delivered</span>
+//                                                                                                                 </div>
+
+//                                                                                                          </MDBCardBody>
+//                                                                                                   </MDBCard>
+
+//                                                                                            </MDBCol>
+//                                                                                     </MDBRow>
+//                                                                              </MDBContainer>
+
+//                                                                       </Accordion.Body>
+//                                                                </Accordion.Item>
+//                                                         </Accordion>
+//                                                  );
+//                                           })
+//                                    }
+
+//                             </Col>
+//                      </Row>
+//               </Container>
+//        );
+// };
+
+// export default CustomerDetails;
+
+
 import React, { useEffect, useState } from 'react'
 import { Container, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -223,7 +412,6 @@ import {
        MDBCardBody,
        MDBCol,
        MDBContainer,
-       MDBIcon,
        MDBRow,
 } from "mdb-react-ui-kit";
 
@@ -232,45 +420,60 @@ const CustomerDetails = () => {
        let navigate = useNavigate();
        const { user: currentUser } = useSelector((state) => state.auth);
 
-       //  Auth check
+       // ✅ AUTH CHECK
        useEffect(() => {
               if (!currentUser) {
                      navigate("/Login");
               }
        }, [currentUser]);
 
-       //  Fetch orders safely
        const [orders, setOrders] = useState([]);
 
+       //  FETCH FUNCTION
+       const fetchOrders = () => {
+              if (currentUser?.id) {
+                     axios
+                            .get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`)
+                            .then((response) => {
+                                   setOrders(response.data);
+                            })
+                            .catch((err) => console.log(err));
+              }
+       };
+
+       // INITIAL FETCH
        useEffect(() => {
-              axios.get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`).then((response) => {
-                     console.log("Success", response.data);
-                     setOrders(response.data);
+              fetchOrders();
+       }, [currentUser]);
 
-              });
-       }, [currentUser.id]);
+       //  AUTO REFRESH (Polling हर 5 sec)
+       // useEffect(() => {
+       //        const interval = setInterval(() => {
+       //               fetchOrders();
+       //        }, 5000);
 
-       //    Status
+       //        return () => clearInterval(interval);
+       // }, [currentUser]);
 
-
-       const [status, setStatus] = useState([]);
-
-       useEffect(() => {
-              axios.put(`http://localhost:8090/api/ssorders/69b38d7899a9d581afe578d2/status`).then((response) => {
-                     console.log("Status Success", response.data);
-                     setStatus(response.data);
-
-              });
-       }, []);
-
-       //  Step logic
+       //  STEP LOGIC
        const getStep = (status) => {
-              switch (status) {
-                     case "Orders": return 1;
-                     case "Shipped": return 2;
-                     case "Out For Delivery": return 3;
-                     case "Delivered": return 4;
-                     default: return 2;
+              const s = status?.toLowerCase();
+
+              switch (s) {
+                     case "placed":
+                            return 1;
+
+                     case "shipped":
+                            return 2;
+
+                     case "out_for_delivery":
+                            return 3;
+
+                     case "delivered":
+                            return 4;
+
+                     default:
+                            return 1;
               }
        };
 
@@ -282,22 +485,22 @@ const CustomerDetails = () => {
                                    {
                                           orders.map((order, index) => {
 
-                                                 const step = getStep(order.status); // ✅ correct place
+                                                 const step = getStep(order.status);
 
                                                  return (
-                                                        <Accordion key={index} defaultActiveKey="0">
+                                                        <Accordion key={index} className="mb-3">
                                                                <Accordion.Item eventKey="0">
 
-                                                                      {/* ✅ HEADER */}
+                                                                      {/* HEADER */}
                                                                       <Accordion.Header>
-                                                                             <b>Order ID:</b> {order.id}
+                                                                             <b>Order ID:</b> {order._id}
                                                                              &nbsp;&nbsp;&nbsp;
                                                                              <b>Date:</b> {new Date(order.createdAt).toLocaleDateString()}
                                                                       </Accordion.Header>
 
                                                                       <Accordion.Body>
 
-                                                                             {/* ✅ TABLE FIRST */}
+                                                                             {/* TABLE */}
                                                                              <Table striped bordered hover>
                                                                                     <thead>
                                                                                            <tr>
@@ -306,6 +509,7 @@ const CustomerDetails = () => {
                                                                                                   <th>Price</th>
                                                                                                   <th>Quantity</th>
                                                                                                   <th>Total</th>
+                                                                                                  <th>Status</th>
                                                                                            </tr>
                                                                                     </thead>
 
@@ -315,15 +519,16 @@ const CustomerDetails = () => {
                                                                                                          order.products.map((product, i) => (
                                                                                                                 <tr key={i}>
                                                                                                                        <td>{i + 1}</td>
-                                                                                                                       <td>{product.productId}</td>
+                                                                                                                       <td>{product.productId.productName}</td>
                                                                                                                        <td>₹{product.price}</td>
                                                                                                                        <td>{product.quantity}</td>
                                                                                                                        <td>₹{product.price * product.quantity}</td>
+                                                                                                                       <td>{order.status}</td>
                                                                                                                 </tr>
                                                                                                          ))
                                                                                                   ) : (
                                                                                                          <tr>
-                                                                                                                <td colSpan="5">No items available</td>
+                                                                                                                <td colSpan="6">No items available</td>
                                                                                                          </tr>
                                                                                                   )
                                                                                            }
@@ -340,12 +545,12 @@ const CustomerDetails = () => {
 
                                                                                                                 <div className="d-flex justify-content-between">
                                                                                                                        <h5>Order Status</h5>
-                                                                                                                       <MDBBtn outline size="sm">Track</MDBBtn>
+                                                                                                                       
                                                                                                                 </div>
 
                                                                                                                 <hr />
 
-                                                                                                                {/* ✅ STEP TRACKER */}
+                                                                                                                {/* STEPPER */}
                                                                                                                 <div className="d-flex align-items-center">
 
                                                                                                                        <span className={step >= 1 ? "big-dot" : "dot"}></span>
@@ -357,15 +562,11 @@ const CustomerDetails = () => {
                                                                                                                        <span className={step >= 3 ? "big-dot" : "dot"}></span>
                                                                                                                        <hr className="flex-fill track-line" />
 
-                                                                                                                       
-
-                                                                                                                       <span className={step >= 5 ? "big-dot" : "dot"}>
-                                                                                                                              {step === 5 && <MDBIcon icon="check text-white" />}
-                                                                                                                       </span>
+                                                                                                                       <span className={step >= 4 ? "big-dot" : "dot"}></span>
 
                                                                                                                 </div>
 
-                                                                                                                {/* ✅ LABELS */}
+                                                                                                                {/* LABELS */}
                                                                                                                 <div className="d-flex justify-content-between mt-3 small">
                                                                                                                        <span>Ordered</span>
                                                                                                                        <span>Shipped</span>
