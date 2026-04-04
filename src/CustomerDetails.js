@@ -20,39 +20,48 @@ const CustomerDetails = () => {
 
        const [orders, setOrders] = useState([]);
 
-       // ✅ AUTH CHECK
+       //  AUTH CHECK
        useEffect(() => {
               if (!currentUser) {
                      navigate("/Login");
               }
        }, [currentUser]);
 
-       // ✅ FETCH FUNCTION
-       const fetchOrders = () => {
-              if (currentUser?.id) {
-                     axios
-                            .get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`)
-                            .then((res) => {
-                                   setOrders(Array.isArray(res.data) ? res.data : []);
-                            })
-                            .catch((err) => console.log(err));
-              }
-       };
+       //  FETCH FUNCTION
+       // const fetchOrders = () => {
+       //        if (currentUser?.id) {
+       //               axios
+       //                      .get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`)
+       //                      .then((res) => {
+       //                             setOrders(Array.isArray(res.data) ? res.data : []);
+       //                      })
+       //                      .catch((err) => console.log(err));
+       //        }
+       // };
+
+       // useEffect(() => {
+       //        fetchOrders();
+       // }, [currentUser]);
 
        useEffect(() => {
-              fetchOrders();
-       }, [currentUser]);
+              axios.get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`)
+                     .then((res) => {
+                            console.log("total orders", res.data);
+                            setOrders(res.data);
+                     })
+              
+       }, []);
 
-       // 🔥 AUTO UPDATE
-       useEffect(() => {
-              const interval = setInterval(() => {
-                     fetchOrders();
-              }, 3000);
+       // // 🔥 AUTO UPDATE
+       // useEffect(() => {
+       //        const interval = setInterval(() => {
+       //               fetchOrders();
+       //        }, 3000);
 
-              return () => clearInterval(interval);
-       }, [currentUser]);
+       //        return () => clearInterval(interval);
+       // }, [currentUser]);
 
-       // ✅ NEW WORKING LOGIC (NO SWITCH)
+       //   WORKING LOGIC
        const statusFlow = ["Ordered", "Shipped", "Out for Delivery", "Delivered"];
 
        const getStep = (status) => {
@@ -78,7 +87,7 @@ const CustomerDetails = () => {
                                                  <Accordion key={index} className="mb-3">
                                                         <Accordion.Item eventKey="0">
 
-                                                               {/* ✅ SAME HEADER */}
+                                                               
                                                                <Accordion.Header>
                                                                       <b>Order ID:</b> {order?.id}
                                                                       &nbsp;&nbsp;&nbsp;
@@ -93,6 +102,7 @@ const CustomerDetails = () => {
                                                                                     <tr>
                                                                                            <th>Sl</th>
                                                                                            <th>Product Name</th>
+                                                                                           <th>Product Image</th>
                                                                                            <th>Price</th>
                                                                                            <th>Quantity</th>
                                                                                            <th>Total</th>
@@ -107,6 +117,7 @@ const CustomerDetails = () => {
                                                                                                          <tr key={i}>
                                                                                                                 <td>{i + 1}</td>
                                                                                                                 <td>{product?.productId?.productName || "N/A"}</td>
+                                                                                                                <td><img src={`http://localhost:8090/upload/${product.productId.images[0]}`} width={120}/></td>
                                                                                                                 <td>₹{product?.price}</td>
                                                                                                                 <td>{product?.quantity}</td>
                                                                                                                 <td>₹{product?.price * product?.quantity}</td>

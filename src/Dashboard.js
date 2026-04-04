@@ -234,11 +234,11 @@ const Dashboard = () => {
                 </Row>
               </div>
               <div>
-                <Row>
+                {/* <Row>
 
                   <Link to={'/CustomerDetails'} className='link-area'><p>Customer Details</p></Link>
 
-                </Row>
+                </Row> */}
                 <Row>
 
                   <Link to={'/UserOrders'} className='link-area'><p>User Orders Details</p></Link>
