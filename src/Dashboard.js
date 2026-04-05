@@ -129,41 +129,21 @@ const Dashboard = () => {
 
 
   //        Chart Data
-  const data = {
-    // labels: ["Raga", "Titan", "Fastrack", "Tommy Hilfiger", "poze"],
-    datasets: [
-      // {
-      //   label: "Sales",
-      //   data: [12000, 19000, 3000, 5000, 2000],
-      //   backgroundColor: "rgba(75, 192, 192, 0.5)",
-      //   borderColor: "rgba(75, 192, 192, 1)",
-      //   borderWidth: 1
-      // }
-      {
-        "label": "Order statistics",
-        "data": [
-          155152
-        ],
-        "backgroundColor": "rgba(75, 192, 192, 0.5)",
-        "borderColor": "rgba(75, 192, 192, 1)",
-        "borderWidth": 1
-      }
-    ]
-  };
-  const [chartData, setChartData] = useState([]);
+
+  const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
     axios.get("http://localhost:8090/api/ssorders/chartdata")
       .then((response) => {
-        console.log("chart data", response.data);
-        setChartData({
-          label: response.data.data, data: response.data.label
+        console.log("Chart API Data:", response.data);
 
-        });
+
+        setChartData(response.data);
+
       })
-    // .catch((error) => {
-    //   console.log(error);
-    // })
+      .catch((error) => {
+        console.log("API Error:", error);
+      });
   }, []);
 
   return (
@@ -273,17 +253,10 @@ const Dashboard = () => {
                   <h6>
                     Total Sales
                   </h6>
-                  <p>{ }</p>
-                </Col>
-                {/* <Col className='box'>
-                  <h6>
-                    Top Selling Product
-                  </h6>
-                  {topProducts.map((product, index) => (
-                    <p key={index}>{product.productDetails.productName}</p>
-                  ))}
+                  <p>Today's Orders: {dailyReports?.totalOrders}</p>
 
-                </Col> */}
+                </Col>
+                
                 <Col className='box'>
                   <h6>
                     Daily sales
@@ -297,14 +270,27 @@ const Dashboard = () => {
               </Row>
               <Row>
                 <Col md={6}>
-                  <Bar options={options} data={data} />
-                </Col>
-                <Col md={6}>
-                  <Pie
-                    options={options}
-                    data={data}
-                  // {...props}
-                  />
+
+                  <Row>
+                    <Col>
+                      {chartData ? (
+                        <Bar data={chartData} options={options} />
+                      ) : (
+                        <p>Loading chart...</p>
+                      )}
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col className='pie-data'>
+                      {chartData ? (
+                        <Pie data={chartData} options={options} />
+                      ) : (
+                        <p>Loading chart...</p>
+                      )}
+                    </Col>
+                  </Row>
+
                 </Col>
                 <Col md={6}>
 
@@ -336,9 +322,15 @@ const Dashboard = () => {
                 </Col>
 
                 <Col md={6}>
-                  {chartData && chartData.labels && (
+                  {/* {chartData && chartData.labels && (
                     <Bar options={options} data={data} />
-                  )}
+                  )} */}
+                  {/* {
+                    chartData?(
+                      <Bar data={chartData} options={options}></Bar>
+                    ):
+                    <p>loading</p>
+                  } */}
                 </Col>
               </Row>
               <Row>

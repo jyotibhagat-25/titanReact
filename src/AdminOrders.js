@@ -29,11 +29,22 @@ const AdminOrders = () => {
     });
 
   }, []);
-  const handleDelete = (id) => {
+  // const handleDelete = (id) => {
+  //   console.log(id);
+  //   axios.delete(`http://localhost:8090/api/ssproducts/${id}`).then((response) => {
+  //     console.log(response.data);
+  //     console.log("successfully category delete");
+  //     window.location.reload();
+
+
+  //   });
+  // }
+
+  const handleEdit = (id) => {
     console.log(id);
-    axios.delete(`http://localhost:8090/api/ssproducts/${id}`).then((response) => {
+    axios.put(`http://localhost:8090/api/ssproducts/${id}`).then((response) => {
       console.log(response.data);
-      console.log("successfully category delete");
+      console.log("successfully Edited");
       window.location.reload();
 
 
@@ -55,7 +66,7 @@ const AdminOrders = () => {
                     <th> Price</th>
 
                     <th>Edit</th>
-                    <th>Delete</th>
+                    {/* <th>Delete</th> */}
 
                   </tr>
                 </thead>
@@ -71,8 +82,8 @@ const AdminOrders = () => {
                             <td>{product.productCategory}</td>
                             <td>{product.productDescription}</td>
                             <td>₹{product.productPrice}</td>
-                            <td><AiOutlineEdit /></td>
-                            <td><button onClick={() => handleDelete(product.id)}><AiOutlineDelete /></button></td>
+                            <td><button onClick={() => handleEdit(product.id)}><AiOutlineEdit /></button></td>
+                            {/* <td><button onClick={() => handleDelete(product.id)}><AiOutlineDelete /></button></td> */}
                           </tr>
                         )
                       })

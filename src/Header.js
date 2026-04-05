@@ -8,6 +8,7 @@ import {
   Navbar,
   Button,
 } from "react-bootstrap";
+import { FaHome } from "react-icons/fa";
 import { Link, Links } from "react-router";
 import { CiHeart } from "react-icons/ci";
 import { BsBag } from "react-icons/bs";
@@ -28,7 +29,7 @@ const Header = () => {
     if (currentUser) {
       console.log(currentUser);
     }
-    
+
   }, []);
 
   const handleLogout = () => {
@@ -51,8 +52,8 @@ const Header = () => {
   //       console.log(response.data);
   //       console.log("successfully Added");
   //       window.location.reload();
-  
-  
+
+
   //     });
   //   }
   return (
@@ -139,7 +140,8 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                       <Nav className="me-auto">
                         <Nav.Link as={Link} to={""}>
-                          HOME
+                          <FaHome />
+                          
                         </Nav.Link>
                         <Nav.Link as={Link} to={'Category/Men'}>
                           MEN

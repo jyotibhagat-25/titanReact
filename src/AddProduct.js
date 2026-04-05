@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import TestProduct from "./TestProduct";
+import AdminOrders from "./AdminOrders"
 
 const AddProduct = () => {
   const SignupSchema = Yup.object().shape({
@@ -225,7 +226,7 @@ const AddProduct = () => {
   <Container>
     <Row>
       <Col>
-      <TestProduct></TestProduct>
+      <AdminOrders></AdminOrders>
       </Col>
     </Row>
   </Container>

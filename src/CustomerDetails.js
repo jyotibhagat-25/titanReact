@@ -52,7 +52,7 @@ const CustomerDetails = () => {
               
        }, []);
 
-       // // 🔥 AUTO UPDATE
+       // // AUTO UPDATE
        // useEffect(() => {
        //        const interval = setInterval(() => {
        //               fetchOrders();

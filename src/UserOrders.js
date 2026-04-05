@@ -90,7 +90,7 @@ const OrdersDetail = () => {
                                                                              <th>Customer Id</th>
                                                                              <th>Category</th>
                                                                              <th>Price</th>
-                                                                             {/* <th>Status</th> */}
+                                                                             <th>Status</th>
                                                                              <th>Action</th>
                                                                       </tr>
                                                                </thead>
@@ -104,7 +104,7 @@ const OrdersDetail = () => {
                                                                                            <td>{order?.userId?._id}</td>
                                                                                            <td>{product?.productId?.productCategory}</td>
                                                                                            <td>₹{product?.productId?.productPrice}</td>
-                                                                                           {/* <td>{order?.status}</td> */}
+                                                                                           <td>{order?.status}</td>
 
                                                                                            <td>
                                                                                                   <Button
