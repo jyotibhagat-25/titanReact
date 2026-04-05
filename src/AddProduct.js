@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import TestProduct from "./TestProduct";
 import AdminOrders from "./AdminOrders"
+import './Dashboard.css';
+
 
 const AddProduct = () => {
   const SignupSchema = Yup.object().shape({
@@ -71,6 +73,7 @@ const AddProduct = () => {
 
   return (
     <div className="text-center">
+      
       <h3>AddProduct</h3>
       <Formik
         initialValues={{

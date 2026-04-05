@@ -4,6 +4,8 @@ import { Breadcrumb, Col, Container, Row, Table } from 'react-bootstrap'
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router';
+import './Dashboard.css';
+
 
 const AdminOrders = () => {
 
@@ -52,7 +54,7 @@ const AdminOrders = () => {
   }
   return (
     <div>
-      <section>
+      <section className='dashboard'>
         <Container>
           <Row>
             <Col md={3} className='menu'>
