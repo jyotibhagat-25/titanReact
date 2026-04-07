@@ -1,10 +1,11 @@
 .productform {
        margin: 10px auto;
-       width: 40%;
+       width: 100%;
+       max-width: 650px;
        /* height: 360px; */
        padding: 40px 30px;
        border-radius: 20px;
-       box-shadow: 10px 20px 50px rgba(31, 23, 23, 0.1);
+       box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
        position: relative;
        text-align: center;
        border: 5px solid rgb(244, 242, 242);
@@ -16,11 +17,12 @@
        color: white;
        position: relative;
        overflow: hidden;
-       margin-top:25px;
+       margin-top: 25px;
        padding: 10px 20px;
        border: none;
 }
-.btn-product:Link{
+
+.btn-product:Link {
        color: white;
 }
 

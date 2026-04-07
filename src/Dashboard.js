@@ -243,13 +243,13 @@ const Dashboard = () => {
 
             <Col md={9}>
               <Row>
-                <Col className='box'>
+                <Col className='box' md={3}>
                   <h6>
                     Total Orders
                   </h6>
                   <p>{totalOrders}</p>
                 </Col>
-                <Col className='box'>
+                <Col className='box' md={3}>
                   <h6>
                     Total Sales
                   </h6>
@@ -257,7 +257,7 @@ const Dashboard = () => {
 
                 </Col>
                 
-                <Col className='box'>
+                <Col className='box' md={4}>
                   <h6>
                     Daily sales
                   </h6>
@@ -321,20 +321,10 @@ const Dashboard = () => {
                   </div>
                 </Col>
 
-                <Col md={6}>
-                  {/* {chartData && chartData.labels && (
-                    <Bar options={options} data={data} />
-                  )} */}
-                  {/* {
-                    chartData?(
-                      <Bar data={chartData} options={options}></Bar>
-                    ):
-                    <p>loading</p>
-                  } */}
-                </Col>
+                
               </Row>
               <Row>
-                <Col className='box'>
+                <Col className='box' md={4}>
                   <h6>
                     Summary Report
                   </h6>
@@ -346,7 +336,7 @@ const Dashboard = () => {
                     <p>No Data</p>
                   )}
                 </Col>
-                <Col className='box'>
+                <Col className='box' md={5}>
                   <h6>
                     Income
                   </h6>
@@ -356,12 +346,12 @@ const Dashboard = () => {
                     <p>No Data</p>
                   )}
                 </Col>
-                <Col className='box'>
+                {/* <Col className='box'>
                   <h6>
                     Spendings
                   </h6>
-                  {/* <p>247k</p> */}
-                </Col>
+                  <p>247k</p>
+                </Col> */}
 
               </Row>
             </Col>

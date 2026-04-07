@@ -238,7 +238,7 @@ const AddCategory = () => {
                                                                       categories ?
                                                                              categories.map((category, index) => {
                                                                                     return (
-                                                                                           <tr>
+                                                                                           <tr key={index}>
                                                                                                   <td>{index + 1}</td>
                                                                                                   <td>{category.name}</td>
                                                                                                   {/* <td><CiEdit /></td> */}

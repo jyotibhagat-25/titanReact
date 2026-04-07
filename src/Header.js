@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Col,
   Container,
@@ -19,6 +19,7 @@ import "./Header.css";
 import { logout } from './slices/auth';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 
 const Header = () => {
@@ -32,30 +33,24 @@ const Header = () => {
 
   }, []);
 
+  // const [totalItems, setTotalItems] = useState([]);
+
+  // useEffect(() => {
+  //   axios.get(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
+  //     console.log(response.data);
+  //     setTotalItems(response.data);
+      
+  //   });
+
+  // }, [currentUser.id]);
+
   const handleLogout = () => {
     dispatch(logout());
     navigate('/login'); // Redirect to login page
     // window.location.reload();
   };
 
-  // const handleCart = (product) => {
-  //     console.log(product);
-  //     const data = {
-  //       userId: currentUser.id,
-  //       items: [{
-  //         productId: product.id,
-  //         quantity: 1,
-  //         price: product.productPrice
-  //       }]
-  //     }
-  //     axios.post(`http://localhost:8090/api/carts`, data).then((response) => {
-  //       console.log(response.data);
-  //       console.log("successfully Added");
-  //       window.location.reload();
 
-
-  //     });
-  //   }
   return (
     <div>
       <section className="offer">
@@ -109,7 +104,8 @@ const Header = () => {
                   </p>
                 </Col>
                 <Col>
-                  <BsBag /><sup><b>1</b></sup>
+                  <BsBag />
+                  {/* <sup><b>{totalItems?.itemCount}</b></sup> */}
                   <p>
                     <Link to={'./Cart'} className="link-area">Cart</Link>
                   </p>
@@ -141,7 +137,7 @@ const Header = () => {
                       <Nav className="me-auto">
                         <Nav.Link as={Link} to={""}>
                           <FaHome />
-                          
+
                         </Nav.Link>
                         <Nav.Link as={Link} to={'Category/Men'}>
                           MEN

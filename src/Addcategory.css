@@ -1,7 +1,8 @@
 .add-category {
 
        margin: 10px auto;
-       width: 40%;
+       width: 100%;
+       max-width: 650px;
        /* height: 360px; */
        padding: 40px 30px;
        border-radius: 20px;
@@ -18,7 +19,7 @@
        color: white;
        position: relative;
        overflow: hidden;
-       margin-top:75px;
+       margin-top: 75px;
        padding: 10px 20px;
 
 }

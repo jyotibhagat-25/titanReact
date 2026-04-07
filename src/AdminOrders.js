@@ -146,7 +146,7 @@ const AdminOrders = () => {
               </div>
 
             </Col>
-            <Col>
+            <Col md={9}>
               <Table striped bordered hover>
                 <thead>
                   <tr>
@@ -156,7 +156,7 @@ const AdminOrders = () => {
                     <th> Description</th>
                     <th> Price</th>
 
-                    <th>Edit</th>
+                    {/* <th>Edit</th> */}
                     {/* <th>Delete</th> */}
 
                   </tr>
@@ -167,13 +167,13 @@ const AdminOrders = () => {
                     products ?
                       products.map((product, index) => {
                         return (
-                          <tr>
+                          <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{product.productName}</td>
                             <td>{product.productCategory}</td>
                             <td>{product.productDescription}</td>
                             <td>₹{product.productPrice}</td>
-                            <td><button onClick={() => handleEdit(product.id)}><AiOutlineEdit /></button></td>
+                            {/* <td><button onClick={() => handleEdit(product.id)}><AiOutlineEdit /></button></td> */}
                             {/* <td><button onClick={() => handleDelete(product.id)}><AiOutlineDelete /></button></td> */}
                           </tr>
                         )
