@@ -13,3 +13,10 @@
 .wishlist-product img{
        width: 100%;
 }
+.text-menu h3{
+       text-align: center;
+       padding: 60px;
+}
+.float-list{
+       padding: 20px;
+}

@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Container, ListGroup, Row } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { MdDelete } from "react-icons/md";
 
 // import "./Wishlist.css";
@@ -74,14 +74,51 @@ const Wishlist = () => {
 
   return (
     <div>
-      <section className='product-data'>
+      <section>
         <Container>
           <Row>
+            <Col md={4}>
+              <ListGroup className="float-list">
+
+                <ListGroup.Item as="li">
+                  <Link to="/Account" className="text-decoration-none text-dark">
+                    Account
+                  </Link>
+                </ListGroup.Item>
+
+                <ListGroup.Item as="li">
+                  <Link to="/Wishlist" className="text-decoration-none text-dark">
+                    Wishlist
+                  </Link></ListGroup.Item>
+
+                <ListGroup.Item as="li">
+                  <Link to="/Address" className="text-decoration-none text-dark">
+                    Addresses
+                  </Link>
+                </ListGroup.Item>
+                <ListGroup.Item as="li">
+                  <Link to="/CustomerDetails" className="text-decoration-none text-dark">Orders</Link>
+                </ListGroup.Item>
+
+              </ListGroup>
+
+
+            </Col>
+            <Col md={8} className='text-menu'>
+              <h3>Wishlists</h3>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      <section>
+        <Container>
+          <Row>
+
             {
               wishlistproducts.map((wishlistproduct, index) => {
                 return (
                   // <img src={product.image}/>
-                  <Col className='wishlist-product' >
+                  <Col className='wishlist-product'>
                     <Card style={{ width: '18rem' }}>
                       {/* <Card.Img variant="top" src={product.image} /> */}
                       <Card.Body>

@@ -29,7 +29,11 @@ const Account = () => {
                             <Row>
                                    <Col md={4}>
                                           <ListGroup className="float-list">
-                                                 <ListGroup.Item as="li">Account</ListGroup.Item>
+                                                 <ListGroup.Item as="li">
+                                                        <Link to="/Account" className="text-decoration-none text-dark">
+                                                               Account
+                                                        </Link>
+                                                 </ListGroup.Item>
                                                  
                                                  <ListGroup.Item as="li">
                                                         <Link to="/Wishlist" className="text-decoration-none text-dark">

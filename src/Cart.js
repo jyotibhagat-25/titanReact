@@ -17,11 +17,20 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
   useEffect(() => {
-    if (currentUser) {
+  //   if (currentUser) {
+  //     console.log(currentUser);
+  //   }
+
+  // }, [currentUser]);
+  if (currentUser) {
       console.log(currentUser);
     }
+    if (currentUser && currentUser.roles[0] === "ROLE_ADMIN") {
+      console.log(currentUser.roles[0]);
 
-  }, [currentUser]);
+      navigate("/Dashboard");
+    }
+  }, []);
 
   useEffect(() => {
     axios.get(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {

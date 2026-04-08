@@ -4,6 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import './Slide2.css'
+import { Link } from 'react-router';
 
 const Slide2 = () => {
 
@@ -36,56 +37,45 @@ const Slide2 = () => {
                                                  <Carousel responsive={responsive}>
                                                         <Col>
                                                                <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwe4480ac1/images/homepage/All_Banners/Glimmers_newarrival_d.jpg' alt='' />
+                                                                      <Link to={'Category/Raga'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwe4480ac1/images/homepage/All_Banners/Glimmers_newarrival_d.jpg' alt='' /></Link>
                                                                </div>
                                                         </Col>
                                                         <Col>
                                                                <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw049755d0/images/homepage/All_Banners/Stellar_3_NA_D.jpg' alt='' />
+                                                                      <Link to={'Category/Titan Steller'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw049755d0/images/homepage/All_Banners/Stellar_3_NA_D.jpg' alt='' /></Link>
                                                                </div>
                                                         </Col>
                                                         <Col>
                                                                <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwebf7cbea/images/homepage/All_Banners/NA_RagaCocktails_D.jpg' alt='' />
+                                                                      <Link to={'Category/Raga'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwebf7cbea/images/homepage/All_Banners/NA_RagaCocktails_D.jpg' alt='' /></Link>
                                                                </div>
                                                         </Col>
                                                         <Col>
                                                                <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw9a60f1af/images/homepage/Titan-purple-updated-sep-25-d.jpg' alt='' />
+                                                                      <Link to={'Category/shobita'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw9a60f1af/images/homepage/Titan-purple-updated-sep-25-d.jpg' alt='' /></Link>
 
                                                                </div>
                                                         </Col>
 
                                                         <Col>
                                                                <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwd9c8ccf8/images/homepage/All_Banners/NA_Automatics_FY25_D.jpg' alt='' />
+                                                                      <Link to={'Category/Titan Automatic'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwd9c8ccf8/images/homepage/All_Banners/NA_Automatics_FY25_D.jpg' alt='' /></Link>
 
                                                                </div>
                                                         </Col>
                                                         <Col>
                                                                <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw83817a15/images/Stellar_D.jpg' alt='' />
+                                                                      <Link to={'Category/Titan Steller'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw83817a15/images/Stellar_D.jpg' alt='' /></Link>
 
                                                                </div>
                                                         </Col>
                                                         <Col>
                                                                <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwb7d230af/images/Astral-Watch_New-Arrival-Banner_Sep_d.jpg' alt='' />
+                                                                      <Link to={'Category/Titan Automatic'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwb7d230af/images/Astral-Watch_New-Arrival-Banner_Sep_d.jpg' alt='' /></Link>
 
                                                                </div>
                                                         </Col>
-                                                        <Col>
-                                                               <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw56c44965/images/Memoir_D.jpg' alt='' />
-
-                                                               </div>
-                                                        </Col>
-                                                        <Col>
-                                                               <div>
-                                                                      <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwc6867e46/images/NA_Zoop_D.jpg' alt='' />
-
-                                                               </div>
-                                                        </Col>
+                                                        
                                                  </Carousel>
                                           </Col>
                                    </Row>

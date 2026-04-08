@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, ListGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import Accordion from 'react-bootstrap/Accordion';
@@ -34,7 +34,7 @@ const CustomerDetails = () => {
                             console.log("total orders", res.data);
                             setOrders(res.data);
                      })
-              
+
        }, []);
 
 
@@ -52,117 +52,151 @@ const CustomerDetails = () => {
        };
 
        return (
-              <Container>
-                     <Row>
-                            <Col md={12}>
 
-                                   {orders.map((order, index) => {
 
-                                          const step = getStep(order?.status);
 
-                                          return (
-                                                 <Accordion key={index} className="mb-3">
-                                                        <Accordion.Item eventKey="0">
+              <section>
+                     <Container>
+                            <Row>
+                                   <Col md={4}>
+                                          <ListGroup className="float-list">
+                                                 <ListGroup.Item as="li">
+                                                        <Link to="/Account" className="text-decoration-none text-dark">
+                                                               Account
+                                                        </Link>
+                                                 </ListGroup.Item>
 
-                                                               
-                                                               <Accordion.Header>
-                                                                      <b>Order ID:</b> {order?.id}
-                                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                      <b>Date:</b> {new Date(order?.createdAt).toLocaleDateString()}
-                                                               </Accordion.Header>
+                                                 <ListGroup.Item as="li">
+                                                        <Link to="/Wishlist" className="text-decoration-none text-dark">
+                                                               Wishlist
+                                                        </Link></ListGroup.Item>
 
-                                                               <Accordion.Body>
+                                                 <ListGroup.Item as="li">
+                                                        <Link to="/Address" className="text-decoration-none text-dark">
+                                                               Addresses
+                                                        </Link>
+                                                 </ListGroup.Item>
+                                                 <ListGroup.Item as="li">
+                                                        <Link to="/CustomerDetails" className="text-decoration-none text-dark">Orders</Link>
+                                                 </ListGroup.Item>
 
-                                                                      
-                                                                      <Table striped bordered hover>
-                                                                             <thead>
-                                                                                    <tr>
-                                                                                           <th>Sl</th>
-                                                                                           <th>Product Name</th>
-                                                                                           <th>Product Image</th>
-                                                                                           <th>Price</th>
-                                                                                           <th>Quantity</th>
-                                                                                           <th>Total</th>
-                                                                                           <th>Status</th>
-                                                                                    </tr>
-                                                                             </thead>
+                                          </ListGroup>
 
-                                                                             <tbody>
-                                                                                    {
-                                                                                           order?.products?.length > 0 ? (
-                                                                                                  order.products.map((product, i) => (
-                                                                                                         <tr key={i}>
-                                                                                                                <td>{i + 1}</td>
-                                                                                                                <td>{product?.productId?.productName || "N/A"}</td>
-                                                                                                                <td><img src={`http://localhost:8090/upload/${product.productId.images[0]}`} width={120}/></td>
-                                                                                                                <td>₹{product?.price}</td>
-                                                                                                                <td>{product?.quantity}</td>
-                                                                                                                <td>₹{product?.price * product?.quantity}</td>
-                                                                                                                <td>{order?.status}</td>
+
+                                   </Col>
+                                   <Col md={8} className='text-menu'>
+                                   <h3>Order Status</h3>
+                                   </Col>
+                                   <Col md={12}>
+
+                                          {orders.map((order, index) => {
+
+                                                 const step = getStep(order?.status);
+
+                                                 return (
+                                                        <Accordion key={index} className="mb-3">
+                                                               <Accordion.Item eventKey="0">
+
+
+                                                                      <Accordion.Header>
+                                                                             <b>Order ID:</b> {order?.id}
+                                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                             <b>Date:</b> {new Date(order?.createdAt).toLocaleDateString()}
+                                                                      </Accordion.Header>
+
+                                                                      <Accordion.Body>
+
+
+                                                                             <Table striped bordered hover>
+                                                                                    <thead>
+                                                                                           <tr>
+                                                                                                  <th>Sl</th>
+                                                                                                  <th>Product Name</th>
+                                                                                                  <th>Product Image</th>
+                                                                                                  <th>Price</th>
+                                                                                                  <th>Quantity</th>
+                                                                                                  <th>Total</th>
+                                                                                                  <th>Status</th>
+                                                                                           </tr>
+                                                                                    </thead>
+
+                                                                                    <tbody>
+                                                                                           {
+                                                                                                  order?.products?.length > 0 ? (
+                                                                                                         order.products.map((product, i) => (
+                                                                                                                <tr key={i}>
+                                                                                                                       <td>{i + 1}</td>
+                                                                                                                       <td>{product?.productId?.productName || "N/A"}</td>
+                                                                                                                       <td><img src={`http://localhost:8090/upload/${product.productId.images[0]}`} width={120} /></td>
+                                                                                                                       <td>₹{product?.price}</td>
+                                                                                                                       <td>{product?.quantity}</td>
+                                                                                                                       <td>₹{product?.price * product?.quantity}</td>
+                                                                                                                       <td>{order?.status}</td>
+                                                                                                                </tr>
+                                                                                                         ))
+                                                                                                  ) : (
+                                                                                                         <tr>
+                                                                                                                <td colSpan="6">No items available</td>
                                                                                                          </tr>
-                                                                                                  ))
-                                                                                           ) : (
-                                                                                                  <tr>
-                                                                                                         <td colSpan="6">No items available</td>
-                                                                                                  </tr>
-                                                                                           )
-                                                                                    }
-                                                                             </tbody>
-                                                                      </Table>
+                                                                                                  )
+                                                                                           }
+                                                                                    </tbody>
+                                                                             </Table>
 
-                                                                      
-                                                                      <MDBContainer className="py-4">
-                                                                             <MDBRow>
-                                                                                    <MDBCol>
 
-                                                                                           <MDBCard style={{ borderRadius: "10px" }}>
-                                                                                                  <MDBCardBody>
+                                                                             <MDBContainer className="py-4">
+                                                                                    <MDBRow>
+                                                                                           <MDBCol>
 
-                                                                                                         <div className="d-flex justify-content-between">
-                                                                                                                <h5>Order Status</h5>
-                                                                                                         </div>
+                                                                                                  <MDBCard style={{ borderRadius: "10px" }}>
+                                                                                                         <MDBCardBody>
 
-                                                                                                         <hr />
+                                                                                                                <div className="d-flex justify-content-between">
+                                                                                                                       <h5>Order Status</h5>
+                                                                                                                </div>
 
-                                                                                                         
-                                                                                                         <div className="d-flex align-items-center">
+                                                                                                                <hr />
 
-                                                                                                                <span className={step >= 1 ? "big-dot" : "dot"}></span>
-                                                                                                                <hr className="flex-fill track-line" />
 
-                                                                                                                <span className={step >= 2 ? "big-dot" : "dot"}></span>
-                                                                                                                <hr className="flex-fill track-line" />
+                                                                                                                <div className="d-flex align-items-center">
 
-                                                                                                                <span className={step >= 3 ? "big-dot" : "dot"}></span>
-                                                                                                                <hr className="flex-fill track-line" />
+                                                                                                                       <span className={step >= 1 ? "big-dot" : "dot"}></span>
+                                                                                                                       <hr className="flex-fill track-line" />
 
-                                                                                                                <span className={step >= 4 ? "big-dot" : "dot"}></span>
+                                                                                                                       <span className={step >= 2 ? "big-dot" : "dot"}></span>
+                                                                                                                       <hr className="flex-fill track-line" />
 
-                                                                                                         </div>
+                                                                                                                       <span className={step >= 3 ? "big-dot" : "dot"}></span>
+                                                                                                                       <hr className="flex-fill track-line" />
 
-                                                                                                         <div className="d-flex justify-content-between mt-3 small">
-                                                                                                                <span>Ordered</span>
-                                                                                                                <span>Shipped</span>
-                                                                                                                <span>Out for Delivery</span>
-                                                                                                                <span>Delivered</span>
-                                                                                                         </div>
+                                                                                                                       <span className={step >= 4 ? "big-dot" : "dot"}></span>
 
-                                                                                                  </MDBCardBody>
-                                                                                           </MDBCard>
+                                                                                                                </div>
 
-                                                                                    </MDBCol>
-                                                                             </MDBRow>
-                                                                      </MDBContainer>
+                                                                                                                <div className="d-flex justify-content-between mt-3 small">
+                                                                                                                       <span>Ordered</span>
+                                                                                                                       <span>Shipped</span>
+                                                                                                                       <span>Out for Delivery</span>
+                                                                                                                       <span>Delivered</span>
+                                                                                                                </div>
 
-                                                               </Accordion.Body>
-                                                        </Accordion.Item>
-                                                 </Accordion>
-                                          );
-                                   })}
+                                                                                                         </MDBCardBody>
+                                                                                                  </MDBCard>
 
-                            </Col>
-                     </Row>
-              </Container>
+                                                                                           </MDBCol>
+                                                                                    </MDBRow>
+                                                                             </MDBContainer>
+
+                                                                      </Accordion.Body>
+                                                               </Accordion.Item>
+                                                        </Accordion>
+                                                 );
+                                          })}
+
+                                   </Col>
+                            </Row>
+                     </Container>
+              </section>
        );
 };
 

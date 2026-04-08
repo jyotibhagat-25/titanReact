@@ -22,7 +22,7 @@ const AddProduct = () => {
       .max(100, "Too Long!")
       .required("Required"),
     productCategory: Yup.string()
-      .min(5, "Atleast 5 Character!")
+      .min(3, "Atleast 5 Character!")
       .max(50, "Too Long!")
       // .test(
       //   "checkDuplicateCategory",

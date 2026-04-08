@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, ListGroup } from 'react-bootstrap';
 import './Address.css';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
@@ -160,179 +160,214 @@ const Address = () => {
     <div className='text-center'>
       <h2>Address</h2>
 
-      <Formik
-        initialValues={{
-          name: '',
-          addressLine1: '',
-          addressLine2: '',
-          city: '',
-          district: '',
-          state: '',
-          pin: '',
-          mobile: '',
-          email: '',
-          addressType: '',
-        }}
+      <section>
+        <Container>
+          <Row>
+            <Col md={2}>
+              <ListGroup className="float-list">
+                <ListGroup.Item as="li"><Link to="/Account" className="text-decoration-none text-dark">
+                  Account
+                </Link></ListGroup.Item>
 
-        validationSchema={SignupSchema}
+                <ListGroup.Item as="li">
+                  <Link to="/Wishlist" className="text-decoration-none text-dark">
+                    Wishlist
+                  </Link></ListGroup.Item>
 
-        onSubmit={handleAddress}
-      >
+                <ListGroup.Item as="li">
+                  <Link to="/Address" className="text-decoration-none text-dark">
+                    Addresses
+                  </Link>
+                </ListGroup.Item>
+                <ListGroup.Item as="li">
+                  <Link to="/CustomerDetails" className="text-decoration-none text-dark">Orders</Link>
+                </ListGroup.Item>
 
-        {({ errors, touched }) => (
-          <Form>
-            <div className='addressform'>
-
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>Name:</label>
-                </Col>
-
-                <Col xs={12} md={6}>
-                  <Field name="name" />
-                  {errors.name && touched.name ? (
-                    <div>{errors.name}</div>
-                  ) : null}
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>Address Line1:</label>
-                </Col>
-
-                <Col xs={12} md={6}>
-                  <Field name="addressLine1" />
-                  {errors.addressLine1 && touched.addressLine1 ? (
-                    <div>{errors.addressLine1}</div>
-                  ) : null}
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>Address Line2:</label>
-                </Col>
-
-                <Col xs={12} md={6}>
-                  <Field name="addressLine2" />
-                  {errors.addressLine2 && touched.addressLine2 ? (
-                    <div>{errors.addressLine2}</div>
-                  ) : null}
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>City:</label>
-                </Col>
-
-                <Col xs={12} md={6}>
-                  <Field name="city" />
-                  {errors.city && touched.city ? (
-                    <div>{errors.city}</div>
-                  ) : null}
-                </Col>
-              </Row>
+              </ListGroup>
 
 
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>District:</label>
-                </Col>
+            </Col>
+            <Col md={10}>
+              <Formik
+                initialValues={{
+                  name: '',
+                  addressLine1: '',
+                  addressLine2: '',
+                  city: '',
+                  district: '',
+                  state: '',
+                  pin: '',
+                  mobile: '',
+                  email: '',
+                  addressType: '',
+                }}
 
-                <Col xs={12} md={6}>
-                  <Field name="district" />
-                  {errors.district && touched.district ? (
-                    <div>{errors.district}</div>
-                  ) : null}
-                </Col>
-              </Row>
+                validationSchema={SignupSchema}
 
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>State:</label>
-                </Col>
+                onSubmit={handleAddress}
+              >
 
-                <Col xs={12} md={6}>
-                  <Field name="state" />
-                  {errors.state && touched.state ? (
-                    <div>{errors.state}</div>
-                  ) : null}
-                </Col>
-              </Row>
+                {({ errors, touched }) => (
+                  <Form>
+                    <div className='addressform'>
 
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>Name:</label>
+                        </Col>
 
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>Pin:</label>
-                </Col>
+                        <Col xs={12} md={6}>
+                          <Field name="name" />
+                          {errors.name && touched.name ? (
+                            <div>{errors.name}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
 
-                <Col xs={12} md={6}>
-                  <Field name="pin" />
-                  {errors.pin && touched.pin ? (
-                    <div>{errors.pin}</div>
-                  ) : null}
-                </Col>
-              </Row>
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>Address Line1:</label>
+                        </Col>
 
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>Mobile:</label>
-                </Col>
+                        <Col xs={12} md={6}>
+                          <Field name="addressLine1" />
+                          {errors.addressLine1 && touched.addressLine1 ? (
+                            <div>{errors.addressLine1}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
 
-                <Col xs={12} md={6}>
-                  <Field name="mobile" />
-                  {errors.mobile && touched.mobile ? (
-                    <div>{errors.mobile}</div>
-                  ) : null}
-                </Col>
-              </Row>
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>Address Line2:</label>
+                        </Col>
 
+                        <Col xs={12} md={6}>
+                          <Field name="addressLine2" />
+                          {errors.addressLine2 && touched.addressLine2 ? (
+                            <div>{errors.addressLine2}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
 
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>Email:</label>
-                </Col>
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>City:</label>
+                        </Col>
 
-                <Col xs={12} md={6}>
-                  <Field name="email" />
-                  {errors.email && touched.email ? (
-                    <div>{errors.email}</div>
-                  ) : null}
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} md={6}>
-                  <label>Address type:</label>
-                </Col>
-
-                <Col xs={12} md={6}>
-                  <label>
-                    <Field type="radio" name="addressType" value="Home" />
-                    Home
-                  </label>
-                  <label>
-                    <Field type="radio" name="addressType" value="Office" />
-                    Office
-                  </label>
-                </Col>
+                        <Col xs={12} md={6}>
+                          <Field name="city" />
+                          {errors.city && touched.city ? (
+                            <div>{errors.city}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
 
 
-              </Row>
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>District:</label>
+                        </Col>
 
-              <Row >
-                <Col>
-                  <button type="submit" className="btn btn-shine" onClick={() => handleSubmit()}>Submit</button>
-                </Col>
-              </Row>
-            </div>
+                        <Col xs={12} md={6}>
+                          <Field name="district" />
+                          {errors.district && touched.district ? (
+                            <div>{errors.district}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
+
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>State:</label>
+                        </Col>
+
+                        <Col xs={12} md={6}>
+                          <Field name="state" />
+                          {errors.state && touched.state ? (
+                            <div>{errors.state}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
 
 
-          </Form>
-        )}
-      </Formik>
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>Pin:</label>
+                        </Col>
+
+                        <Col xs={12} md={6}>
+                          <Field name="pin" />
+                          {errors.pin && touched.pin ? (
+                            <div>{errors.pin}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
+
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>Mobile:</label>
+                        </Col>
+
+                        <Col xs={12} md={6}>
+                          <Field name="mobile" />
+                          {errors.mobile && touched.mobile ? (
+                            <div>{errors.mobile}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
+
+
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>Email:</label>
+                        </Col>
+
+                        <Col xs={12} md={6}>
+                          <Field name="email" />
+                          {errors.email && touched.email ? (
+                            <div>{errors.email}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
+
+                      <Row>
+                        <Col xs={12} md={6}>
+                          <label>Address type:</label>
+                        </Col>
+
+                        <Col xs={12} md={6}>
+                          <label>
+                            <Field type="radio" name="addressType" value="Home" />
+                            Home
+                          </label>
+                          <label>
+                            <Field type="radio" name="addressType" value="Office" />
+                            Office
+                          </label>
+                        </Col>
+
+
+                      </Row>
+
+                      <Row >
+                        <Col>
+                          <button type="submit" className="btn btn-shine" onClick={() => handleSubmit()}>Submit</button>
+                        </Col>
+                      </Row>
+                    </div>
+
+
+                  </Form>
+                )}
+              </Formik>
+            </Col>
+
+
+
+          </Row>
+        </Container>
+      </section>
 
       <section>
         <Container>

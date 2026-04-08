@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import Carousel from 'react-bootstrap/Carousel';
+import "react-multi-carousel/lib/styles.css";
 import Slide from './Slide';
 import Slide2 from './Slide2';
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { login } from './slices/auth';
+import axios from 'axios';
 
 
 
@@ -24,6 +26,19 @@ const Home = () => {
       navigate("/Dashboard");
     }
   }, []);
+
+  const { categoryName } = useParams();
+  // const [categoryProducts, setCategoryProducts] = useState([]);
+
+  // useEffect(() => {
+  //   axios.get(`http://localhost:8090/api/ssproducts/category/${categoryName}`).then((response) => {
+  //     console.log(response.data);
+  //     setCategoryProducts(response.data);
+  //     console.log(categoryProducts);
+  //   });
+
+  // }, [categoryName]);
+
   const slides = [
     {
       "id": 1,
@@ -82,6 +97,7 @@ const Home = () => {
     }
   ]
 
+
   return (
     <div>
 
@@ -113,10 +129,11 @@ const Home = () => {
         <Container>
           <Row>
             <Col md={6}>
-              <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwce062adf/images/Him_Utsav_Sale_Sep_d.jpg' alt='' />
+              <Link to={'Category/Men'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwce062adf/images/Him_Utsav_Sale_Sep_d.jpg' alt='' /></Link>
             </Col>
             <Col md={6}>
-              <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw4fc2f729/images/Her_Updated_Utsav_Sale_Sep_d.jpg' alt='' />
+              <Link to={'Category/Women'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw4fc2f729/images/Her_Updated_Utsav_Sale_Sep_d.jpg' alt='' /></Link>
+
             </Col>
           </Row>
         </Container>
@@ -134,6 +151,9 @@ const Home = () => {
 
           <Row>
             <Slide></Slide>
+
+
+
           </Row>
         </Container>
       </section>
@@ -163,37 +183,39 @@ const Home = () => {
           </Row>
           <Row>
             <Col md={3}>
-              <div className='raga1'><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw1af669ec/images/homepage/All_Banners/cocktails_COLLECTION_Updated_Sep_d.jpg' alt='' /></div>
+              <div className='raga1'>
+                <Link to={'Category/Raga'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw1af669ec/images/homepage/All_Banners/cocktails_COLLECTION_Updated_Sep_d.jpg' alt='' /></Link>
+              </div>
 
             </Col>
             <Col md={3}>
               <div className='raga1'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw3132ef50/images/homepage/All_Banners/edge_COLLECTION_Updated_Sep_d.jpg' alt='' />
+                <Link to={'Category/Edge'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw3132ef50/images/homepage/All_Banners/edge_COLLECTION_Updated_Sep_d.jpg' alt='' /></Link>
 
               </div>
             </Col>
             <Col md={3}>
               <div className='raga1'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw23a95e14/images/homepage/All_Banners/memoir_COLLECTION_Updated_Sep_d.jpg' alt='' />
+                <Link to={'Category/Raga'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw23a95e14/images/homepage/All_Banners/memoir_COLLECTION_Updated_Sep_d.jpg' alt='' /></Link>
 
               </div>
             </Col>
             <Col md={3}>
               <div className='raga1'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw341ce99b/images/homepage/All_Banners/stellar_COLLECTION_Updated_Sep_d.jpg' alt='' />
+                <Link to={'Category/Titan Steller'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw341ce99b/images/homepage/All_Banners/stellar_COLLECTION_Updated_Sep_d.jpg' alt='' /></Link>
               </div>
             </Col>
           </Row>
           <Row>
             <Col md={3}>
               <div className='raga2'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwb26d6ddb/images/homepage/All_Banners/women_COLLECTION_Updated_Sep_d.jpg' alt='' />
+                <Link to={'Category/Titan'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwb26d6ddb/images/homepage/All_Banners/women_COLLECTION_Updated_Sep_d.jpg' alt='' /></Link>
 
               </div>
             </Col>
             <Col md={3}>
               <div className='raga2'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw3944b27e/images/homepage/All_Banners/automatics_COLLECTION_Updated_Sep_d.jpg' alt='' />
+                <Link to={'Category/Titan Automatic'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw3944b27e/images/homepage/All_Banners/automatics_COLLECTION_Updated_Sep_d.jpg' alt='' /></Link>
 
               </div>
             </Col>
