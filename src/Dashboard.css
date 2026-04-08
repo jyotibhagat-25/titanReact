@@ -2,13 +2,17 @@
        background:white;
        padding: 40px 0;
        text-align: left;
-       
+       /* height: 600px; */
        /* border: 2px solid red; */
        border-radius: 15px;
        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+       /* padding-bottom: 20px; */
 }
 .menu{
        background: rgb(221, 188, 194);
+       text-align: left;
+       padding-bottom: 20px;
+       height: 600px;
 
 }
 .box{

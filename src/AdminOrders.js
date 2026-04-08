@@ -71,7 +71,7 @@ const AdminOrders = () => {
                   <Link to={'/Dashboard'} className='link-area'><p>Dashboard</p></Link>
                 </Row>
               </div>
-              <div>
+              {/* <div>
                 <Row>
                   <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
 
@@ -90,7 +90,7 @@ const AdminOrders = () => {
 
 
                 </Row>
-              </div>
+              </div> */}
               <div>
                 <Row>
                   <Link to={'/AddProduct'} className='link-area'><p>Add Product</p></Link>
@@ -172,7 +172,7 @@ const AdminOrders = () => {
                             <td>{product.productName}</td>
                             <td>{product.productCategory}</td>
                             <td>{product.productDescription}</td>
-                            <td>₹{product.productPrice}</td>
+                            <td>₹ {product.productPrice}</td>
                             {/* <td><button onClick={() => handleEdit(product.id)}><AiOutlineEdit /></button></td> */}
                             {/* <td><button onClick={() => handleDelete(product.id)}><AiOutlineDelete /></button></td> */}
                           </tr>

@@ -33,7 +33,7 @@ const Header = () => {
 
   }, []);
 
-  // const [totalItems, setTotalItems] = useState([]);
+  // const [totalItems, setTotalItems] = useState(null);
 
   // useEffect(() => {
   //   axios.get(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
@@ -42,7 +42,7 @@ const Header = () => {
       
   //   });
 
-  // }, [currentUser.id]);
+  // }, [currentUser]);
 
   const handleLogout = () => {
     dispatch(logout());

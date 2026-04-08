@@ -83,54 +83,9 @@ const AddCategory = () => {
               <div className='text-center'>
 
                      <h3>Add Category</h3>
-                     <Formik
-                            initialValues={{
-                                   name: '',
-
-                            }}
-                            validationSchema={CategorySchema}
-                            onSubmit={handleSubmit}
-                     // onSubmit={handleDelete}
-
-                     >
-                            {({ errors, touched }) => (
-                                   <Form>
-                                          <div className='add-category'>
-
-                                                 <Row>
-                                                        <Col md={4}>
-                                                               <label>Select Category :- </label>
-                                                        </Col>
-                                                        <Col md={8}>
-                                                               <Field name="name" />
-                                                               {errors.name && touched.name ? (
-                                                                      <div>{errors.name}</div>
-                                                               ) : null}
-
-                                                        </Col>
-
-
-                                                 </Row>
-
-
-                                                 <Row>
-                                                        <Col>
-
-                                                               <button className="btn btn-shine">Add</button>
-                                                        </Col>
-                                                 </Row>
-
-                                          </div>
-
-                                   </Form>
-                            )}
-                     </Formik>
-
-                     <section className='table-area'>
+                     <section>
                             <Container>
-                                   <Row className='dashboard'>
-
-
+                                   <Row>
                                           <Col md={3} className='menu' >
                                                  <Breadcrumb>
                                                         <Breadcrumb.Item href="/Home">Home</Breadcrumb.Item>
@@ -145,26 +100,7 @@ const AddCategory = () => {
                                                                <Link to={'/Dashboard'} className='link-area'><p>Dashboard</p></Link>
                                                         </Row>
                                                  </div>
-                                                 <div>
-                                                        <Row>
-                                                               <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
 
-
-                                                        </Row>
-                                                 </div>
-                                                 <div>
-                                                        <Row>
-                                                               <Link to={'/Men'} className='link-area'><p>Men</p></Link>
-
-                                                        </Row>
-                                                 </div>
-                                                 <div>
-                                                        <Row>
-                                                               <Link to={'/Women'} className='link-area'><p>Women</p></Link>
-
-
-                                                        </Row>
-                                                 </div>
                                                  <div>
                                                         <Row>
                                                                <Link to={'/AddProduct'} className='link-area'><p>Add Product</p></Link>
@@ -194,11 +130,7 @@ const AddCategory = () => {
                                                         </Row>
                                                  </div>
                                                  <div>
-                                                        {/* <Row>
 
-                  <Link to={'/CustomerDetails'} className='link-area'><p>Customer Details</p></Link>
-
-                </Row> */}
                                                         <Row>
 
                                                                <Link to={'/UserOrders'} className='link-area'><p>User Orders Details</p></Link>
@@ -220,6 +152,57 @@ const AddCategory = () => {
                                                  </div>
 
                                           </Col>
+                                          <Col md={9}>
+                                                 <Formik
+                                                        initialValues={{
+                                                               name: '',
+
+                                                        }}
+                                                        validationSchema={CategorySchema}
+                                                        onSubmit={handleSubmit}
+                                                 // onSubmit={handleDelete}
+
+                                                 >
+                                                        {({ errors, touched }) => (
+                                                               <Form>
+                                                                      <div className='add-category'>
+
+                                                                             <Row>
+                                                                                    <Col md={4}>
+                                                                                           <label>Select Category :- </label>
+                                                                                    </Col>
+                                                                                    <Col md={8}>
+                                                                                           <Field name="name" />
+                                                                                           {errors.name && touched.name ? (
+                                                                                                  <div>{errors.name}</div>
+                                                                                           ) : null}
+
+                                                                                    </Col>
+
+
+                                                                             </Row>
+
+
+                                                                             <Row>
+                                                                                    <Col>
+
+                                                                                           <button className="btn btn-shine">Add</button>
+                                                                                    </Col>
+                                                                             </Row>
+
+                                                                      </div>
+
+                                                               </Form>
+                                                        )}
+                                                 </Formik>
+                                          </Col>
+                                   </Row>
+                            </Container>
+                     </section>
+
+                     <section className='table-area'>
+                            <Container>
+                                   <Row className='dashboard'>
 
                                           <Col>
                                                  <Table striped bordered hover>

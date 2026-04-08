@@ -166,25 +166,25 @@ const Dashboard = () => {
                 </Row>
               </div>
               <div>
-                <Row>
+                {/* <Row>
                   <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
 
 
+                </Row> */}
+              </div>
+              {/* <div>
+                <Row>
+                  <Link to={'Category/Men'} className='link-area'><p>Men</p></Link>
+
                 </Row>
               </div>
               <div>
                 <Row>
-                  <Link to={'/Men'} className='link-area'><p>Men</p></Link>
-
-                </Row>
-              </div>
-              <div>
-                <Row>
-                  <Link to={'/Women'} className='link-area'><p>Women</p></Link>
+                  <Link to={'Category/Women'} className='link-area'><p>Women</p></Link>
 
 
                 </Row>
-              </div>
+              </div> */}
               <div>
                 <Row>
                   <Link to={'/AddProduct'} className='link-area'><p>Add Product</p></Link>

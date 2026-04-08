@@ -88,7 +88,7 @@ const OrdersDetail = () => {
                                                  <Link to={'/Dashboard'} className='link-area'><p>Dashboard</p></Link>
                                           </Row>
                                    </div>
-                                   <div>
+                                   {/* <div>
                                           <Row>
                                                  <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
 
@@ -107,7 +107,7 @@ const OrdersDetail = () => {
 
 
                                           </Row>
-                                   </div>
+                                   </div> */}
                                    <div>
                                           <Row>
                                                  <Link to={'/AddProduct'} className='link-area'><p>Add Product</p></Link>
@@ -175,7 +175,7 @@ const OrdersDetail = () => {
                                                         <Table striped bordered hover className="mb-4">
                                                                <thead>
                                                                       <tr>
-                                                                             <th>Sl</th>
+                                                                             {/* <th>Sl</th> */}
                                                                              <th>Product Name</th>
                                                                              <th>Customer Id</th>
                                                                              <th>Category</th>
@@ -189,11 +189,11 @@ const OrdersDetail = () => {
                                                                       {
                                                                              order.products?.map((product, i) => (
                                                                                     <tr key={i}>
-                                                                                           <td>{i + 1}</td>
+                                                                                           {/* <td>{i + 1}</td> */}
                                                                                            <td>{product?.productId?.productName}</td>
                                                                                            <td>{order?.userId?._id}</td>
                                                                                            <td>{product?.productId?.productCategory}</td>
-                                                                                           <td>₹{product?.productId?.productPrice}</td>
+                                                                                           <td>₹ {product?.productId?.productPrice}</td>
                                                                                            <td>{order?.status}</td>
 
                                                                                            <td>

@@ -43,7 +43,8 @@
 .submit-btn:hover::before {
        left: 100%;
 }
-.order-placed-form{
+
+.order-placed-form {
        margin: 10px auto;
        width: 40%;
        /* height: 360px; */
@@ -51,38 +52,48 @@
        border-radius: 20px;
        box-shadow: 10px 20px 50px rgba(58, 45, 45, 0.1);
        position: relative;
-       text-align:left;
+       text-align: left;
        border: 5px solid rgb(244, 242, 242);
+       text-transform: capitalize;
+
        /* background: url("C:\Users\INTEL\Desktop\login .jpg"); */
 
-}  
-.address-row{
+}
+
+.address-row {
        display: inline-flex;
-       align-items: center;
-       width:80%;
+       align-items:left;
+       gap: 10px;
+       width: 80%;
+
        /* background: pink; */
 }
 
-.address-text{
+.address-text {
        flex: 1;
-       margin-left: 50px;
-}
-.address-badge{
-       margin-left:4px;
-       padding: 3px 6px;
-       font-size: 11px;
+       margin-left: 1px;
+       font-size: 14px;
 }
 
-.btn-order{
+/* .address-badge {
+       margin-left: 4px;
+       padding: 3px 6px;
+       font-size: 11px;
+} */
+
+
+
+.btn-order {
        background: linear-gradient(135deg, #d16c24, #ff6b6b);
        color: white;
        position: relative;
        overflow: hidden;
-       text-align: center;
+       text-align: left;
        margin-top: 25px;
        padding: 10px 20px;
        border: none;
 }
+
 .btn-order::before {
        content: '';
        position: absolute;
@@ -92,14 +103,15 @@
        height: 100%;
        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
        transition: left 0.7s ease;
-       
+
 
 }
+
 .btn-order:hover::before {
        left: 100%;
 }
 
-.order-placed-form :link{
+.order-placed-form :link {
        /* color: #5f3b2d !important; */
        text-decoration: none;
        /* background: red; */

@@ -98,7 +98,7 @@ const TestProduct = () => {
                   <Link to={'/Dashboard'} className='link-area'><p>Dashboard</p></Link>
                 </Row>
               </div>
-              <div>
+              {/* <div>
                 <Row>
                   <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
 
@@ -117,7 +117,7 @@ const TestProduct = () => {
 
 
                 </Row>
-              </div>
+              </div> */}
               <div>
                 <Row>
                   <Link to={'/AddProduct'} className='link-area'><p>Add Product</p></Link>

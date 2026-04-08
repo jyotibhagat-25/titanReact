@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { Col, Container, Row } from "react-bootstrap";
+import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import "./AddProduct.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import TestProduct from "./TestProduct";
 import AdminOrders from "./AdminOrders"
 import './Dashboard.css';
@@ -72,168 +72,263 @@ const AddProduct = () => {
   };
 
   return (
+
+
     <div className="text-center">
-      
+
       <h3>AddProduct</h3>
-      <Formik
-        initialValues={{
-          productName: "",
-          productDescription: "",
-          productCategory: "",
-          genderDetails: "",
-          productPrice: "",
+
+      <section>
+        <Container>
+          <Row>
+
+            <Col md={3} className='menu'>
+              <Breadcrumb>
+                <Breadcrumb.Item href="/Home">Home</Breadcrumb.Item>
+                <Breadcrumb.Item href="#">
+                  Dashboard
+                </Breadcrumb.Item>
+
+              </Breadcrumb>
+              <div >
+                <Row>
+                  <h6>Menu</h6>
+                  <Link to={'/Dashboard'} className='link-area'><p>Dashboard</p></Link>
+                </Row>
+              </div>
+              <div>
+                {/* <Row>
+                  <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
 
 
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={async (values, { resetForm }) => {
-          const formData = new FormData();
+                </Row> */}
+              </div>
 
-          formData.append("userId", currentUser.id);
+              <div>
+                <Row>
+                  <Link to={'/AddProduct'} className='link-area'><p>Add Product</p></Link>
 
-          Object.keys(values).forEach((key) => {
-            formData.append(key, values[key]);
-          });
 
-          for (let i = 0; i < selectedImages.length; i++) {
-            formData.append("images", selectedImages[i]);
-          }
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <Link to={'/AddCategory'} className='link-area'><p>Add Category</p></Link>
 
-          try {
-            const res = await axios.post(
-              "http://localhost:8090/api/ssproducts",
-              formData,
-              {
-                headers: {
-                  "Content-Type": "multipart/form-data",
-                },
-              }
-            );
-            console.log("Upload success:", res.data);
-            alert("Product added successfully!");
-            resetForm();
-            setSelectedImages([]);
-          } catch (err) {
-            console.error("Upload failed:", err);
-            alert("Failed to add product");
-          }
-        }}
-      >
-        {({ errors, touched }) => (
-          <Form>
-            <div className="productform">
-              <Row>
-                <Col md={6}>
-                  <label>ProductName : </label>
-                </Col>
-                <Col md={6}>
-                  <Field name="productName" />
-                  {errors.productName && touched.productName ? (
-                    <div>{errors.productName}</div>
-                  ) : null}
-                </Col>
-              </Row>
 
-              <Row>
-                <Col md={6}>
-                  <label>ProductDescription : </label>
-                </Col>
-                <Col md={6}>
-                  <Field name="productDescription" />
-                  {errors.productDescription && touched.productDescription ? (
-                    <div>{errors.productDescription}</div>
-                  ) : null}
-                </Col>
-              </Row>
-              <Row>
-                <Col md={6}>
-                  <label>ProductCategory : </label>
-                </Col>
-                <Col md={6}>
-                  <Field
-                    as="select"
-                    name="productCategory"
-                    id="productCategory"
-                  >
-                    <option value="">-- Select a Category --</option>
-                    {categories
-                      ? categories.map((category, index) => {
-                        return (
-                          <option value={category.name} key={index}>
-                            {category.name}
-                          </option>
-                        );
-                      })
-                      : "No Category Found"}
-                  </Field>
-                  <option></option>
-                  {errors.productCategory && touched.productCategory ? (
-                    <div>{errors.productCategory}</div>
-                  ) : null}
-                </Col>
-              </Row>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <h6>Management</h6>
+                  <Link to={'/TestProduct'} className='link-area'><p>Total Products</p></Link>
 
-              <Row>
-                <Col md={6}>
-                  <label>Gender:</label>
-                </Col>
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <Link to={'/AdminOrders'} className='link-area'><p>Product Details</p></Link>
 
-                <Col md={6}>
-                  <label>
-                    <Field type="radio" name="genderDetails" value="Male" />
-                    Male
-                  </label>
-                  <label>
-                    <Field type="radio" name="genderDetails" value="Female" />
-                    Female
-                  </label>
-                </Col>
-              </Row>
 
-              <Row>
-                <Col md={6}>
-                  <label>ProductPrice : </label>
-                </Col>
-                <Col md={6}>
-                  <Field name="productPrice" />
-                  {errors.productPrice && touched.productPrice ? (
-                    <div>{errors.productPrice}</div>
-                  ) : null}
-                </Col>
-              </Row>
-              <Row>
-                <Col md={6}>Images</Col>
-                <Col md={6}>
-                  <input
-                    type="file"
-                    multiple
-                    accept="image/*"
-                    onChange={handleFileChange}
-                  />
-                  {selectedImages.length > 0 && (
-                    <div>{selectedImages.length} image(s) selected</div>
-                  )}
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <button className="btn btn-product">Add</button>
-                </Col>
-              </Row>
-            </div>
-          </Form>
-        )}
-      </Formik>
+                </Row>
+              </div>
+              <div>
+                {/* <Row>
 
-<section>
-  <Container>
-    <Row>
-      <Col>
-      <AdminOrders></AdminOrders>
-      </Col>
-    </Row>
-  </Container>
-</section>
+                  <Link to={'/CustomerDetails'} className='link-area'><p>Customer Details</p></Link>
+
+                </Row> */}
+                <Row>
+
+                  <Link to={'/UserOrders'} className='link-area'><p>User Orders Details</p></Link>
+
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <h6>Notification</h6>
+                  <p>Transaction</p>
+
+                </Row>
+              </div>
+              <div>
+                <Row>
+                  <p>Message</p>
+
+                </Row>
+              </div>
+            </Col>
+
+            <Col md={9}>
+              <Formik
+                initialValues={{
+                  productName: "",
+                  productDescription: "",
+                  productCategory: "",
+                  genderDetails: "",
+                  productPrice: "",
+
+
+                }}
+                validationSchema={SignupSchema}
+                onSubmit={async (values, { resetForm }) => {
+                  const formData = new FormData();
+
+                  formData.append("userId", currentUser.id);
+
+                  Object.keys(values).forEach((key) => {
+                    formData.append(key, values[key]);
+                  });
+
+                  for (let i = 0; i < selectedImages.length; i++) {
+                    formData.append("images", selectedImages[i]);
+                  }
+
+                  try {
+                    const res = await axios.post(
+                      "http://localhost:8090/api/ssproducts",
+                      formData,
+                      {
+                        headers: {
+                          "Content-Type": "multipart/form-data",
+                        },
+                      }
+                    );
+                    console.log("Upload success:", res.data);
+                    alert("Product added successfully!");
+                    resetForm();
+                    setSelectedImages([]);
+                  } catch (err) {
+                    console.error("Upload failed:", err);
+                    alert("Failed to add product");
+                  }
+                }}
+              >
+
+
+
+                {({ errors, touched }) => (
+                  <Form>
+                    <div className="productform" md={9}>
+                      <Row>
+                        <Col md={6}>
+                          <label>ProductName : </label>
+                        </Col>
+                        <Col md={6}>
+                          <Field name="productName" />
+                          {errors.productName && touched.productName ? (
+                            <div>{errors.productName}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
+
+                      <Row>
+                        <Col md={6}>
+                          <label>ProductDescription : </label>
+                        </Col>
+                        <Col md={6}>
+                          <Field name="productDescription" />
+                          {errors.productDescription && touched.productDescription ? (
+                            <div>{errors.productDescription}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={6}>
+                          <label>ProductCategory : </label>
+                        </Col>
+                        <Col md={6}>
+                          <Field
+                            as="select"
+                            name="productCategory"
+                            id="productCategory"
+                          >
+                            <option value="">-- Select a Category --</option>
+                            {categories
+                              ? categories.map((category, index) => {
+                                return (
+                                  <option value={category.name} key={index}>
+                                    {category.name}
+                                  </option>
+                                );
+                              })
+                              : "No Category Found"}
+                          </Field>
+                          <option></option>
+                          {errors.productCategory && touched.productCategory ? (
+                            <div>{errors.productCategory}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
+
+                      <Row>
+                        <Col md={6}>
+                          <label>Gender:</label>
+                        </Col>
+
+                        <Col md={6}>
+                          <label>
+                            <Field type="radio" name="genderDetails" value="Male" />
+                            Male
+                          </label>
+                          <label>
+                            <Field type="radio" name="genderDetails" value="Female" />
+                            Female
+                          </label>
+                        </Col>
+                      </Row>
+
+                      <Row>
+                        <Col md={6}>
+                          <label>ProductPrice : </label>
+                        </Col>
+                        <Col md={6}>
+                          <Field name="productPrice" />
+                          {errors.productPrice && touched.productPrice ? (
+                            <div>{errors.productPrice}</div>
+                          ) : null}
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md={6}>Images</Col>
+                        <Col md={6}>
+                          <input
+                            type="file"
+                            multiple
+                            accept="image/*"
+                            onChange={handleFileChange}
+                          />
+                          {selectedImages.length > 0 && (
+                            <div>{selectedImages.length} image(s) selected</div>
+                          )}
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>
+                          <button className="btn btn-product">Add</button>
+                        </Col>
+                      </Row>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+            </Col>
+
+          </Row>
+        </Container>
+      </section>
+
+
+
+      <section>
+        <Container>
+          <Row>
+            <Col>
+              {/* <AdminOrders></AdminOrders> */}
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </div>
   );
 };

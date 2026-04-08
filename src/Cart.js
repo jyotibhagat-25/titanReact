@@ -108,12 +108,12 @@ const Cart = () => {
                             <td>{index + 1}</td>
                             <td>{cartItem.productDetails.productName}</td>
                             <td><img src={`http://localhost:8090/upload/${cartItem.productDetails.images[0]}`} /></td>
-                            <td>₹{cartItem.price}</td>
+                            <td>₹ {cartItem.price}</td>
                             <td>
                               <button onClick={() => quantityUpdate(cartItem.productId, cartItem.quantity - 1)} disabled={cartItem.quantity <= 1}>-</button>&nbsp;{cartItem.quantity}&nbsp;
                               <button onClick={() => quantityUpdate(cartItem.productId, cartItem.quantity + 1)}>+</button>
                             </td>
-                            <td>₹{cartItem.price * cartItem.quantity}</td>
+                            <td>₹ {cartItem.price * cartItem.quantity}</td>
 
                             <td><button onClick={() => handleDelete(cartItem.productId)}><AiOutlineDelete /></button></td>
 

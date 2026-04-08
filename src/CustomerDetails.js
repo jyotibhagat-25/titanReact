@@ -27,21 +27,6 @@ const CustomerDetails = () => {
               }
        }, [currentUser]);
 
-       //  FETCH FUNCTION
-       // const fetchOrders = () => {
-       //        if (currentUser?.id) {
-       //               axios
-       //                      .get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`)
-       //                      .then((res) => {
-       //                             setOrders(Array.isArray(res.data) ? res.data : []);
-       //                      })
-       //                      .catch((err) => console.log(err));
-       //        }
-       // };
-
-       // useEffect(() => {
-       //        fetchOrders();
-       // }, [currentUser]);
 
        useEffect(() => {
               axios.get(`http://localhost:8090/api/ssorders/user/${currentUser.id}`)
@@ -52,14 +37,6 @@ const CustomerDetails = () => {
               
        }, []);
 
-       // // AUTO UPDATE
-       // useEffect(() => {
-       //        const interval = setInterval(() => {
-       //               fetchOrders();
-       //        }, 3000);
-
-       //        return () => clearInterval(interval);
-       // }, [currentUser]);
 
        //   WORKING LOGIC
        const statusFlow = ["Ordered", "Shipped", "Out for Delivery", "Delivered"];
@@ -90,13 +67,13 @@ const CustomerDetails = () => {
                                                                
                                                                <Accordion.Header>
                                                                       <b>Order ID:</b> {order?.id}
-                                                                      &nbsp;&nbsp;&nbsp;
+                                                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                       <b>Date:</b> {new Date(order?.createdAt).toLocaleDateString()}
                                                                </Accordion.Header>
 
                                                                <Accordion.Body>
 
-                                                                      {/* ✅ SAME TABLE */}
+                                                                      
                                                                       <Table striped bordered hover>
                                                                              <thead>
                                                                                     <tr>
@@ -133,7 +110,7 @@ const CustomerDetails = () => {
                                                                              </tbody>
                                                                       </Table>
 
-                                                                      {/* ✅ SAME OLD UI (BIG DOT) */}
+                                                                      
                                                                       <MDBContainer className="py-4">
                                                                              <MDBRow>
                                                                                     <MDBCol>
@@ -147,7 +124,7 @@ const CustomerDetails = () => {
 
                                                                                                          <hr />
 
-                                                                                                         {/* 🔥 ONLY LOGIC CHANGED */}
+                                                                                                         
                                                                                                          <div className="d-flex align-items-center">
 
                                                                                                                 <span className={step >= 1 ? "big-dot" : "dot"}></span>
