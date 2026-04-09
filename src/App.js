@@ -12,9 +12,10 @@ import Contact from './Contact';
 import Dashboard from './Dashboard';
 import Trial from './Trial';
 import Test from './Test';
-import Product1 from './Product1';
-import './Product1.css';
+// import Product1 from './Product';
+import './Product.css';
 import './Myproducts';
+import Product from './Product';
 import Myproducts from './Myproducts';
 import Men from './Men';
 import './common-for-all.css';
@@ -47,6 +48,7 @@ import UserOrders from './UserOrders';
 import Address from './Address';
 import CustomerDetails from './CustomerDetails';
 import OrderStatus from './OrderStatus';
+import ViewProduct from './ViewProduct';
 
 
 function App() {
@@ -66,7 +68,7 @@ function App() {
         {/* localhost:3000/Test */}
         <Route path='/Test' element={<Test/>}/>
         {/* localhost:3000/Product1 */}
-        <Route path='/Product1' element={<Product1/>}/>
+        <Route path='/Product' element={<Product/>}/>
         {/* localhost:3000/Myproducts */}
         <Route path='/Myproducts' element={<Myproducts/>}/>
         {/* localhost:3000/Myproducts */}
@@ -102,6 +104,8 @@ function App() {
         <Route path='/Address' element={<Address/>}/>
         <Route path='/CustomerDetails' element={<CustomerDetails/>}/>
         <Route path='/OrderStatus' element={<OrderStatus/>}/>
+        <Route path='/ViewProduct/:productId' element={<ViewProduct/>}/>
+
 
       </Routes>
       {/* <Men></Men> */}

@@ -221,13 +221,13 @@ const Home = () => {
             </Col>
             <Col md={3}>
               <div className='raga2'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwdedc4e73/images/homepage/All_Banners/silvers_COLLECTION_Updated_Sep_d.jpg' alt='' />
+                <Link to={'Category/Raga'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwdedc4e73/images/homepage/All_Banners/silvers_COLLECTION_Updated_Sep_d.jpg' alt='' /></Link>
 
               </div>
             </Col>
             <Col md={3}>
               <div className='raga2'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwdd844871/images/homepage/All_Banners/maritime_COLLECTION_Updated_Sep_d.jpg' alt='' />
+                <Link to={'Category/Titan Automatic'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwdd844871/images/homepage/All_Banners/maritime_COLLECTION_Updated_Sep_d.jpg' alt='' /></Link>
               </div>
             </Col>
           </Row>
@@ -243,20 +243,20 @@ const Home = () => {
           <Row>
             <Col md={6}>
               <div className='automatic'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwef7ff51b/images/homepage/movement_automatic_updated_Sep_d.jpg' alt='' />
+                <Link to={'Category/Titan Automatic'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwef7ff51b/images/homepage/movement_automatic_updated_Sep_d.jpg' alt='' /></Link>
               </div>
             </Col>
             <Col md={6}>
               <Row>
                 <Col md={6}>
                   <div className='mech'>
-                    <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw5a834c27/images/homepage/movement_mechanical_updated_Sep_d.jpg' alt='' />
+                    <Link to={'Category/Mechanical'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw5a834c27/images/homepage/movement_mechanical_updated_Sep_d.jpg' alt='' /></Link>
 
                   </div>
                 </Col>
                 <Col md={6}>
                   <div className='mech'>
-                    <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw8040bb3a/images/homepage/movement_quartz_updated_Sep_d.jpg' alt='' />
+                    <Link to={'Category/Quartz'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw8040bb3a/images/homepage/movement_quartz_updated_Sep_d.jpg' alt='' /></Link>
 
                   </div>
                 </Col>
@@ -264,13 +264,13 @@ const Home = () => {
               <Row>
                 <Col md={6}>
                   <div className='smart'>
-                    <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwca2d31d0/images/homepage/movement_chronograph_updated_Sep_d.jpg' alt='' />
+                    <Link to={'/Category/Chronograph'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwca2d31d0/images/homepage/movement_chronograph_updated_Sep_d.jpg' alt='' /></Link>
 
                   </div>
                 </Col>
                 <Col md={6}>
                   <div className='smart'>
-                    <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw0b9f18bc/images/homepage/movement_smart_updated_Sep_d.jpg' alt='' />
+                    <Link to={'/Category/smartwatch'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw0b9f18bc/images/homepage/movement_smart_updated_Sep_d.jpg' alt='' /></Link>
 
                   </div>
                 </Col>
@@ -290,24 +290,24 @@ const Home = () => {
             <Col md={3}>
 
               <div className='titan1'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw83e2e00b/images/homepage/Brands/titan_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Titan Automatic'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw83e2e00b/images/homepage/Brands/titan_Sep_d.jpg' alt='' /></Link>
               </div>
             </Col>
             <Col md={3}>
               <div className='titan1'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwd1e4c3c2/images/homepage/Brands/ft_Sep_d.jpg' alt='' />
-              </div>
-
-            </Col>
-            <Col md={3}>
-              <div className='titan1'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwbff2ef9f/images/homepage/Brands/sonata_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Fastrack'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwd1e4c3c2/images/homepage/Brands/ft_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
             <Col md={3}>
               <div className='titan1'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw9b44bd12/images/homepage/Brands/tommy_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Sonata'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwbff2ef9f/images/homepage/Brands/sonata_Sep_d.jpg' alt='' /></Link>
+              </div>
+
+            </Col>
+            <Col md={3}>
+              <div className='titan1'>
+                <Link to={'/Category/Tommy Hilfiger'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw9b44bd12/images/homepage/Brands/tommy_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
@@ -315,25 +315,25 @@ const Home = () => {
           <Row>
             <Col md={3}>
               <div className='titan2'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwb1653fc9/images/homepage/Brands/kc_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Kenneth Cole'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwb1653fc9/images/homepage/Brands/kc_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
             <Col md={3}>
               <div className='titan2'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw8e713993/images/homepage/Brands/police_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Police'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw8e713993/images/homepage/Brands/police_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
             <Col md={3}>
               <div className='titan2'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwd5a53a97/images/homepage/Brands/anne_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Anne Klein'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwd5a53a97/images/homepage/Brands/anne_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
             <Col md={3}>
               <div className='titan2'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwad51ea49/images/homepage/Brands/zoop_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Zoop'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwad51ea49/images/homepage/Brands/zoop_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
@@ -342,7 +342,7 @@ const Home = () => {
 
             <Col md={3}>
               <div className='titan3'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwc1a2d17c/images/homepage/Brands/raga_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Raga'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwc1a2d17c/images/homepage/Brands/raga_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
@@ -354,7 +354,7 @@ const Home = () => {
             </Col>
             <Col md={3}>
               <div className='titan3'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw5626ec7d/images/homepage/Brands/edge_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Edge'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw5626ec7d/images/homepage/Brands/edge_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>

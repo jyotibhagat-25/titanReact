@@ -6,6 +6,19 @@
 .card-product img{
        width: 100%;
 }
+.card-product :link{
+  color:black ;
+  text-decoration:none;
+}
+.view-product{
+       margin: auto;
+       padding: 10px;
+       border: none !important;
+}
+.view-product img{
+       width: 100%;
+       
+}
 .wishlist-product{
        margin: auto;
        padding: 10px;

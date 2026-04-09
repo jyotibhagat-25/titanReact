@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
 
-const Product1 = () => {
+const Product = () => {
   return (
     <div>
       <section className='productimage'>
@@ -40,12 +40,12 @@ const Product1 = () => {
               <div>
                 <p>Fastrack Marvellous FX2 Unisex Smart Watch With Black Metal Strap</p>
                 <p>₹ 6,499.00</p>
-                  <p>
-                    Inclusive of all taxes*
-                  </p>
-                  <p>expected delivery date </p>
-                  <Button className='button1'>Add to Cart</Button>
-                  <Button className='button2'>Buy Now</Button>
+                <p>
+                  Inclusive of all taxes*
+                </p>
+                <p>expected delivery date </p>
+                <Button className='button1'>Add to Cart</Button>
+                <Button className='button2'>Buy Now</Button>
               </div>
 
             </Col>
@@ -53,10 +53,10 @@ const Product1 = () => {
           </Row>
         </Container>
       </section>
-
     </div>
   )
 }
 
-export default Product1
+export default Product
+
 

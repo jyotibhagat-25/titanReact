@@ -4,7 +4,7 @@ import { Col, Container, Row, Card, Button } from 'react-bootstrap'
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 
 
 const Category = () => {
@@ -101,15 +101,21 @@ const Category = () => {
                       {/* <Card.Img variant="top" src={product.image} /> */}
                       <Card.Body>
                         <Card.Title>{product.category}</Card.Title>
-                        <Card.Text>
-                          <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
-                          <p><b>| {product.productName}</b></p>
-                          <p>{product.productDescription}</p>
-                          <p>{product.productCategory}</p>
-                          <p>₹{product.productPrice}</p>
-                          <Button type="submit" className='icon-btn-wishlist' onClick={() => handleWishlist(product)}><IoMdHeartEmpty /></Button>
-                          <Button type="submit" className='icon-btn-cart' onClick={() => handleCart(product)}><MdOutlineShoppingCart /></Button>
-                        </Card.Text>
+
+                        {/*  TO LINK THE ENTIRE PRODUCT */}
+                        
+                        <Link to={`/ViewProduct/${product.id}`}>
+                          <Card.Text>
+                            <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
+                            <p><b>| {product.productName}</b></p>
+                            <p>{product.productDescription}</p>
+                            <p>{product.productCategory}</p>
+                            <p>₹{product.productPrice}</p>
+                            <Button type="submit" className='icon-btn-wishlist' onClick={() => handleWishlist(product)}><IoMdHeartEmpty /></Button>
+                            <Button type="submit" className='icon-btn-cart' onClick={() => handleCart(product)}><MdOutlineShoppingCart /></Button>
+                            {/* <Link >View</Link> */}
+                          </Card.Text>
+                        </Link>
                         <Col>
 
                           <Button type="submit" className='buttons'>Buy Now</Button>
