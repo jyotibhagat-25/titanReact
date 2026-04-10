@@ -55,6 +55,10 @@ const Category = () => {
     });
   }
 
+  const [category, setCategory] = useState("Women raga watch");
+  const uniqueCategory=[...new Set(products.map(product=>product.productCategory))]
+  console.log(uniqueCategory)
+
   const handleWishlist = (product) => {
     console.log(product);
     const data = {
@@ -89,11 +93,23 @@ const Category = () => {
           <Row>
             <Col className='category-name'>
               <h2>{categoryName}</h2>
+              <h5>Choose Category</h5>
+              <select onChange={(e)=>setCategory(e.target.value)}>
+                {
+                  uniqueCategory.map((category,index)=>{
+                    return(
+                      <option key={index} value={category}>
+                        {category}
+                      </option>
+                    )
+                  })
+                }
+              </select>
             </Col>
           </Row>
           <Row>
             {
-              products.map((product, index) => {
+              products.filter(product => product.productCategory===category).map((product, index) => {
                 return (
                   // <img src={product.image}/>
                   <Col className='card-product'>
