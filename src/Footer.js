@@ -20,10 +20,10 @@ const Footer = () => {
                   |  COLLECTIONS
                 </h6>
                 <ul>
-                  <li>&nbsp;&nbsp;Titan Automatics</li>
-                  <li>&nbsp;&nbsp;Police Batman</li>
-                  <li>&nbsp;&nbsp;Stellar</li>
-                  <li>&nbsp;&nbsp;Raga Power Pearls</li>
+                  <Link to={'/Category/Titan Automatic'} className="text-decoration-none text-light"><li>&nbsp;&nbsp;Titan Automatics</li></Link>
+                  <Link to={'/Category/Police'} className="text-decoration-none text-light"><li>&nbsp;&nbsp;Police Batman</li></Link>
+                  <Link to={'/Category/Titan Steller'} className="text-decoration-none text-light"><li>&nbsp;&nbsp;Titan Steller</li></Link>
+                  <Link to={'/Category/Raga'} className="text-decoration-none text-light"><li>&nbsp;&nbsp;Raga Power Pearls</li></Link>
 
 
                 </ul>
@@ -36,7 +36,7 @@ const Footer = () => {
                 </h6>
                 <ul>
                   <li>&nbsp;&nbsp;Payment Options</li>
-                  <li>&nbsp;&nbsp;Track Order</li>
+                  <Link to={'/CustomerDetails'} className="text-decoration-none text-light"><li>&nbsp;&nbsp;Track Order</li></Link>
                   <li>&nbsp;&nbsp;Encircle Program</li>
                   <li>&nbsp;&nbsp;Find Titan World Stores</li>
 

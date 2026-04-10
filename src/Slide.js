@@ -44,51 +44,51 @@ const Slide = () => {
                                                  <Carousel responsive={responsive}>
                                                         <div>
                                                                <Col >
-                                                                      <Link to={'Category/New Arrival'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwa4446693/images/smart_mar.jpg' alt='' /></Link>
+                                                                      <Link to={'/Category/New Arrival'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwa4446693/images/smart_mar.jpg' alt='' /></Link>
                                                                       <p>New Arrival</p>
                                                                </Col>
                                                         </div>
                                                         <div>
                                                                <Col >
-                                                                      <Link to={'Category/Kenneth cole'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw2fcb1ac7/images/SMART_bestway.jpg' alt='' /></Link>
+                                                                      <Link to={'/Category/Kenneth cole'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw2fcb1ac7/images/SMART_bestway.jpg' alt='' /></Link>
                                                                       <p>Kenneth Cole</p>
                                                                </Col>
                                                         </div>
                                                         <div>
                                                                <Col >
-                                                                      <Link to={'Category/Anne klein'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw6e1c29f5/images/bestseller_mar.jpg' alt='' /></Link>
+                                                                      <Link to={'/Category/Anne klein'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw6e1c29f5/images/bestseller_mar.jpg' alt='' /></Link>
                                                                       <p>Anne Klein</p>
                                                                </Col>
                                                         </div>
                                                         <div>
                                                                <Col>
-                                                                      <Link to={'Category/Raga'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw9e74cb0d/images/raga_bestway.jpg' alt='' /></Link>
+                                                                      <Link to={'/Category/Raga'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw9e74cb0d/images/raga_bestway.jpg' alt='' /></Link>
                                                                       <p>Raga</p>
                                                                </Col>
                                                         </div>
                                                         
                                                         <div>
                                                                <Col>
-                                                                      <Link to={'Category/Police'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw64c44520/images/LUXE_bestway.jpg' alt='' /></Link>
+                                                                      <Link to={'/Category/Police'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw64c44520/images/LUXE_bestway.jpg' alt='' /></Link>
                                                                       <p>Police</p>
                                                                </Col>
                                                         </div>
                                                         <div>
                                                                <Col>
-                                                                      <Link to={'Category/Women'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw4f3847ed/images/women_mar.jpg' alt='' /></Link>
+                                                                      <Link to={'/Category/Women'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw4f3847ed/images/women_mar.jpg' alt='' /></Link>
                                                                       <p>Women</p>
                                                                </Col>
                                                         </div>
                                                         <div>
                                                                <Col>
-                                                                      <Link to={'Category/Men'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwba5e41d4/images/MEN_bestway.jpg' alt='' /></Link>
+                                                                      <Link to={'/Category/Men'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwba5e41d4/images/MEN_bestway.jpg' alt='' /></Link>
                                                                       <p>Men</p>
                                                                </Col>
                                                         </div>
                                                         
                                                         <div>
                                                                <Col>
-                                                                      <Link to={'Category/Kids'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw43a80cbb/images/kids.jpg' alt='' /></Link>
+                                                                      <Link to={'/Category/Kids'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw43a80cbb/images/kids.jpg' alt='' /></Link>
                                                                       <p>Kids</p>
                                                                </Col>
                                                         </div>

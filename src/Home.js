@@ -264,7 +264,7 @@ const Home = () => {
               <Row>
                 <Col md={6}>
                   <div className='smart'>
-                    <Link to={'/Category/Chronograph'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwca2d31d0/images/homepage/movement_chronograph_updated_Sep_d.jpg' alt='' /></Link>
+                    <Link to={'/Category/Chronoghraph'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwca2d31d0/images/homepage/movement_chronograph_updated_Sep_d.jpg' alt='' /></Link>
 
                   </div>
                 </Col>
@@ -348,7 +348,7 @@ const Home = () => {
             </Col>
             <Col md={3}>
               <div className='titan3'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwbd83db58/images/homepage/Brands/xylys_Sep_d.jpg' alt='' />
+                <Link to={'/Category/xylys'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwbd83db58/images/homepage/Brands/xylys_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
@@ -360,7 +360,7 @@ const Home = () => {
             </Col>
             <Col md={3}>
               <div className='titan3'>
-                <img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw1fa5abd4/images/homepage/Brands/nebula_Sep_d.jpg' alt='' />
+                <Link to={'/Category/Nebula'}><img src='https://www.titan.co.in/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw1fa5abd4/images/homepage/Brands/nebula_Sep_d.jpg' alt='' /></Link>
               </div>
 
             </Col>
@@ -375,36 +375,36 @@ const Home = () => {
             </Col>
           </Row>
           <Row>
-            <Col md={2}>
+            <Col md={3}>
               <div className='style'>
-                <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw0b293ab5/images/homepage/All_Banners/Discover_Minimal_D.jpg' alt='' />
+                <Link to={'/Category/Minimal & chic'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw0b293ab5/images/homepage/All_Banners/Discover_Minimal_D.jpg' alt='' /></Link>
               </div>
             </Col>
-            <Col md={2}>
+            <Col md={3}>
               <div className='style'>
-                <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwbf49db4e/images/homepage/All_Banners/Discover_Bold_D.jpg' alt='' />
+                <Link to={'/Category/Bold & Easy'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwbf49db4e/images/homepage/All_Banners/Discover_Bold_D.jpg' alt='' /></Link>
               </div>
             </Col>
-            <Col md={2}>
+            <Col md={3}>
               <div className='style'>
-                <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwdae85b9d/images/homepage/All_Banners/Discover_Luxe_D.jpg' alt='' />
+                <Link to={'/Category/Classy Watches'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dwdae85b9d/images/homepage/All_Banners/Discover_Luxe_D.jpg' alt='' /></Link>
               </div>
             </Col>
-            <Col md={2}>
+            {/* <Col md={2}>
               <div className='style'>
                 <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw93f8affd/images/homepage/All_Banners/Discover_Couple_D.jpg' alt='' />
               </div>
+            </Col> */}
+            <Col md={3}>
+              <div className='style'>
+                <Link to={'/Category/Sports'}><img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw816cf69a/images/homepage/All_Banners/Discover_Sporty_D.jpg' alt='' /></Link>
+              </div>
             </Col>
-            <Col md={2}>
+            {/* <Col md={2}>
               <div className='style'>
                 <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw816cf69a/images/homepage/All_Banners/Discover_Sporty_D.jpg' alt='' />
               </div>
-            </Col>
-            <Col md={2}>
-              <div className='style'>
-                <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Library-Sites-TitanSharedLibrary/default/dw816cf69a/images/homepage/All_Banners/Discover_Sporty_D.jpg' alt='' />
-              </div>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </section>
