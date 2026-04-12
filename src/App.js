@@ -51,6 +51,7 @@ import OrderStatus from './OrderStatus';
 import ViewProduct from './ViewProduct';
 
 
+
 function App() {
   return (
     <div>
@@ -105,6 +106,7 @@ function App() {
         <Route path='/CustomerDetails' element={<CustomerDetails/>}/>
         <Route path='/OrderStatus' element={<OrderStatus/>}/>
         <Route path='/ViewProduct/:productId' element={<ViewProduct/>}/>
+        
 
 
       </Routes>

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { all } from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Row, Card, Button } from 'react-bootstrap'
 import { IoMdHeartEmpty } from 'react-icons/io';
@@ -55,7 +55,7 @@ const Category = () => {
     });
   }
 
-  const [category, setCategory] = useState("Women raga watch");
+  const [category, setCategory] = useState("all");
   const uniqueCategory=[...new Set(products.map(product=>product.productCategory))]
   console.log(uniqueCategory)
 
@@ -95,6 +95,7 @@ const Category = () => {
               <h2>{categoryName}</h2>
               <h5>Choose Category</h5>
               <select onChange={(e)=>setCategory(e.target.value)}>
+                <option value={all}>All</option>
                 {
                   uniqueCategory.map((category,index)=>{
                     return(
@@ -109,7 +110,7 @@ const Category = () => {
           </Row>
           <Row>
             {
-              products.filter(product => product.productCategory===category).map((product, index) => {
+              products.filter(product => product.productCategory===category||category==="all").map((product, index) => {
                 return (
                   // <img src={product.image}/>
                   <Col className='card-product'>
