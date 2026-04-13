@@ -5,6 +5,8 @@ import { IoMdHeartEmpty } from 'react-icons/io';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 
 const Category = () => {
@@ -25,6 +27,8 @@ const Category = () => {
     //   navigate("/TestProduct");
     // }
   }, [currentUser]);
+
+  const [priceRange, setPriceRange] = useState([0, 5000]);
 
 
   useEffect(() => {
@@ -56,7 +60,7 @@ const Category = () => {
   }
 
   const [category, setCategory] = useState("all");
-  const uniqueCategory=[...new Set(products.map(product=>product.productCategory))]
+  const uniqueCategory = [...new Set(products.map(product => product.productCategory))]
   console.log(uniqueCategory)
 
   const handleWishlist = (product) => {
@@ -92,13 +96,18 @@ const Category = () => {
         <Container>
           <Row>
             <Col className='category-name'>
+
               <h2>{categoryName}</h2>
               <h5>Choose Category</h5>
-              <select onChange={(e)=>setCategory(e.target.value)}>
+              <p>
+                Price : {priceRange[0]} - {priceRange[1]}<Slider range min={500} max={5000} value={priceRange} onChange={(value) => setPriceRange(value)} defaultValue={[500, 5000]} />
+              </p>
+
+              <select onChange={(e) => setCategory(e.target.value)}>
                 <option value={all}>All</option>
                 {
-                  uniqueCategory.map((category,index)=>{
-                    return(
+                  uniqueCategory.map((category, index) => {
+                    return (
                       <option key={index} value={category}>
                         {category}
                       </option>
@@ -106,11 +115,16 @@ const Category = () => {
                   })
                 }
               </select>
+
+
+
             </Col>
+
+
           </Row>
           <Row>
             {
-              products.filter(product => product.productCategory===category||category==="all").map((product, index) => {
+              products.filter(product => product.productCategory === category || category === "all").filter(product => product.productPrice >= priceRange[0] && product.productPrice <= priceRange[1]).map((product, index) => {
                 return (
                   // <img src={product.image}/>
                   <Col className='card-product'>
@@ -120,7 +134,7 @@ const Category = () => {
                         <Card.Title>{product.category}</Card.Title>
 
                         {/*  TO LINK THE ENTIRE PRODUCT */}
-                        
+
                         <Link to={`/ViewProduct/${product.id}`}>
                           <Card.Text>
                             <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>

@@ -20,6 +20,7 @@ import { logout } from './slices/auth';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import AutoComplete from "./AutoComplete";
 
 
 const Header = () => {
@@ -39,7 +40,7 @@ const Header = () => {
   //   axios.get(`http://localhost:8090/api/carts/user/${currentUser.id}`).then((response) => {
   //     console.log(response.data);
   //     setTotalItems(response.data);
-      
+
   //   });
 
   // }, [currentUser]);
@@ -79,14 +80,16 @@ const Header = () => {
             </Col>
             <Col md={6}>
               <div>
-                <form className="d-flex" role="search">
+                {/* <form className="d-flex" role="search">
                   <input
                     className="form-control me-2"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
                   />
-                </form>
+                </form> */}
+                <AutoComplete />
+
               </div>
             </Col>
             <Col md={4} >

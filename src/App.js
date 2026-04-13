@@ -49,64 +49,73 @@ import Address from './Address';
 import CustomerDetails from './CustomerDetails';
 import OrderStatus from './OrderStatus';
 import ViewProduct from './ViewProduct';
+import AutoComplete from './AutoComplete';
 
 
 
 function App() {
+
+  const suggestions = ['Apple', 'Banana', 'Orange', 'Pineapple', 'Grapes'];
+
   return (
     <div>
       <Header></Header>
+      
+      {/* <h1>Autocomplete Example</h1> */}
+      {/* <AutoComplete suggestions={suggestions} /> */}
+    
       <Routes>
         {/* localhost:3000 */}
-        <Route path='' element={<Home/>}/>
-        <Route path='/Home' element={<Home/>}/>
+        <Route path='' element={<Home />} />
+        <Route path='/Home' element={<Home />} />
         {/* localhost:3000/About */}
-        <Route path='/About' element={<About/>}/>
+        <Route path='/About' element={<About />} />
         {/* localhost:3000/Contact */}
-        <Route path='/Contact' element={<Contact/>}/>
+        <Route path='/Contact' element={<Contact />} />
         {/* localhost:3000/Dashboard */}
-        <Route path='/Dashboard' element={<Dashboard/>}/>
+        <Route path='/Dashboard' element={<Dashboard />} />
         {/* localhost:3000/Test */}
-        <Route path='/Test' element={<Test/>}/>
+        <Route path='/Test' element={<Test />} />
         {/* localhost:3000/Product1 */}
-        <Route path='/Product' element={<Product/>}/>
+        <Route path='/Product' element={<Product />} />
         {/* localhost:3000/Myproducts */}
-        <Route path='/Myproducts' element={<Myproducts/>}/>
+        <Route path='/Myproducts' element={<Myproducts />} />
         {/* localhost:3000/Myproducts */}
-        <Route path='/Men' element={<Men/>}/>
-        <Route path='/Notices' element={<Notices/>}/>
-        <Route path='/Todos' element={<Todos/>}/>
-        <Route path='/Product2' element={<Product2/>}/>
-        <Route path='/Test1' element={<Test1/>}/>
-        <Route path='/Order' element={<Order/>}/>
-        <Route path='/Register' element={<Register/>}/>
-        <Route path='/Cart' element={<Cart/>}/>
-        <Route path='/Women' element={<Women/>}/>
-        <Route path='/Login' element={<Login/>}/>
-        <Route path='/Smartwatch' element={<Smartwatch/>}/>
-        <Route path='/Gifting' element={<Gifting/>}/>
-        <Route path='/Brand' element={<Brand/>}/>
-        <Route path='/Service' element={<Service/>}/>
-        <Route path='/Slide' element={<Slide/>}/>
-        <Route path='/Slide2' element={<Slide2/>}/>
-        <Route path='/Account' element={<Account/>}/>
-        <Route path='/Addproduct' element={<AddProduct/>}/>
-        <Route path='/Address1' element={<Address1/>}/>
-        <Route path='/Category/:categoryName' element={<Category/>}/>
+        <Route path='/Men' element={<Men />} />
+        <Route path='/Notices' element={<Notices />} />
+        <Route path='/Todos' element={<Todos />} />
+        <Route path='/Product2' element={<Product2 />} />
+        <Route path='/Test1' element={<Test1 />} />
+        <Route path='/Order' element={<Order />} />
+        <Route path='/Register' element={<Register />} />
+        <Route path='/Cart' element={<Cart />} />
+        <Route path='/Women' element={<Women />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Smartwatch' element={<Smartwatch />} />
+        <Route path='/Gifting' element={<Gifting />} />
+        <Route path='/Brand' element={<Brand />} />
+        <Route path='/Service' element={<Service />} />
+        <Route path='/Slide' element={<Slide />} />
+        <Route path='/Slide2' element={<Slide2 />} />
+        <Route path='/Account' element={<Account />} />
+        <Route path='/Addproduct' element={<AddProduct />} />
+        <Route path='/Address1' element={<Address1 />} />
+        <Route path='/Category/:categoryName' element={<Category />} />
         {/* <Route path='/Category' element={<Category/>}/> */}
-        
-        <Route path='/Wishlist' element={<Wishlist/>}/>
-        <Route path='/AddCategory' element={<AddCategory/>}/>
-        <Route path='/Home' element={<Home/>}/>
-        <Route path='/Success_order_placed' element={<Success_order_placed/>}/>
-        <Route path='/TestProduct' element={<TestProduct/>}/>
-        <Route path='/AdminOrders' element={<AdminOrders/>}/>
-        <Route path='/UserOrders' element={<UserOrders/>}/>
-        <Route path='/Address' element={<Address/>}/>
-        <Route path='/CustomerDetails' element={<CustomerDetails/>}/>
-        <Route path='/OrderStatus' element={<OrderStatus/>}/>
-        <Route path='/ViewProduct/:productId' element={<ViewProduct/>}/>
-        
+
+        <Route path='/Wishlist' element={<Wishlist />} />
+        <Route path='/AddCategory' element={<AddCategory />} />
+        <Route path='/Home' element={<Home />} />
+        <Route path='/Success_order_placed' element={<Success_order_placed />} />
+        <Route path='/TestProduct' element={<TestProduct />} />
+        <Route path='/AdminOrders' element={<AdminOrders />} />
+        <Route path='/UserOrders' element={<UserOrders />} />
+        <Route path='/Address' element={<Address />} />
+        <Route path='/CustomerDetails' element={<CustomerDetails />} />
+        <Route path='/OrderStatus' element={<OrderStatus />} />
+        {/* <Route path='/AutoComplete' element={<AutoComplete />} /> */}
+        <Route path='/ViewProduct/:productId' element={<ViewProduct />} />
+
 
 
       </Routes>

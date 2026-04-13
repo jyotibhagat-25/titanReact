@@ -108,6 +108,9 @@
        text-align: center;
        padding: 10px 0;
 }
+.category-name p{
+       width: 280px;
+}
 .cart-item{
        background:white;
        padding: 10px 0;
