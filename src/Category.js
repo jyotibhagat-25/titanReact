@@ -139,7 +139,7 @@ const Category = () => {
 
                         {/*  TO LINK THE ENTIRE PRODUCT */}
 
-                        <Link to={`/ViewProduct/${product.id}`} style={{textDecoration:"none", color:'inherit'}}>
+                        <Link to={`/ViewProduct/${product.id}`} style={{ textDecoration: "none", color: 'inherit' }}>
                           <Card.Text>
                             <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
                             <p><b>| {product.productName}</b></p>
