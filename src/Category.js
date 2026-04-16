@@ -59,6 +59,8 @@ const Category = () => {
     });
   }
 
+  const [sortOrder, setSortOrder] = useState("asc");
+
   const [category, setCategory] = useState("all");
   const uniqueCategory = [...new Set(products.map(product => product.productCategory))]
   console.log(uniqueCategory)
@@ -102,6 +104,8 @@ const Category = () => {
               <p>
                 Price : {priceRange[0]} - {priceRange[1]}<Slider range min={500} max={5000} value={priceRange} onChange={(value) => setPriceRange(value)} defaultValue={[500, 5000]} />
               </p>
+              {/* <Button onClick={() => sortOrder === "asc" ? setSortOrder("desc") : setSortOrder("asc")}>{sortOrder === "asc" ? "desc" : "asc"}</Button> */}
+              <Button onClick={() => sortOrder === "asc" ? setSortOrder("desc") : setSortOrder("asc")}>price low to high {sortOrder}</Button>
 
               <select onChange={(e) => setCategory(e.target.value)}>
                 <option value={all}>All</option>
@@ -124,7 +128,7 @@ const Category = () => {
           </Row>
           <Row>
             {
-              products.filter(product => product.productCategory === category || category === "all").filter(product => product.productPrice >= priceRange[0] && product.productPrice <= priceRange[1]).map((product, index) => {
+              products.filter(product => product.productCategory === category || category === "all").filter(product => product.productPrice >= priceRange[0] && product.productPrice <= priceRange[1]).sort((a, b) => { if (sortOrder === "asc") { return a.productPrice - b.productPrice } else { return b.productPrice - a.productPrice } }).map((product, index) => {
                 return (
                   // <img src={product.image}/>
                   <Col className='card-product'>
@@ -135,7 +139,7 @@ const Category = () => {
 
                         {/*  TO LINK THE ENTIRE PRODUCT */}
 
-                        <Link to={`/ViewProduct/${product.id}`}>
+                        <Link to={`/ViewProduct/${product.id}`} style={{textDecoration:"none", color:'inherit'}}>
                           <Card.Text>
                             <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
                             <p><b>| {product.productName}</b></p>
