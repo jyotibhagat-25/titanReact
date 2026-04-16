@@ -28,7 +28,8 @@ const Category = () => {
     // }
   }, [currentUser]);
 
-  const [priceRange, setPriceRange] = useState([0, 5000]);
+  //////    TO SHOW THE PRODUCT BASED ON PRICE
+  const [priceRange, setPriceRange] = useState([1000, 50000]);
 
 
   useEffect(() => {
@@ -58,10 +59,13 @@ const Category = () => {
 
     });
   }
+  ////    TO SHOW THE PRODUCT ACCORDING TO THE PRICE IN ASCENDING OR DESCENDING ORDER
 
   const [sortOrder, setSortOrder] = useState("asc");
 
+
   const [category, setCategory] = useState("all");
+
   const uniqueCategory = [...new Set(products.map(product => product.productCategory))]
   console.log(uniqueCategory)
 
@@ -102,13 +106,19 @@ const Category = () => {
               <h2>{categoryName}</h2>
               <h5>Choose Category</h5>
               <p>
-                Price : {priceRange[0]} - {priceRange[1]}<Slider range min={500} max={5000} value={priceRange} onChange={(value) => setPriceRange(value)} defaultValue={[500, 5000]} />
+                Price : {priceRange[0]} - {priceRange[1]}<Slider range min={1000} max={50000} value={priceRange} onChange={(value) => setPriceRange(value)} defaultValue={[1000, 50000]} />
               </p>
               {/* <Button onClick={() => sortOrder === "asc" ? setSortOrder("desc") : setSortOrder("asc")}>{sortOrder === "asc" ? "desc" : "asc"}</Button> */}
-              <Button onClick={() => sortOrder === "asc" ? setSortOrder("desc") : setSortOrder("asc")}>price low to high {sortOrder}</Button>
+              <Button onClick={() => setSortOrder("asc")}>
+                Price Low to High
+              </Button>
+
+              <Button onClick={() => setSortOrder("desc")}>
+                Price High to Low
+              </Button>
 
               <select onChange={(e) => setCategory(e.target.value)}>
-                <option value={all}>All</option>
+                <option value="all">All</option>
                 {
                   uniqueCategory.map((category, index) => {
                     return (
@@ -139,7 +149,7 @@ const Category = () => {
 
                         {/*  TO LINK THE ENTIRE PRODUCT */}
 
-                        <Link to={`/ViewProduct/${product.id}`} style={{textDecoration:"none", color:'inherit'}}>
+                        <Link to={`/ViewProduct/${product.id}`} style={{ textDecoration: "none", color: 'inherit' }}>
                           <Card.Text>
                             <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
                             <p><b>| {product.productName}</b></p>
