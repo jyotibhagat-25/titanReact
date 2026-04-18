@@ -183,7 +183,7 @@ const TestProduct = () => {
 
                       <Card.Body className='images'>
                         <Card.Title>{product.category}</Card.Title>
-                        <Card.Text>
+                        <Card.Text key={index}>
                           <p><img src={`http://localhost:8090/upload/${product.images[0]}`} /></p>
                           <p><b>| {product.productName}</b></p>
                           <p>{product.productDescription}</p>

@@ -1,9 +1,15 @@
-import React from 'react'
+import { Rating } from '@smastrom/react-rating';
+import React, { useState } from 'react'
 import { Col, Container, Row, Button } from 'react-bootstrap'
 import { IoMdHeartEmpty } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import '@smastrom/react-rating/style.css'
+
 
 const Women = () => {
+
+       const [rating, setRating] = useState(2)
+
        return (
               <div>
                      <section>
@@ -14,12 +20,15 @@ const Women = () => {
                                                         <img src='https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw6c9df22a/images/Titan/Catalog/2656WM01_1.jpg?sw=360&sh=360' />
                                                         <div className='icon-btn'>
                                                                <Button type="submit" className='icon-btn-wishlist'><IoMdHeartEmpty /></Button><br></br>
+
                                                                <Button type="submit" className='icon-btn-cart'><MdOutlineShoppingCart /></Button>
+
                                                         </div>
                                                         <div className='details'>
                                                                <p><b>Titan</b> | Titan Women's Lagan Watch: Rose Gold Accents & Refined Elegance <b>MRP ₹ 2,985.00</b></p>
 
                                                         </div>
+                                                        <Rating style={{ maxWidth: 250 }} value={rating} onChange={setRating} />
                                                         <div className='buttonarea'>
                                                                {/* <Col className='price'>
                                                                       <p><b>MRP ₹ 2,395.00</b></p>
