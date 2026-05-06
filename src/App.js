@@ -50,6 +50,7 @@ import CustomerDetails from './CustomerDetails';
 import OrderStatus from './OrderStatus';
 import ViewProduct from './ViewProduct';
 import AutoComplete from './AutoComplete';
+import Invoice from './Invoice';
 
 
 
@@ -115,6 +116,7 @@ function App() {
         <Route path='/OrderStatus' element={<OrderStatus />} />
         {/* <Route path='/AutoComplete' element={<AutoComplete />} /> */}
         <Route path='/ViewProduct/:productId' element={<ViewProduct />} />
+        <Route path='/Invoice' element={<Invoice />} />
 
 
 

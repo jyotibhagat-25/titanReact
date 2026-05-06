@@ -16,7 +16,7 @@
     "framer-motion": "^12.38.0",
     "mdb-react-ui-kit": "^10.0.0",
     "moment": "^2.30.1",
-    "rc-slider": "^11.1.9", 
+    "rc-slider": "^11.1.9",
     "react": "^19.2.0",
     "react-autosuggest": "^10.1.0",
     "react-bootstrap": "^2.10.10",
@@ -29,6 +29,7 @@
     "react-router-dom": "^7.11.0",
     "react-scripts": "5.0.1",
     "react-suggest": "^0.0.1",
+    "react-to-pdf": "^3.2.2",
     "web-vitals": "^2.1.4",
     "yup": "^1.7.1"
   },
