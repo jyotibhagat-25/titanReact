@@ -128,6 +128,7 @@ const Wishlist = () => {
                           <p>{wishlistproduct.productId.productCategory}</p>
                           <p>₹{wishlistproduct.productId.productPrice}</p>
                           <p>{wishlistproduct.productId.productDescription}</p>
+
                           {/* <Button type="submit" className='icon-btn-cart' onClick={() => handleCart(wishlistproduct)}><MdOutlineShoppingCart /></Button> */}
 
                         </Card.Text>
