@@ -71,26 +71,7 @@ const AdminOrders = () => {
                   <Link to={'/Dashboard'} className='link-area'><p>Dashboard</p></Link>
                 </Row>
               </div>
-              {/* <div>
-                <Row>
-                  <Link to={'/Brand'} className='link-area'><p>International Brand</p></Link>
-
-
-                </Row>
-              </div>
-              <div>
-                <Row>
-                  <Link to={'/Men'} className='link-area'><p>Men</p></Link>
-
-                </Row>
-              </div>
-              <div>
-                <Row>
-                  <Link to={'/Women'} className='link-area'><p>Women</p></Link>
-
-
-                </Row>
-              </div> */}
+              
               <div>
                 <Row>
                   <Link to={'/AddProduct'} className='link-area'><p>Add Product</p></Link>
